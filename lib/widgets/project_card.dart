@@ -29,7 +29,7 @@ class ProjectCardWidget extends StatelessWidget {
             height: 200,
             color: Colors.black12,
             child: Image.asset(
-              project.image,
+              project.images[0],
               fit: BoxFit.cover,
             ),
           ),

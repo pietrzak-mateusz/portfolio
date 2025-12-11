@@ -14,6 +14,10 @@ const List<Map> platformItems = [
   {
     "img": "assets/desktop_icon.png",
     "title": "Desktop Dev",
+  },
+  {
+    "img": "assets/desktop_icon.png",
+    "title": "To tylko test",
   }
 ];
 
@@ -49,5 +53,9 @@ const List<Map> skillItems = [
   {
     "img": "assets/python.png",
     "title": "Python",
+  },
+  {
+    "img": "assets/python.png",
+    "title": "To też test",
   }
 ];

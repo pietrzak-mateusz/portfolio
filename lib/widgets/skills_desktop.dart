@@ -12,63 +12,71 @@ class SkillsDesktop extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // platforms
+        // ----------------------------------
+        // PLATFORM ITEMS — BEZ TŁA, BEZ RAMKI
+        // ----------------------------------
         ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 450,
-          ),
+          constraints: const BoxConstraints(maxWidth: 450),
           child: Wrap(
             spacing: 5.0,
             runSpacing: 5.0,
             children: [
               for (int i = 0; i < platformItems.length; i++)
-                Container(
+                SizedBox(
                   width: 200,
-                  decoration: BoxDecoration(
-                    color: CustomColor.bgLight2,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 10.0,
+                      horizontal: 8.0,
+                      vertical: 6.0,
                     ),
                     leading: Image.asset(
                       platformItems[i]["img"],
                       width: 26.0,
                     ),
-                    title: Text(platformItems[i]["title"]),
+                    title: Text(
+                      platformItems[i]["title"],
+                      style: const TextStyle(color: CustomColor.whitePrimary),
+                    ),
                   ),
-                )
+                ),
             ],
           ),
         ),
+
         const SizedBox(width: 50),
 
-        // skills
+        // ----------------------------------
+        // SKILL ITEMS — BEZ TŁA I BEZ CHIP
+        // ----------------------------------
         Flexible(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: 500,
-            ),
+            constraints: const BoxConstraints(maxWidth: 500),
             child: Wrap(
               spacing: 10.0,
               runSpacing: 10.0,
               children: [
                 for (int i = 0; i < skillItems.length; i++)
-                  Chip(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12.0,
-                      horizontal: 16.0,
-                    ),
-                    backgroundColor: CustomColor.bgLight2,
-                    label: Text(skillItems[i]["title"]),
-                    avatar: Image.asset(skillItems[i]["img"]),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        skillItems[i]["img"],
+                        width: 26.0,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        skillItems[i]["title"],
+                        style: const TextStyle(
+                          color: CustomColor.whitePrimary,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
                   ),
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
