@@ -6,7 +6,7 @@ import 'package:my_portfolio/widgets/main_mobile.dart';
 import 'package:my_portfolio/widgets/projects_section.dart';
 import 'package:my_portfolio/widgets/skills_desktop.dart';
 import 'package:my_portfolio/widgets/skills_mobile.dart';
-import 'dart:js' as js;
+import 'package:url_launcher/url_launcher.dart';
 import '../constants/size.dart';
 
 import '../widgets/drawer_mobile.dart';
@@ -125,10 +125,13 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void scrollToSection(int navIndex) {
+  void scrollToSection(int navIndex) async {
     if (navIndex == 4) {
-      // open a blog page
-      js.context.callMethod('open', [SnsLinks.blog]);
+      // Otwórz link w nowej karcie
+      final url = Uri.parse(SnsLinks.blog);
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      }
       return;
     }
 
