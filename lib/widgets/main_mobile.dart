@@ -7,7 +7,7 @@ class MainMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final screenHeight = screenSize.height;
+    // final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
 
     // jeśli ekran jest szeroki (tablet/duży fon), trzymaj proporcję z desktopem,
