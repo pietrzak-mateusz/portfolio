@@ -23,147 +23,89 @@ class ProjectUtils {
 }
 
 // #########################################################
-// HOBBY PROJECTS
+// TEAM PROJECTS
 // #########################################################
 
-final List<ProjectUtils> hobbyProjectUtils = [
+final List<ProjectUtils> teamProjectUtils = [
   const ProjectUtils(
-    id: 'h1',
+    id: 't1',
     images: [
-      'assets/projects/1.png',
-      'assets/projects/02.png',
-      'assets/projects/03.png',
-      ],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'English Learning App',
-    subtitle:
-        'A comprehensive English learning app for practicing and competing with each other.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    androidLink:
-        'https://play.google.com/store/apps/details?id=com.shohatech.eduza',
+      'assets/projects/pekinczyk_social_01.jpg',
+      'assets/projects/pekinczyk_social_02.jpg',
+    ],
+    technologies: ["Flutter", "Riverpod", "Firebase"],
+    title: 'Pekingese Social Club',
+    subtitle: 'Aplikacja społecznościowa dla właścicieli pekińczyków.',
+    description:
+        'Zespołowy projekt aplikacji umożliwiającej właścicielom pekińczyków dzielenie się zdjęciami, '
+        'tworzenie grup spacerowych, organizowanie wydarzeń i kontaktowanie się z pobliskimi hodowcami. '
+        'W projekcie wykorzystano Firebase Authentication oraz Firestore do zarządzania społecznością.',
   ),
+
   const ProjectUtils(
-    id: 'h2',
+    id: 't2',
     images: [
-      'assets/projects/02.png',
-      'assets/projects/03.png',
-      'assets/projects/1.png',
-      ], // upewnij się, że plik istnieje
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'English Dictionary App',
-    subtitle:
-        'A dictionary application for English learners to easily look up word definitions.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    androidLink:
-        'https://play.google.com/store/apps/details?id=com.shohatech.eduza_eng_dictionary',
-    iosLink:
-        "https://apps.apple.com/us/app/eduza-english-dictionary/id6443770339",
-  ),
-  const ProjectUtils(
-    id: 'h3',
-    images: [
-      'assets/projects/03.png',
-      'assets/projects/02.png',
-      'assets/projects/1.png',
-      ],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'Pocket Dictionary',
-    subtitle:
-        'A word memorising app to save and play your own words as quizzes.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    androidLink:
-        'https://play.google.com/store/apps/details?id=com.shohruhak.eng_pocket_dictionary',
-    iosLink:
-        'https://apps.apple.com/tr/app/pocket-dictionary-1/id6447465115',
-  ),
-  const ProjectUtils(
-    id: 'h4',
-    images: [
-      'assets/projects/04.png',
-      'assets/projects/02.png',
-      'assets/projects/1.png',
-      ],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'Tasbeeh Counter',
-    subtitle: 'A simple dzikr counter app with persistent storage.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    androidLink:
-        'https://play.google.com/store/apps/details?id=com.shohatech.tasbeeh',
-  ),
-  const ProjectUtils(
-    id: 'h5',
-    images: [
-      'assets/projects/05.png',
-      'assets/projects/02.png',
-      'assets/projects/1.png',
-      ],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'Todo App',
-    subtitle: 'A simple task management app with persistent storage.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    androidLink:
-        'https://play.google.com/store/apps/details?id=com.shohatech.todo',
-    iosLink: "https://apps.apple.com/us/app/eduza-todo/id6443970333",
-  ),
-  const ProjectUtils(
-    id: 'h6',
-    images: [
-      'assets/projects/06.png',
-      'assets/projects/02.png',
-      'assets/projects/1.png',
-      ],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'NotePad App',
-    subtitle: 'A note-taking app for macOS and Android.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    androidLink:
-        'https://play.google.com/store/apps/details?id=com.shohatech.notepad',
-    iosLink: 'https://apps.apple.com/us/app/eduza-notepad/id6443973859',
+      'assets/projects/pekinczyk_health_01.jpg',
+      'assets/projects/pekinczyk_health_02.jpg',
+    ],
+    technologies: ["Flutter", "Dart", "REST API"],
+    title: 'Pekingese Health Companion',
+    subtitle: 'Platforma do monitorowania zdrowia pekińczyka.',
+    description:
+        'Projekt tworzony w zespole weterynarzy i programistów. Aplikacja oferuje system przypomnień o szczepieniach, '
+        'wizytach kontrolnych oraz podawaniu leków. Dodatkowo integruje się z zewnętrznym API, '
+        'aby pobierać informacje o typowych chorobach dla rasy pekińczyk i sugerować działania profilaktyczne.',
   ),
 ];
 
 // #########################################################
-// WORK PROJECTS
+// MY PROJECTS
 // #########################################################
 
-final List<ProjectUtils> workProjectUtils = [
+final List<ProjectUtils> myProjectUtils = [
   const ProjectUtils(
-    id: 'w1',
+    id: 'm1',
     images: [
-      'assets/projects/w01.png',
-      'assets/projects/02.png',
-      'assets/projects/1.png',
-      ],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'English Brain Craft',
-    subtitle:
-        'English learning app for students using various learning methods.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    androidLink:
-        'https://play.google.com/store/apps/details?id=kr.co.evolcano.donotstudy',
-    iosLink:
-        "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
+      'assets/projects/pekinczyk_01.jpg',
+      'assets/projects/pekinczyk_02.jpg',
+    ],
+    technologies: ["Flutter", "Dart", "Provider"],
+    title: 'Pekingese Tracker',
+    subtitle: 'Aplikacja do monitorowania aktywności pekińczyka.',
+    description:
+        'Aplikacja umożliwia właścicielom pekińczyków śledzenie dziennej aktywności, '
+        'przebytych spacerów, godzin karmienia oraz zachowań zdrowotnych. '
+        'W projekcie zaimplementowano prosty system statystyk oraz możliwość eksportu danych. '
+        'Zaprojektowana z myślą o małych rasach psów, które wymagają regularnej kontroli aktywności fizycznej.',
   ),
+
   const ProjectUtils(
-    id: 'w2',
+    id: 'm2',
     images: [
-      'assets/projects/w02.png',
-      'assets/projects/02.png',
-      'assets/projects/1.png',],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'Online Shop Web App',
-    subtitle: 'Responsive online shop web app for car engine oil.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    webLink: 'https://www.elo.best',
+      'assets/projects/pekinczyk_food_01.jpg',
+      'assets/projects/pekinczyk_food_02.jpg',
+    ],
+    technologies: ["Flutter", "Dart", "SQLite"],
+    title: 'Pekingese Diet Planner',
+    subtitle: 'Indywidualny planer diety pekińczyka.',
+    description:
+        'Projekt skupia się na tworzeniu optymalnych planów żywieniowych dla pekińczyków, '
+        'z uwzględnieniem wieku, wagi, alergii oraz poziomu aktywności. '
+        'Aplikacja pozwala rejestrować posiłki i monitorować reakcje psa na poszczególne składniki.',
   ),
+
   const ProjectUtils(
-    id: 'w3',
-    images: ['assets/projects/w03.jpeg'],
-    technologies: ["Pole 1", "Pole 1", "Pole 1"],
-    title: 'Advertisement Management System',
-    subtitle:
-        'System to buy, sell, and manage advertisement. Internal project.',
-    description: 'To jest test. Chcę zobaczyć czy opis projektów działa.',
-    webLink: null, // brak działającego linku
+    id: 'm3',
+    images: [
+      'assets/projects/pekinczyk_training_01.jpg',
+      'assets/projects/pekinczyk_training_02.jpg',
+    ],
+    technologies: ["Flutter", "Dart", "Firebase"],
+    title: 'Pekingese Training Hub',
+    subtitle: 'Zestaw ćwiczeń i tricków specjalnie dla pekińczyków.',
+    description:
+        'Aplikacja oferuje bibliotekę treningów, filmów instruktażowych oraz wyzwań tygodniowych '
+        'dostosowanych do pekińczyków — rasy inteligentnej, ale o bardzo specyficznym temperamencie. '
+        'Projekt zawiera również prosty system ocen postępów w szkoleniu.',
   ),
 ];

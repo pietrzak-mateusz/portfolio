@@ -59,7 +59,7 @@ class ProjectsSection extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
       child: Column(
         children: [
-          // Work projects title
+          // My projects title
           const Text(
             "Moje projekty",
             style: TextStyle(
@@ -71,16 +71,16 @@ class ProjectsSection extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // Work projects cards
+          // My projects cards
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 900),
             child: Wrap(
               spacing: 25,
               runSpacing: 25,
               children: [
-                for (int i = 0; i < workProjectUtils.length; i++)
+                for (int i = 0; i < myProjectUtils.length; i++)
                   ProjectCardWidget(
-                    project: workProjectUtils[i],
+                    project: myProjectUtils[i],
                   ),
               ],
             ),
@@ -88,7 +88,7 @@ class ProjectsSection extends StatelessWidget {
 
           const SizedBox(height: 80),
 
-          // Hobby projects title
+          // Team projects title
           const Text(
             "Projekty, w których brałem udział",
             style: TextStyle(
@@ -100,16 +100,16 @@ class ProjectsSection extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // Hobby projects cards
+          // Team projects cards
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 900),
             child: Wrap(
               spacing: 25,
               runSpacing: 25,
               children: [
-                for (int i = 0; i < hobbyProjectUtils.length; i++)
+                for (int i = 0; i < teamProjectUtils.length; i++)
                   ProjectCardWidget(
-                    project: hobbyProjectUtils[i],
+                    project: teamProjectUtils[i],
                   ),
               ],
             ),

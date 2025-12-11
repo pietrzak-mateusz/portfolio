@@ -34,163 +34,213 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
     return Scaffold(
       backgroundColor: CustomColor.scaffoldBg,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // ----------------------------
-            // GÓRNY PAS — Back + Tytuł
-            // ----------------------------
-            _smallBackButton(context),
-            const SizedBox(height: 20),
-            Center(
-              child: Text(
-                widget.project.title,
-                style: const TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColor.whitePrimary,
+      body: Stack(
+        children: [
+          // ---------------------------------
+          // CAŁA TWOJA STRONA (Scroll)
+          // ---------------------------------
+          SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(20, 70, 20, 20), // dodany top padding
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Text(
+                    widget.project.title,
+                    style: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: CustomColor.whitePrimary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ),
 
-            const SizedBox(height: 25),
+                const SizedBox(height: 25),
 
-            // ----------------------------
-            // TECHNOLOGIE (wyrównane do sliderWidth)
-            // ----------------------------
-            Center(
-              child: SizedBox(
-                width: sliderWidth,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 8,
-                      children: widget.project.technologies.map((tech) {
-                        return Text(
-                          tech,
-                          style: const TextStyle(
-                            color: CustomColor.whiteSecondary,
+                // ----------------------------
+                // TECHNOLOGIE (wyrównane do sliderWidth)
+                // ----------------------------
+                Center(
+                  child: SizedBox(
+                    width: sliderWidth,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Built with:',
+                          style: TextStyle(
                             fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: CustomColor.whiteSecondary.withOpacity(0.7),
+                            letterSpacing: 0.5,
                           ),
-                        );
-                      }).toList(),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+                        ),
+                        const SizedBox(height: 12),
 
-            const SizedBox(height: 30),
-
-            // ---------------------------------------
-            // GALERIA OBRAZÓW — PAGEVIEW w ograniczonym rozmiarze
-            // ---------------------------------------
-            Center(
-              child: SizedBox(
-                width: sliderWidth,
-                height: sliderHeight,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: PageView.builder(
-                        controller: _pageController,
-                        onPageChanged: (index) {
-                          setState(() {
-                            _currentPage = index;
-                          });
-                        },
-                        itemCount: widget.project.images.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 6),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.asset(
-                                widget.project.images[index],
-                                fit: BoxFit.cover, // zachowuje proporcje w ramach pola 4:3
-                                width: sliderWidth,
-                                height: sliderHeight,
+                        Wrap(
+                          spacing: 12,
+                          runSpacing: 8,
+                          children: widget.project.technologies.map((tech) {
+                            return Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                              decoration: BoxDecoration(
+                                color: CustomColor.bgLight2,
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                            ),
-                          );
-                        },
+                              child: Text(
+                                tech,
+                                style: const TextStyle(
+                                  color: CustomColor.whiteSecondary,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+
+                // ----------------------------
+                // GALERIA
+                // ----------------------------
+                Center(
+                  child: SizedBox(
+                    width: sliderWidth,
+                    height: sliderHeight,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: PageView.builder(
+                            controller: _pageController,
+                            onPageChanged: (index) {
+                              setState(() {
+                                _currentPage = index;
+                              });
+                            },
+                            itemCount: widget.project.images.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 6),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Image.asset(
+                                    widget.project.images[index],
+                                    fit: BoxFit.cover,
+                                    width: sliderWidth,
+                                    height: sliderHeight,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+
+                        const SizedBox(height: 12),
+
+                        if (widget.project.images.length > 1)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.chevron_left, color: CustomColor.whiteSecondary),
+                                onPressed: _currentPage > 0
+                                    ? () {
+                                        _pageController.previousPage(
+                                          duration: const Duration(milliseconds: 300),
+                                          curve: Curves.easeInOut,
+                                        );
+                                      }
+                                    : null,
+                              ),
+                              Text(
+                                '${_currentPage + 1} / ${widget.project.images.length}',
+                                style: const TextStyle(
+                                  color: CustomColor.whiteSecondary,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.chevron_right, color: CustomColor.whiteSecondary),
+                                onPressed: _currentPage < widget.project.images.length - 1
+                                    ? () {
+                                        _pageController.nextPage(
+                                          duration: const Duration(milliseconds: 300),
+                                          curve: Curves.easeInOut,
+                                        );
+                                      }
+                                    : null,
+                              ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+
+                Center(
+                  child: SizedBox(
+                    width: sliderWidth,
+                    child: Text(
+                      widget.project.description ?? widget.project.subtitle,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        height: 1.5,
+                        color: CustomColor.whiteSecondary,
                       ),
                     ),
-
-                    const SizedBox(height: 12),
-
-                    // NAWIGACJA: licznik + strzałki (jeśli więcej niż 1)
-                    if (widget.project.images.length > 1)
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.chevron_left, color: CustomColor.whiteSecondary),
-                            onPressed: _currentPage > 0
-                                ? () {
-                                    _pageController.previousPage(
-                                      duration: const Duration(milliseconds: 300),
-                                      curve: Curves.easeInOut,
-                                    );
-                                  }
-                                : null,
-                          ),
-                          Text(
-                            '${_currentPage + 1} / ${widget.project.images.length}',
-                            style: const TextStyle(
-                              color: CustomColor.whiteSecondary,
-                              fontSize: 16,
-                            ),
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.chevron_right, color: CustomColor.whiteSecondary),
-                            onPressed: _currentPage < widget.project.images.length - 1
-                                ? () {
-                                    _pageController.nextPage(
-                                      duration: const Duration(milliseconds: 300),
-                                      curve: Curves.easeInOut,
-                                    );
-                                  }
-                                : null,
-                          ),
-                        ],
-                      ),
-                  ],
+                  ),
                 ),
-              ),
+
+                const SizedBox(height: 40),
+              ],
             ),
+          ),
 
-            const SizedBox(height: 30),
-
-            // ----------------------------
-            // SZCZEGÓŁOWY OPIS (wyrównany do sliderWidth)
-            // ----------------------------
-            Center(
-              child: SizedBox(
-                width: sliderWidth,
-                child: Text(
-                  widget.project.description ?? widget.project.subtitle,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    height: 1.5,
-                    color: CustomColor.whiteSecondary,
+          // ---------------------------------
+          // FLOATING BACK BUTTON
+          // ---------------------------------
+          Positioned(
+            top: 20,
+            left: max(20, (screenWidth - maxSliderWidth) / 2 - 200),
+            child: Material(
+              elevation: 8,
+              borderRadius: BorderRadius.circular(12),
+              color: CustomColor.bgLight2,
+              child: InkWell(
+                onTap: () => Navigator.pop(context),
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: CustomColor.whitePrimary,
+                      width: 1,
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: CustomColor.whitePrimary,
+                    size: 28,
                   ),
                 ),
               ),
             ),
-
-            const SizedBox(height: 40),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-
+  
+  /*
   // ----------- Mały przycisk "← Wróć" ------------
   Widget _smallBackButton(BuildContext context) {
     return InkWell(
@@ -219,4 +269,5 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
       ),
     );
   }
+  */
 }

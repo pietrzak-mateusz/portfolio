@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                     key: navbarKeys[2],
                   ),
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 0),
 
                   // FOOTER
                   const Footer(),
