@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/personal_info.dart';
-
 import '../constants/colors.dart';
+import 'package:my_portfolio/constants/personal_info.dart';
+import '../i18n/l_text.dart';
+
 
 class MainDesktop extends StatelessWidget {
   const MainDesktop({super.key});
@@ -29,8 +30,8 @@ class MainDesktop extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Hi,\nI'm ${PersonalInfo.name}\nA Flutter Developer",
+                    const LText(
+                      'greeting',
                       style: TextStyle(
                         fontSize: 30,
                         height: 1.5,

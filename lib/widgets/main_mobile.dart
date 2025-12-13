@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/constants/personal_info.dart';
+import '../i18n/l_text.dart';
 
 class MainMobile extends StatelessWidget {
   const MainMobile({super.key});
@@ -30,8 +31,8 @@ class MainMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // TEKST (najpierw tekst, potem zdjęcie)
-          const Text(
-            "Hi,\nI'm ${PersonalInfo.name}\nA Flutter Developer",
+          const LText(
+            'greeting',
             style: TextStyle(
               fontSize: 30, // dopasowane do desktop (desktop miał 30)
               height: 1.5,
