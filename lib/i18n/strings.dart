@@ -5,6 +5,7 @@ const Map<String, Map<String, String>> strings = {
   'en': {
     'greeting': "Hi,\nI'm Lucynka\nA Flutter Developer",
     'about_short': "Pekingese — a companion dog breed...",
+    'skills_section': "Technical Skills",
     'projects_my': "My projects",
     'projects_team': "Team Projects",
     'built_with': "Built with: ",
@@ -53,6 +54,7 @@ const Map<String, Map<String, String>> strings = {
   'pl': {
     'greeting': "Cześć,\nJestem Lucynka\nFlutter Developer",
     'about_short': "Pekińczyk — pies do towarzystwa...",
+    'skills_section': "Umiejętności",
     'projects_my': "Moje projekty",
     'details_button' :"Zobacz szczegóły",
     'projects_team': "Projekty zespołowe",

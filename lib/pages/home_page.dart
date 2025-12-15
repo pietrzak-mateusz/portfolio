@@ -13,6 +13,7 @@ import '../widgets/drawer_mobile.dart';
 import '../widgets/footer.dart';
 import '../widgets/header_desktop.dart';
 import '../widgets/header_mobile.dart';
+import '../i18n/l_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -70,8 +71,8 @@ class _HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         // title
-                        const Text(
-                          "Technical Skills",
+                        const LText(
+                          'skills_section',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
