@@ -1,195 +1,90 @@
-// skill_items.dart - plik z danymi
-
-/// Struktura danych dla kategorii umiejętności
-/// Podobna do tuple w Pythonie: (category, [skills])
 const List<Map<String, dynamic>> skillCategories = [
   {
-    "category": "Software Development",
+    "categoryKey": "skills.software",
     "skills": [
-      "C",
-      "C++",
-      "Python",
-      "MATLAB",
-      "LabVIEW",
-      "bash",
-      "VHDL",
+      "skill.c",
+      "skill.cpp",
+      "skill.python",
+      "skill.matlab",
+      "skill.labview",
+      "skill.bash",
+      "skill.vhdl",
     ],
   },
   {
-    "category": "Microcontrollers & Embedded Systems",
+    "categoryKey": "skills.embedded",
     "skills": [
-      "STM32 (HAL/CubeMX)",
-      "AVR",
-      "ESP32",
-      "FreeRTOS basics",
+      "skill.stm32_hal_cubemx",
+      "skill.avr",
+      "skill.esp32",
+      "skill.freertos_basics",
     ],
   },
   {
-    "category": "Development Tools & IDE",
+    "categoryKey": "skills.tools",
     "skills": [
-      "STM32CubeIDE",
-      "Keil µVision",
-      "Visual Studio Code",
-      "Git",
+      "skill.stm32cubeide",
+      "skill.keil_uvision",
+      "skill.visual_studio_code",
+      "skill.git",
     ],
   },
   {
-    "category": "Communication Protocols & Interfaces",
+    "categoryKey": "skills.protocols",
     "skills": [
-      "CAN",
-      "SPI",
-      "I2C",
-      "UART",
-      "Ethernet",
-      "BLE",
-      "WiFi",
-      "NFC",
-      "GNSS",
-      "GPRS/LTE",
+      "skill.can",
+      "skill.spi",
+      "skill.i2c",
+      "skill.uart",
+      "skill.ethernet",
+      "skill.ble",
+      "skill.wifi",
+      "skill.nfc",
+      "skill.gnss",
+      "skill.gprs_lte",
     ],
   },
   {
-    "category": "Single-Board Computers",
+    "categoryKey": "skills.sbc",
     "skills": [
-      "Raspberry Pi",
+      "skill.raspberry_pi",
     ],
   },
   {
-    "category": "PCB Design & Circuit Simulation",
+    "categoryKey": "skills.pcb",
     "skills": [
-      "Altium Designer",
-      "CircuitStudio",
-      "PADS",
-      "LTspice",
+      "skill.altium_designer",
+      "skill.circuitstudio",
+      "skill.pads",
+      "skill.ltspice",
     ],
   },
   {
-    "category": "Prototyping & Assembly",
+    "categoryKey": "skills.proto",
     "skills": [
-      "PCB assembly",
-      "SMD/THT soldering",
-      "3D printing",
+      "skill.pcb_assembly",
+      "skill.smd_tht_soldering",
+      "skill.3d_printing",
     ],
   },
   {
-    "category": "Test & Measurement Equipment",
+    "categoryKey": "skills.test",
     "skills": [
-      "Oscilloscope",
-      "Multimeter",
-      "Power supplies",
-      "Logic analyzers",
-      "Frequency counters",
-      "Debuggers: ST-Link/SWD",
+      "skill.oscilloscope",
+      "skill.multimeter",
+      "skill.power_supplies",
+      "skill.logic_analyzers",
+      "skill.frequency_counters",
+      "skill.debuggers_st_link_swd",
     ],
   },
   {
-    "category": "Documentation & Graphics",
+    "categoryKey": "skills.docs",
     "skills": [
-      "LaTeX",
-      "Inkscape",
-      "GIMP",
-      "Microsoft Office",
+      "skill.latex",
+      "skill.inkscape",
+      "skill.gimp",
+      "skill.microsoft_office",
     ],
   },
-];
-
-// ============================================
-// ALTERNATYWNA STRUKTURA - z ikonami emoji (opcjonalnie)
-// ============================================
-
-/// Jeśli chcesz dodać ikony/emoji do kategorii
-const List<Map<String, dynamic>> skillCategoriesWithIcons = [
-  {
-    "category": "Software Development",
-    "icon": "💻", // emoji jako ikona
-    "skills": [
-      "C",
-      "C++",
-      "Python",
-      "MATLAB",
-      "LabVIEW",
-      "bash",
-      "VHDL",
-    ],
-  },
-  {
-    "category": "Microcontrollers & Embedded",
-    "icon": "🔧",
-    "skills": [
-      "STM32 (HAL/CubeMX)",
-      "AVR",
-      "ESP32",
-      "ARM Cortex-M",
-      "FreeRTOS basics",
-    ],
-  },
-  {
-    "category": "Communication Protocols",
-    "icon": "📡",
-    "skills": [
-      "CAN",
-      "SPI",
-      "I2C",
-      "UART",
-      "Ethernet",
-      "BLE",
-      "WiFi",
-      "NFC",
-    ],
-  },
-  {
-    "category": "PCB Design",
-    "icon": "🎨",
-    "skills": [
-      "Altium Designer",
-      "CircuitStudio",
-      "PADS",
-      "LTspice",
-    ],
-  },
-  {
-    "category": "Test Equipment",
-    "icon": "📊",
-    "skills": [
-      "Oscilloscope",
-      "Multimeter",
-      "Logic analyzers",
-      "ST-Link/SWD",
-    ],
-  },
-  {
-    "category": "Prototyping",
-    "icon": "🔨",
-    "skills": [
-      "PCB assembly",
-      "SMD/THT soldering",
-      "3D printing",
-    ],
-  },
-];
-
-// ============================================
-// JESZCZE BARDZIEJ ROZBUDOWANA - z poziomami (opcjonalnie)
-// ============================================
-
-/// Jeśli w przyszłości chcesz dodać poziomy zaawansowania
-const List<Map<String, dynamic>> skillCategoriesWithLevels = [
-  {
-    "category": "Programming Languages",
-    "skills": [
-      {"name": "C/C++", "level": "Advanced"},
-      {"name": "Python", "level": "Intermediate"},
-      {"name": "MATLAB", "level": "Intermediate"},
-      {"name": "VHDL", "level": "Basic"},
-    ],
-  },
-  {
-    "category": "Microcontrollers",
-    "skills": [
-      {"name": "STM32", "level": "Advanced"},
-      {"name": "ESP32", "level": "Intermediate"},
-      {"name": "AVR", "level": "Intermediate"},
-    ],
-  },
-  // ... itd.
 ];

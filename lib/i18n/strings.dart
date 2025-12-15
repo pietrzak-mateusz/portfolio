@@ -17,6 +17,78 @@ const Map<String, Map<String, String>> strings = {
     'made_by_p1': "Made by: ${PersonalInfo.name} — built with ",
     'made_by_p2': " Flutter 3.38.4\n© 2025 • This project is open-source (MIT)",
 
+    // Kategorie
+    'skills.software': 'Software Development',
+    'skills.embedded': 'Microcontrollers & Embedded Systems',
+    'skills.tools': 'Development Tools & IDEs',
+    'skills.protocols': 'Communication Protocols & Interfaces',
+    'skills.sbc': 'Single-Board Computers',
+    'skills.pcb': 'PCB Design & Circuit Simulation',
+    'skills.proto': 'Prototyping & Assembly',
+    'skills.test': 'Test & Measurement Equipment',
+    'skills.docs': 'Documentation & Graphics',
+
+    // Umiejętności software
+    'skill.c': 'C',
+    'skill.cpp': 'C++',
+    'skill.python': 'Python',
+    'skill.matlab': 'MATLAB',
+    'skill.labview': 'LabVIEW',
+    'skill.bash': 'bash',
+    'skill.vhdl': 'VHDL',
+
+    // Umiejętności embedded
+    'skill.stm32_hal_cubemx': 'STM32 (HAL/CubeMX)',
+    'skill.avr': 'AVR',
+    'skill.esp32': 'ESP32',
+    'skill.freertos_basics': 'FreeRTOS basics',
+
+    // Umiejętności tools
+    'skill.stm32cubeide': 'STM32CubeIDE',
+    'skill.keil_uvision': 'Keil µVision',
+    'skill.visual_studio_code': 'Visual Studio Code',
+    'skill.git': 'Git',
+
+    // Umiejętności protocols
+    'skill.can': 'CAN',
+    'skill.spi': 'SPI',
+    'skill.i2c': 'I2C',
+    'skill.uart': 'UART',
+    'skill.ethernet': 'Ethernet',
+    'skill.ble': 'BLE',
+    'skill.wifi': 'WiFi',
+    'skill.nfc': 'NFC',
+    'skill.gnss': 'GNSS',
+    'skill.gprs_lte': 'GPRS/LTE',
+
+    // Umiejętności sbc
+    'skill.raspberry_pi': 'Raspberry Pi',
+
+    // Umiejętności pcb
+    'skill.altium_designer': 'Altium Designer',
+    'skill.circuitstudio': 'CircuitStudio',
+    'skill.pads': 'PADS',
+    'skill.ltspice': 'LTspice',
+
+    // Umiejętności proto
+    'skill.pcb_assembly': 'PCB assembly',
+    'skill.smd_tht_soldering': 'SMD/THT soldering',
+    'skill.3d_printing': '3D printing',
+
+    // Umiejętności test
+    'skill.oscilloscope': 'Oscilloscope',
+    'skill.multimeter': 'Multimeter',
+    'skill.power_supplies': 'Power supplies',
+    'skill.logic_analyzers': 'Logic analyzers',
+    'skill.frequency_counters': 'Frequency counters',
+    'skill.debuggers_st_link_swd': 'Debuggers: ST-Link/SWD',
+
+    // Umiejętności docs
+    'skill.latex': 'LaTeX',
+    'skill.inkscape': 'Inkscape',
+    'skill.gimp': 'GIMP',
+    'skill.microsoft_office': 'Microsoft Office',
+
     // #########################################################
     // MY PROJECTS
     // #########################################################
@@ -66,6 +138,77 @@ const Map<String, Map<String, String>> strings = {
     'made_by_p1': "Stworzone przez: ${PersonalInfo.name} — zbudowane z ",
     'made_by_p2': " Flutter 3.38.4\n© 2025 • Projekt open-source (MIT)",
 
+    'skills.software': 'Programowanie',
+    'skills.embedded': 'Mikrokontrolery i systemy wbudowane',
+    'skills.tools': 'Narzędzia programistyczne i IDE',
+    'skills.protocols': 'Protokoły komunikacyjne i interfejsy',
+    'skills.sbc': 'Komputery jednopłytkowe',
+    'skills.pcb': 'Projektowanie PCB i symulacja obwodów',
+    'skills.proto': 'Prototypowanie i montaż',
+    'skills.test': 'Sprzęt pomiarowy i diagnostyczny',
+    'skills.docs': 'Dokumentacja i grafika',
+
+    // Umiejętności software
+    'skill.c': 'C',
+    'skill.cpp': 'C++',
+    'skill.python': 'Python',
+    'skill.matlab': 'MATLAB',
+    'skill.labview': 'LabVIEW',
+    'skill.bash': 'bash',
+    'skill.vhdl': 'VHDL',
+
+    // Umiejętności embedded
+    'skill.stm32_hal_cubemx': 'STM32 (HAL/CubeMX)',
+    'skill.avr': 'AVR',
+    'skill.esp32': 'ESP32',
+    'skill.freertos_basics': 'Podstawy FreeRTOS',
+
+    // Umiejętności tools
+    'skill.stm32cubeide': 'STM32CubeIDE',
+    'skill.keil_uvision': 'Keil µVision',
+    'skill.visual_studio_code': 'Visual Studio Code',
+    'skill.git': 'Git',
+
+    // Umiejętności protocols
+    'skill.can': 'CAN',
+    'skill.spi': 'SPI',
+    'skill.i2c': 'I2C',
+    'skill.uart': 'UART',
+    'skill.ethernet': 'Ethernet',
+    'skill.ble': 'BLE',
+    'skill.wifi': 'WiFi',
+    'skill.nfc': 'NFC',
+    'skill.gnss': 'GNSS',
+    'skill.gprs_lte': 'GPRS/LTE',
+
+    // Umiejętności sbc
+    'skill.raspberry_pi': 'Raspberry Pi',
+
+    // Umiejętności pcb
+    'skill.altium_designer': 'Altium Designer',
+    'skill.circuitstudio': 'CircuitStudio',
+    'skill.pads': 'PADS',
+    'skill.ltspice': 'LTspice',
+
+    // Umiejętności proto
+    'skill.pcb_assembly': 'Montaż PCB',
+    'skill.smd_tht_soldering': 'Lutowanie SMD/THT',
+    'skill.3d_printing': 'Drukowanie 3D',
+
+    // Umiejętności test
+    'skill.oscilloscope': 'Oscyloskop',
+    'skill.multimeter': 'Multimetr',
+    'skill.power_supplies': 'Zasilacze',
+    'skill.logic_analyzers': 'Analizatory logiczne',
+    'skill.frequency_counters': 'Liczniki częstotliwości',
+    'skill.debuggers_st_link_swd': 'Debugery: ST-Link/SWD',
+
+    // Umiejętności docs
+    'skill.latex': 'LaTeX',
+    'skill.inkscape': 'Inkscape',
+    'skill.gimp': 'GIMP',
+    'skill.microsoft_office': 'Microsoft Office',
+
     // #########################################################
     // MY PROJECTS - MOJE PROJEKTY
     // #########################################################
@@ -104,5 +247,5 @@ const Map<String, Map<String, String>> strings = {
 
 String t(String key) {
   final lang = localeNotifier.value;
-  return strings[lang]?[key] ?? key;
+  return strings[lang]?[key] ?? '⛔ $key';
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../constants/skill_items.dart';
+import '../i18n/locale_controller.dart';
+import '../i18n/strings.dart';
 
 class SkillsMobile extends StatelessWidget {
   const SkillsMobile({super.key});
@@ -10,14 +12,12 @@ class SkillsMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Iterujemy przez wszystkie kategorie
         for (int i = 0; i < skillCategories.length; i++) ...[
           _buildSkillCategory(
-            category: skillCategories[i]["category"],
-            skills: skillCategories[i]["skills"],
+            categoryKey: skillCategories[i]["categoryKey"],
+            skills: List<String>.from(skillCategories[i]["skills"]),
           ),
-          
-          // Odstęp między kategoriami
+
           if (i < skillCategories.length - 1)
             const SizedBox(height: 20),
         ],
@@ -25,112 +25,55 @@ class SkillsMobile extends StatelessWidget {
     );
   }
 
-  /// Widget dla pojedynczej kategorii umiejętności
+  /// Pojedyncza kategoria umiejętności (MOBILE)
   Widget _buildSkillCategory({
-    required String category,
-    required List<dynamic> skills,
+    required String categoryKey,
+    required List<String> skills,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Nagłówek kategorii
-        Text(
-          category,
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-            color: CustomColor.whitePrimary,
-            letterSpacing: 0.3,
-          ),
-        ),
-        
-        const SizedBox(height: 8),
-        
-        // Lista umiejętności w tej kategorii
-        // Na mobile używamy kolumny zamiast Wrap dla lepszej czytelności
-        Text(
-          skills.join(' • '),
-          style: const TextStyle(
-            color: CustomColor.whiteSecondary,
-            fontSize: 14,
-            height: 1.5,
-          ),
-        ),
-      ],
-    );
-  }
-}
+    return ValueListenableBuilder<String>(
+      valueListenable: localeNotifier,
+      builder: (_, __, ___) {
+        final skillsText = skills
+            .map((skillKey) => t(skillKey))
+            .join(' • ');
 
-// ============================================
-// WARIANT Z IKONAMI (dla skillCategoriesWithIcons)
-// ============================================
-
-class SkillsMobileWithIcons extends StatelessWidget {
-  const SkillsMobileWithIcons({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        for (int i = 0; i < skillCategoriesWithIcons.length; i++) ...[
-          _buildSkillCategory(
-            icon: skillCategoriesWithIcons[i]["icon"],
-            category: skillCategoriesWithIcons[i]["category"],
-            skills: skillCategoriesWithIcons[i]["skills"],
-          ),
-          if (i < skillCategoriesWithIcons.length - 1)
-            const SizedBox(height: 20),
-        ],
-      ],
-    );
-  }
-
-  Widget _buildSkillCategory({
-    required String icon,
-    required String category,
-    required List<dynamic> skills,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Ikona + nagłówek
-        Row(
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // --------------------
+            // CATEGORY TITLE
+            // --------------------
             Text(
-              icon,
-              style: const TextStyle(fontSize: 18),
+              t(categoryKey),
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: CustomColor.whitePrimary,
+                letterSpacing: 0.3,
+              ),
             ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                category,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColor.whitePrimary,
-                  letterSpacing: 0.3,
-                ),
+
+            const SizedBox(height: 8),
+
+            // --------------------
+            // SKILLS LIST
+            // --------------------
+            Text(
+              skillsText,
+              style: const TextStyle(
+                fontSize: 14,
+                height: 1.5,
+                color: CustomColor.whiteSecondary,
               ),
             ),
           ],
-        ),
-        const SizedBox(height: 8),
-        
-        // Umiejętności
-        Text(
-          skills.join(' • '),
-          style: const TextStyle(
-            color: CustomColor.whiteSecondary,
-            fontSize: 14,
-            height: 1.5,
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
 
+/*
 // ============================================
 // WARIANT Z EXPANDABLE (accordion)
 // ============================================
@@ -249,3 +192,4 @@ class _SkillsMobileExpandableState extends State<SkillsMobileExpandable> {
     );
   }
 }
+*/

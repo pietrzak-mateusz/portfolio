@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../constants/skill_items.dart';
+import '../i18n/locale_controller.dart';
+import '../i18n/strings.dart';
 
+/*
 class SkillsDesktop extends StatelessWidget {
   const SkillsDesktop({super.key});
 
@@ -70,7 +73,9 @@ class SkillsDesktop extends StatelessWidget {
     );
   }
 }
+*/
 
+/*
 // ============================================
 // WARIANT Z BULLETAMI (jeśli wolisz kropki)
 // ============================================
@@ -131,6 +136,7 @@ class SkillsDesktopWithBullets extends StatelessWidget {
     );
   }
 }
+*/
 
 // ============================================
 // WARIANT Z DWOMA KOLUMNAMI (dla szerszych ekranów)
@@ -159,8 +165,8 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
                 children: [
                   for (var category in leftColumn) ...[
                     _buildSkillCategory(
-                      category: category["category"],
-                      skills: category["skills"],
+                      categoryKey: category["categoryKey"],
+                      skills: List<String>.from(category["skills"]),
                     ),
                     const SizedBox(height: 24),
                   ],
@@ -177,7 +183,7 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
                 children: [
                   for (var category in rightColumn) ...[
                     _buildSkillCategory(
-                      category: category["category"],
+                      categoryKey: category["categoryKey"],
                       skills: category["skills"],
                     ),
                     const SizedBox(height: 24),
@@ -192,104 +198,48 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
   }
 
   Widget _buildSkillCategory({
-    required String category,
-    required List<dynamic> skills,
+    required String categoryKey,
+    required List<String> skills,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          category,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: CustomColor.whitePrimary,
-            letterSpacing: 0.5,
-          ),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          skills.join(' • '),
-          style: const TextStyle(
-            color: CustomColor.whiteSecondary,
-            fontSize: 15,
-            height: 1.6,
-          ),
-        ),
-      ],
-    );
-  }
-}
+    return ValueListenableBuilder<String>(
+      valueListenable: localeNotifier,
+      builder: (context, locale, _) {
+        // Tłumaczymy wszystkie umiejętności i łączymy je separatorem
+        final skillsText = skills
+            .map((skillKey) => t(skillKey))
+            .join(' • ');
 
-// ============================================
-// WARIANT Z IKONAMI (jeśli używasz skillCategoriesWithIcons)
-// ============================================
-
-class SkillsDesktopWithIcons extends StatelessWidget {
-  const SkillsDesktopWithIcons({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 900),
-        child: Column(
+        return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (int i = 0; i < skillCategoriesWithIcons.length; i++) ...[
-              _buildSkillCategory(
-                icon: skillCategoriesWithIcons[i]["icon"],
-                category: skillCategoriesWithIcons[i]["category"],
-                skills: skillCategoriesWithIcons[i]["skills"],
-              ),
-              if (i < skillCategoriesWithIcons.length - 1)
-                const SizedBox(height: 24),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSkillCategory({
-    required String icon,
-    required String category,
-    required List<dynamic> skills,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Ikona + nagłówek
-        Row(
-          children: [
+            // --------------------
+            // CATEGORY TITLE
+            // --------------------
             Text(
-              icon,
-              style: const TextStyle(fontSize: 20),
-            ),
-            const SizedBox(width: 10),
-            Text(
-              category,
+              t(categoryKey),
               style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
                 color: CustomColor.whitePrimary,
-                letterSpacing: 0.5,
+              ),
+            ),
+
+            const SizedBox(height: 12),
+
+            // --------------------
+            // SKILLS LIST (jeden tekst z separatorem)
+            // --------------------
+            Text(
+              skillsText,
+              style: const TextStyle(
+                fontSize: 14,
+                color: CustomColor.whiteSecondary,
+                height: 1.6,
               ),
             ),
           ],
-        ),
-        const SizedBox(height: 10),
-        
-        // Umiejętności
-        Text(
-          skills.join(' • '),
-          style: const TextStyle(
-            color: CustomColor.whiteSecondary,
-            fontSize: 15,
-            height: 1.6,
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
