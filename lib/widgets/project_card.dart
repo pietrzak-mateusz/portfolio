@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/utils/project_utils.dart';
-import '../constants/colors.dart';
-import 'package:my_portfolio/pages/project_detail_page.dart'; // dodaj import na górze
+import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/i18n/l_text.dart';
+import 'package:my_portfolio/utils/project_utils.dart';
+import 'package:my_portfolio/pages/project_detail_page.dart';
 
+/// Card widget for displaying project previews in a horizontal layout.
+/// 
+/// Shows project image on the left and text content on the right.
+/// Tapping the "View details" button navigates to the project detail page.
 class ProjectCardWidget extends StatelessWidget {
   const ProjectCardWidget({
     super.key,
     required this.project,
   });
 
+  /// The project data to display in this card
   final ProjectUtils project;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      width: 820, // szersze, bo layout poziomy
+      width: 820, // Wider than typical cards for horizontal layout
       decoration: BoxDecoration(
         color: CustomColor.bgLight2,
         borderRadius: BorderRadius.circular(8),
@@ -24,25 +29,25 @@ class ProjectCardWidget extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Row(
         children: [
-          // ---- LEWA STRONA: ZDJĘCIE ----
+          // ---- LEFT SIDE: PROJECT IMAGE ----
           Container(
             width: 200,
             height: 200,
-            color: Colors.black12,
+            color: Colors.black12, // Fallback background
             child: Image.asset(
-              project.images[0],
+              project.images[0], // First image as preview
               fit: BoxFit.cover,
             ),
           ),
 
-          // ---- PRAWA STRONA ----
+          // ---- RIGHT SIDE: TEXT CONTENT ----
           Expanded(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Tytuł projektu
+                  // Project title (internationalized)
                   LText(
                     project.titleKey,
                     style: const TextStyle(
@@ -54,7 +59,7 @@ class ProjectCardWidget extends StatelessWidget {
 
                   const SizedBox(height: 12),
 
-                  // Opis projektu
+                  // Project description/subtitle (internationalized)
                   Expanded(
                     child: LText(
                       project.subtitleKey,
@@ -68,11 +73,12 @@ class ProjectCardWidget extends StatelessWidget {
 
                   const SizedBox(height: 12),
 
-                  // ----- PRZYCISK "Zobacz szczegóły" -----
+                  // ----- "VIEW DETAILS" BUTTON -----
                   Align(
                     alignment: Alignment.bottomRight,
                     child: InkWell(
                       onTap: () {
+                        // Navigate to the detailed project view
                         Navigator.push(
                           context,
                           MaterialPageRoute(

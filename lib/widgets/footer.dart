@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/constants/personal_info.dart';
+import 'package:my_portfolio/constants/sns_links.dart';
+import 'package:my_portfolio/i18n/l_text.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/i18n/strings.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../constants/colors.dart';
-import '../constants/personal_info.dart';
-import '../constants/sns_links.dart';
-import '../i18n/l_text.dart';
 
+/// Footer widget for the portfolio page.
+/// 
+/// Displays contact information, a GitHub link, and project credits.
+/// Includes functionality to copy the email address and navigate to external links.
 class Footer extends StatelessWidget {
   const Footer({super.key});
 
@@ -19,12 +25,12 @@ class Footer extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // ---- EMAIL + COPY BUTTON ----
+          // ---- EMAIL SECTION WITH COPY BUTTON ----
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               const LText(
-                "contact",
+                'contact',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -33,22 +39,28 @@ class Footer extends StatelessWidget {
               ),
               const SizedBox(width: 8),
 
-              // COPY BUTTON
-              Tooltip(
-                message: "Copy e-mail",
-                child: IconButton(
-                  icon: const Icon(Icons.copy, color: CustomColor.whitePrimary),
-                  onPressed: () {
-                    // Email is securely encoded by the contactAddress method using Base64; see details in personal_info.dart
-                    Clipboard.setData(ClipboardData(text: PersonalInfo.contactAddress));
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("E-mail address copied!"),
-                        duration: Duration(seconds: 1),
-                      ),
-                    );
-                  },
-                ),
+              // COPY BUTTON with dynamic tooltip text
+              ValueListenableBuilder<String>(
+                valueListenable: localeNotifier,
+                builder: (context, locale, _) {
+                  return Tooltip(
+                    message: t('copy_email'),
+                    child: IconButton(
+                      icon: const Icon(Icons.copy, color: CustomColor.whitePrimary),
+                      onPressed: () {
+                        // Copy email to clipboard
+                        Clipboard.setData(ClipboardData(text: PersonalInfo.contactAddress));
+                        // Show confirmation snackbar
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: LText('email_copied'),
+                            duration: Duration(milliseconds: 1300),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -56,11 +68,11 @@ class Footer extends StatelessWidget {
           const SizedBox(height: 16),
 
           // ----------------------------------
-          // GITHUB LINK (KLIKALNY)
+          // CLICKABLE GITHUB LINK
           // ----------------------------------
           InkWell(
             onTap: () {
-              // działa w web i desktop
+              // Launches the GitHub URL (works on web and desktop)
               launchUrl(Uri.parse(SnsLinks.github));
             },
             child: Row(
@@ -87,7 +99,7 @@ class Footer extends StatelessWidget {
 
           const SizedBox(height: 22),
 
-          // ---- INFO TEXT ----
+          // ---- FOOTER CREDITS TEXT WITH FLUTTER ICON ----
           const LRichText(
             leftKey: 'made_by_p1',
             rightKey: 'made_by_p2',

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../constants/skill_items.dart';
-import '../i18n/locale_controller.dart';
-import '../i18n/strings.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/constants/skill_items.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/i18n/strings.dart';
 
+/// Mobile version of the skills section.
+/// 
+/// Displays skill categories in a single column for better readability on small screens.
+/// Each category shows a title and a list of skills separated by bullet points.
 class SkillsMobile extends StatelessWidget {
   const SkillsMobile({super.key});
 
@@ -12,12 +16,14 @@ class SkillsMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Iterate through each skill category and build its widget
         for (int i = 0; i < skillCategories.length; i++) ...[
           _buildSkillCategory(
             categoryKey: skillCategories[i]["categoryKey"],
             skills: List<String>.from(skillCategories[i]["skills"]),
           ),
 
+          // Add spacing between categories, but not after the last one
           if (i < skillCategories.length - 1)
             const SizedBox(height: 20),
         ],
@@ -25,7 +31,10 @@ class SkillsMobile extends StatelessWidget {
     );
   }
 
-  /// Pojedyncza kategoria umiejętności (MOBILE)
+  /// Builds a single skill category widget for mobile.
+  /// 
+  /// Displays the category title and a list of skills as a single string
+  /// with bullet separators. The content is automatically translated.
   Widget _buildSkillCategory({
     required String categoryKey,
     required List<String> skills,
@@ -33,6 +42,7 @@ class SkillsMobile extends StatelessWidget {
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
       builder: (_, __, ___) {
+        // Combine all translated skills with bullet separators
         final skillsText = skills
             .map((skillKey) => t(skillKey))
             .join(' • ');
@@ -56,7 +66,7 @@ class SkillsMobile extends StatelessWidget {
             const SizedBox(height: 8),
 
             // --------------------
-            // SKILLS LIST
+            // SKILLS LIST (as a single string with bullets)
             // --------------------
             Text(
               skillsText,
@@ -72,124 +82,3 @@ class SkillsMobile extends StatelessWidget {
     );
   }
 }
-
-/*
-// ============================================
-// WARIANT Z EXPANDABLE (accordion)
-// ============================================
-
-class SkillsMobileExpandable extends StatefulWidget {
-  const SkillsMobileExpandable({super.key});
-
-  @override
-  State<SkillsMobileExpandable> createState() => _SkillsMobileExpandableState();
-}
-
-class _SkillsMobileExpandableState extends State<SkillsMobileExpandable> {
-  // Track które kategorie są rozwinięte
-  final Set<int> _expandedCategories = {};
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        for (int i = 0; i < skillCategories.length; i++)
-          _buildExpandableCategory(
-            index: i,
-            category: skillCategories[i]["category"],
-            skills: skillCategories[i]["skills"],
-          ),
-      ],
-    );
-  }
-
-  Widget _buildExpandableCategory({
-    required int index,
-    required String category,
-    required List<dynamic> skills,
-  }) {
-    final isExpanded = _expandedCategories.contains(index);
-
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: CustomColor.bgLight2,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        children: [
-          // Header (zawsze widoczny, klikalny)
-          InkWell(
-            onTap: () {
-              setState(() {
-                if (isExpanded) {
-                  _expandedCategories.remove(index);
-                } else {
-                  _expandedCategories.add(index);
-                }
-              });
-            },
-            borderRadius: BorderRadius.circular(8),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      category,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: CustomColor.whitePrimary,
-                      ),
-                    ),
-                  ),
-                  
-                  // Licznik umiejętności
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: CustomColor.whitePrimary.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      '${skills.length}',
-                      style: const TextStyle(
-                        color: CustomColor.whitePrimary,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  
-                  const SizedBox(width: 8),
-                  
-                  // Ikona strzałki
-                  Icon(
-                    isExpanded ? Icons.expand_less : Icons.expand_more,
-                    color: CustomColor.whiteSecondary,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          
-          // Zawartość (rozwijana)
-          if (isExpanded)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-              child: Text(
-                skills.join(' • '),
-                style: const TextStyle(
-                  color: CustomColor.whiteSecondary,
-                  fontSize: 14,
-                  height: 1.5,
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-*/

@@ -1,3 +1,11 @@
+/// Categorized skills data for the portfolio's skills section.
+/// 
+/// Each category contains:
+/// - `categoryKey`: Translation key for the category title
+/// - `skills`: List of translation keys for individual skills in that category
+/// 
+/// The actual text values are retrieved via the i18n system using these keys.
+/// This structure allows for easy internationalization and categorization of skills.
 const List<Map<String, dynamic>> skillCategories = [
   {
     "categoryKey": "skills.software",

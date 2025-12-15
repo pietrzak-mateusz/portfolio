@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+import 'package:my_portfolio/constants/colors.dart';
 
+/// Mobile header widget with a hamburger menu button.
+/// 
+/// Appears on small screens (mobile/tablet) and provides access to the navigation drawer.
+/// Positioned in the top-right corner for easy thumb reach on mobile devices.
 class HeaderMobile extends StatelessWidget {
   const HeaderMobile({
     super.key,
     required this.onMenuTap,
   });
 
+  /// Callback triggered when the menu button is tapped.
+  /// Typically opens the mobile navigation drawer.
   final VoidCallback onMenuTap;
 
   @override
@@ -17,7 +23,7 @@ class HeaderMobile extends StatelessWidget {
       child: Row(
         children: [
           // --------------------
-          // MENU BUTTON
+          // HAMBURGER MENU BUTTON
           // --------------------
           Material(
             elevation: 8,

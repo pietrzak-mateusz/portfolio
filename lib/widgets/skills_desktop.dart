@@ -1,153 +1,23 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../constants/skill_items.dart';
-import '../i18n/locale_controller.dart';
-import '../i18n/strings.dart';
-
-/*
-class SkillsDesktop extends StatelessWidget {
-  const SkillsDesktop({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 900),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Iterujemy przez wszystkie kategorie
-            for (int i = 0; i < skillCategories.length; i++) ...[
-              _buildSkillCategory(
-                category: skillCategories[i]["category"],
-                skills: skillCategories[i]["skills"],
-              ),
-              
-              // Odstęp między kategoriami
-              if (i < skillCategories.length - 1)
-                const SizedBox(height: 24),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  /// Widget dla pojedynczej kategorii umiejętności
-  Widget _buildSkillCategory({
-    required String category,
-    required List<dynamic> skills,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Nagłówek kategorii
-        Text(
-          category,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: CustomColor.whitePrimary,
-            letterSpacing: 0.5,
-          ),
-        ),
-        
-        const SizedBox(height: 10),
-        
-        // Lista umiejętności w tej kategorii
-        Wrap(
-          spacing: 12, // odstęp poziomy między elementami
-          runSpacing: 6, // odstęp pionowy gdy zawijają się do nowej linii
-          children: skills.map((skill) {
-            return Text(
-              skill,
-              style: const TextStyle(
-                color: CustomColor.whiteSecondary,
-                fontSize: 15,
-                height: 1.4,
-              ),
-            );
-          }).toList(),
-        ),
-      ],
-    );
-  }
-}
-*/
-
-/*
-// ============================================
-// WARIANT Z BULLETAMI (jeśli wolisz kropki)
-// ============================================
-
-class SkillsDesktopWithBullets extends StatelessWidget {
-  const SkillsDesktopWithBullets({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 900),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (int i = 0; i < skillCategories.length; i++) ...[
-              _buildSkillCategory(
-                category: skillCategories[i]["category"],
-                skills: skillCategories[i]["skills"],
-              ),
-              if (i < skillCategories.length - 1)
-                const SizedBox(height: 24),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSkillCategory({
-    required String category,
-    required List<dynamic> skills,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          category,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: CustomColor.whitePrimary,
-            letterSpacing: 0.5,
-          ),
-        ),
-        const SizedBox(height: 10),
-        
-        // Umiejętności rozdzielone średnikami lub kropkami
-        Text(
-          skills.join(' • '), // użyj • jako separator
-          style: const TextStyle(
-            color: CustomColor.whiteSecondary,
-            fontSize: 15,
-            height: 1.6,
-          ),
-        ),
-      ],
-    );
-  }
-}
-*/
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/constants/skill_items.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/i18n/strings.dart';
 
 // ============================================
-// WARIANT Z DWOMA KOLUMNAMI (dla szerszych ekranów)
+// TWO-COLUMN VARIANT (for wider screens)
 // ============================================
 
+/// Desktop skills section with two-column layout for better readability.
+/// 
+/// Splits skill categories into two columns and displays each category
+/// with its associated skills as a single text string separated by bullets.
 class SkillsDesktopTwoColumns extends StatelessWidget {
   const SkillsDesktopTwoColumns({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Podziel kategorie na dwie kolumny
+    // Split categories into two columns
     final halfLength = (skillCategories.length / 2).ceil();
     final leftColumn = skillCategories.sublist(0, halfLength);
     final rightColumn = skillCategories.sublist(halfLength);
@@ -158,7 +28,7 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Lewa kolumna
+            // Left column
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,9 +44,9 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
               ),
             ),
             
-            const SizedBox(width: 60), // odstęp między kolumnami
+            const SizedBox(width: 60), // Spacing between columns
             
-            // Prawa kolumna
+            // Right column
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,6 +67,9 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
     );
   }
 
+  /// Builds a single skill category widget with translated content.
+  /// 
+  /// Displays the category title and a list of skills separated by bullet points.
   Widget _buildSkillCategory({
     required String categoryKey,
     required List<String> skills,
@@ -204,7 +77,7 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
       builder: (context, locale, _) {
-        // Tłumaczymy wszystkie umiejętności i łączymy je separatorem
+        // Translate all skills and join them with a bullet separator
         final skillsText = skills
             .map((skillKey) => t(skillKey))
             .join(' • ');
@@ -227,7 +100,7 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
             const SizedBox(height: 12),
 
             // --------------------
-            // SKILLS LIST (jeden tekst z separatorem)
+            // SKILLS LIST (single text with bullet separators)
             // --------------------
             Text(
               skillsText,

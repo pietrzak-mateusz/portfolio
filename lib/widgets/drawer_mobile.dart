@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../constants/nav_items.dart';
-import '../i18n/locale_controller.dart';
-import '../i18n/strings.dart';
-import 'language_switcher.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/constants/nav_items.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/widgets/language_switcher.dart';
 
+/// Mobile navigation drawer for the portfolio app.
+/// 
+/// Provides a slide-in menu for navigation on small screen devices.
+/// Includes: navigation items, language switcher, and close button.
 class DrawerMobile extends StatelessWidget {
   const DrawerMobile({
     super.key,
     required this.onNavItemTap,
   });
 
+  /// Callback function triggered when a navigation item is tapped.
+  /// Passes the index of the tapped item.
   final Function(int) onNavItemTap;
 
   @override
@@ -18,10 +24,12 @@ class DrawerMobile extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return SizedBox(
-      width: screenWidth * 0.5, // ⬅️ 3/5 szerokości ekranu
+      // Drawer width is 50% of screen width
+      width: screenWidth * 0.5,
       child: Drawer(
         backgroundColor: CustomColor.scaffoldBg,
         child: ValueListenableBuilder<String>(
+          // Listens to locale changes for dynamic text updates
           valueListenable: localeNotifier,
           builder: (_, __, ___) {
             return ListView(
@@ -48,7 +56,7 @@ class DrawerMobile extends StatelessWidget {
                 ),
 
                 // --------------------
-                // NAV ITEMS (i18n)
+                // INTERNATIONALIZED NAVIGATION ITEMS
                 // --------------------
                 for (int i = 0; i < navIcons.length; i++)
                   ListTile(
@@ -78,7 +86,7 @@ class DrawerMobile extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 // --------------------
-                // LANGUAGE SWITCHER
+                // LANGUAGE SWITCHER WITH ICON
                 // --------------------
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,

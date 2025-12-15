@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'strings.dart';
-import 'locale_controller.dart';
-import '../constants/colors.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/i18n/strings.dart';
+
+/// Classes responsible for language changes
+/// Internationalized text widgets that automatically update when the locale changes.
+/// These widgets listen to `localeNotifier` and use the `t()` function for translation.
 
 class LText extends StatelessWidget {
-  final String keyName;
+  final String keyName; // Translation key from strings.dart
   final TextStyle? style;
   final TextAlign? textAlign;
 
@@ -30,10 +34,11 @@ class LText extends StatelessWidget {
   }
 }
 
+/// Rich text with an embedded icon between two translated text segments.
 class LRichText extends StatelessWidget {
-  final String leftKey;      // klucz tekstu po lewej stronie ikonki
-  final String rightKey;     // klucz tekstu po prawej stronie ikonki
-  final String iconAsset;    // np. "assets/flutter.png"
+  final String leftKey;      // Translation key for text left of the icon
+  final String rightKey;     // Translation key for text right of the icon
+  final String iconAsset;    // Path to the icon image asset
   final double iconHeight;
   final TextStyle? style;
 
@@ -48,7 +53,6 @@ class LRichText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // nasłuchujemy zmiany języka
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
       builder: (_, __, ___) {
@@ -63,7 +67,6 @@ class LRichText extends StatelessWidget {
               fontSize: 14,
             );
 
-        // Jeśli chcesz, by tekst był zaznaczalny (kopiowalny), użyj SelectableText.rich
         return RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
@@ -89,8 +92,9 @@ class LRichText extends StatelessWidget {
   }
 }
 
+/// TextSpan wrapper for internationalized text within RichText widgets.
 class LSpan extends StatelessWidget {
-  final String keyName;
+  final String keyName; // Translation key from strings.dart
   final TextStyle? style;
 
   const LSpan(

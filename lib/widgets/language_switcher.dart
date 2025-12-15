@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../i18n/locale_controller.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
 
+/// Toggle switch widget for switching between Polish (PL) and English (EN) languages.
+/// 
+/// Features an animated slider that moves between language labels with visual feedback.
+/// Tapping anywhere on the widget toggles the current language selection.
 class LanguageSwitcher extends StatelessWidget {
   const LanguageSwitcher({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<String>(
+      // Listens to locale changes to update the visual state
       valueListenable: localeNotifier,
       builder: (context, locale, _) {
         final isPL = locale == 'pl';
 
         return GestureDetector(
           onTap: () {
+            // Toggle between Polish and English
             localeNotifier.value = isPL ? 'en' : 'pl';
           },
           child: Container(
-            width: 70,  // Zmniejszone z 90
-            height: 32, // Zmniejszone z 36
+            width: 70,
+            height: 32,
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
               color: CustomColor.bgLight2,
@@ -26,14 +32,14 @@ class LanguageSwitcher extends StatelessWidget {
             ),
             child: Stack(
               children: [
-                // ---------- SLIDER (na spodzie) ----------
+                // ---------- ANIMATED SLIDER (background layer) ----------
                 AnimatedAlign(
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeOut,
                   alignment: isPL ? Alignment.centerLeft : Alignment.centerRight,
                   child: Container(
-                    width: 32,  // Zmniejszone z 38
-                    height: 26, // Zmniejszone z 28
+                    width: 32,
+                    height: 26,
                     decoration: BoxDecoration(
                       color: CustomColor.whitePrimary,
                       borderRadius: BorderRadius.circular(15),
@@ -41,10 +47,10 @@ class LanguageSwitcher extends StatelessWidget {
                   ),
                 ),
 
-                // ---------- LABELS (na wierzchu, wyśrodkowane) ----------
+                // ---------- LANGUAGE LABELS (foreground layer, centered) ----------
                 Row(
                   children: [
-                    // Label PL
+                    // Polish (PL) label
                     Expanded(
                       child: Center(
                         child: Text(
@@ -59,7 +65,7 @@ class LanguageSwitcher extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Label EN
+                    // English (EN) label
                     Expanded(
                       child: Center(
                         child: Text(

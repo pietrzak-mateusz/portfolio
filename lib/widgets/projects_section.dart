@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../utils/project_utils.dart';
-import 'project_card.dart';
-import '../i18n/l_text.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/i18n/l_text.dart';
+import 'package:my_portfolio/utils/project_utils.dart';
+import 'package:my_portfolio/widgets/project_card.dart';
 
+/// Projects section widget that displays both personal and team projects.
+/// 
+/// Includes a scroll-to-top button for easy navigation back to the page top.
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
 
-  // --- Przyciski w stylu kafelków ---
+  /// Creates a styled button that scrolls back to the top of the page.
+  /// 
+  /// Uses the nearest Scrollable ancestor to find the scroll position
+  /// and animates to the minimum scroll extent (top of the page).
   Widget _backToTopButton(BuildContext context) {
     return Container(
       width: 140,
@@ -18,6 +24,7 @@ class ProjectsSection extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(5),
         onTap: () {
+          // Get the current scrollable widget and animate to top
           final scrollableState = Scrollable.of(context);
           final position = scrollableState.position;
           position.animateTo(
@@ -25,7 +32,7 @@ class ProjectsSection extends StatelessWidget {
             duration: const Duration(milliseconds: 400),
             curve: Curves.easeInOut,
           );
-                },
+        },
         child: const Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 20.0,
@@ -37,7 +44,7 @@ class ProjectsSection extends StatelessWidget {
               Icon(Icons.arrow_upward, color: Colors.white, size: 20),
               SizedBox(width: 12),
               LText(
-                'return',
+                'return', // "Back to top" text
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -59,7 +66,7 @@ class ProjectsSection extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
       child: Column(
         children: [
-          // My projects title
+          // Personal projects section title
           const LText(
             'projects_my',
             style: TextStyle(
@@ -71,7 +78,7 @@ class ProjectsSection extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // My projects cards
+          // Personal projects displayed in a wrapped layout
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 900),
             child: Wrap(
@@ -88,7 +95,7 @@ class ProjectsSection extends StatelessWidget {
 
           const SizedBox(height: 80),
 
-          // Team projects title
+          // Team projects section title
           const LText(
             'projects_team',
             style: TextStyle(
@@ -100,7 +107,7 @@ class ProjectsSection extends StatelessWidget {
 
           const SizedBox(height: 50),
 
-          // Team projects cards
+          // Team projects displayed in a wrapped layout
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 900),
             child: Wrap(
@@ -116,6 +123,7 @@ class ProjectsSection extends StatelessWidget {
           ),
 
           const SizedBox(height: 40),
+          // Scroll to top button centered at the bottom
           Center(child: _backToTopButton(context)),
         ],
       ),

@@ -1,11 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/utils/project_utils.dart';
 import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/i18n/l_text.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
 import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/utils/project_utils.dart';
 
+/// Detailed view page for a single project.
+/// Displays project images, description, technologies, and navigation controls.
 class ProjectDetailPage extends StatefulWidget {
   final ProjectUtils project;
   const ProjectDetailPage({super.key, required this.project});
@@ -26,27 +28,23 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    // screen width to compute slider size responsively
+    // Responsive slider sizing
     final screenWidth = MediaQuery.of(context).size.width;
-    // maksymalna szerokość slidera (użytkownik chciał 800)
     const maxSliderWidth = 860.0;
-    // obliczamy szerokość: na małych ekranach użyj 95% szerokości, na większych ogranicz do maxSliderWidth
     final sliderWidth = min(screenWidth * 0.95, maxSliderWidth);
-    // wysokość wynikająca z proporcji 4:3 (szer.:wys.)
-    final sliderHeight = sliderWidth * 3 / 4;
+    final sliderHeight = sliderWidth * 3 / 4; // 4:3 aspect ratio
 
     return Scaffold(
       backgroundColor: CustomColor.scaffoldBg,
       body: Stack(
         children: [
-          // ---------------------------------
-          // CAŁA TWOJA STRONA (Scroll)
-          // ---------------------------------
+          // Main scrollable content
           SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 70, 20, 20), // dodany top padding
+            padding: const EdgeInsets.fromLTRB(20, 70, 20, 20), // Top padding for back button
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Project title
                 Center(
                   child: LText(
                     widget.project.titleKey,
@@ -61,9 +59,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
                 const SizedBox(height: 25),
 
-                // ----------------------------
-                // TECHNOLOGIE (wyrównane do sliderWidth)
-                // ----------------------------
+                // Technologies section (aligned with slider width)
                 Center(
                   child: SizedBox(
                     width: sliderWidth,
@@ -75,12 +71,13 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: CustomColor.whiteSecondary.withOpacity(0.7),
+                            color: CustomColor.whiteSecondary.withAlpha((0.7 * 255).round()),
                             letterSpacing: 0.5,
                           ),
                         ),
                         const SizedBox(height: 12),
 
+                        // Technology tags
                         Wrap(
                           spacing: 12,
                           runSpacing: 8,
@@ -108,9 +105,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
                 const SizedBox(height: 30),
 
-                // ----------------------------
-                // GALERIA
-                // ----------------------------
+                // Image gallery with navigation controls
                 Center(
                   child: SizedBox(
                     width: sliderWidth,
@@ -145,6 +140,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
                         const SizedBox(height: 12),
 
+                        // Gallery navigation (only shown if multiple images)
                         if (widget.project.images.length > 1)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -187,9 +183,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
                 const SizedBox(height: 30),
 
-                // ----------------------------
-                // TEXT
-                // ----------------------------
+                // Project description (justified text)
                 Center(
                   child: ConstrainedBox(
                     constraints: BoxConstraints(maxWidth: sliderWidth),
@@ -218,9 +212,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
             ),
           ),
 
-          // ---------------------------------
-          // FLOATING BACK BUTTON
-          // ---------------------------------
+          // Floating back button positioned for easy navigation
           Positioned(
             top: 20,
             left: max(20, (screenWidth - maxSliderWidth) / 2 - 200),
@@ -254,35 +246,4 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
       ),
     );
   }
-  
-  /*
-  // ----------- Mały przycisk "← Wróć" ------------
-  Widget _smallBackButton(BuildContext context) {
-    return InkWell(
-      onTap: () => Navigator.pop(context),
-      borderRadius: BorderRadius.circular(5),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-        decoration: BoxDecoration(
-          color: CustomColor.bgLight2,
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: const Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.arrow_back, color: Colors.white, size: 18),
-            SizedBox(width: 6),
-            Text(
-              "Powrót",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-  */
 }

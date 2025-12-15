@@ -1,13 +1,32 @@
-import 'locale_controller.dart';
-import '../constants/personal_info.dart';
+import 'package:my_portfolio/constants/personal_info.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
 
+/// Internationalization strings for the portfolio application.
+/// 
+/// Structure: {'language-code': {'key': 'translated_text', ...}}
+/// 
+/// Supported languages: English ('en') and Polish ('pl').
+/// Use the `t(String key)` function to retrieve translations.
+/// 
+/// Keys follow a hierarchical naming convention:
+/// - Navigation: 'nav.*'
+/// - Skills categories: 'skills.*'
+/// - Individual skills: 'skill.*'
+/// - Projects: 'project.{id}.title/subtitle/description'
+/// - UI elements: descriptive names (e.g., 'greeting', 'built_with')
 const Map<String, Map<String, String>> strings = {
   'en': {
     'nav.home': 'Home',
     'nav.skills': 'Skills',
     'nav.projects': 'Projects',
     'greeting': "Hi,\nI'm Lucynka\nA Flutter Developer",
-    'about_short': "Pekingese — a companion dog breed...",
+    'biography': "If you give me a job, I'll give you a paw. \n\n"
+                 "The Pekingese is a companion dog breed classified in the Japanese Spaniels and Pekingese section. "
+                 "It has a dachshund-type build and does not undergo working trials.\n\n"
+                 "Bred in Manchuria, the Pekingese was unknown outside China until the mid-19th century. "
+                 "In China, they were kept as temple dogs. According to Chinese beliefs, their small size "
+                 "helped them chase temple demons, while their brave hearts let them face powerful evil spirits.\n\n"
+                 "Another legend says Pekingese resulted from a lion and monkey's love—a union blessed by Buddha.",
     'skills_section': "Technical Skills",
     'projects_my': "My projects",
     'projects_team': "Team Projects",
@@ -16,11 +35,16 @@ const Map<String, Map<String, String>> strings = {
     'contact': "✉ Mail me",
     'return': "   Top",
     'copy_email': "Copy e-mail",
+    'email_copied': "E-mail address copied!",
     'github_source': "View source on GitHub",
     'made_by_p1': "Made by: ${PersonalInfo.name} — built with ",
     'made_by_p2': " Flutter 3.38.4\n© 2025 • This project is open-source (MIT)",
 
-    // Kategorie
+    // ============================================
+    // Skills
+    // ============================================
+
+    // Categories
     'skills.software': 'Software Development',
     'skills.embedded': 'Microcontrollers & Embedded Systems',
     'skills.tools': 'Development Tools & IDEs',
@@ -31,7 +55,7 @@ const Map<String, Map<String, String>> strings = {
     'skills.test': 'Test & Measurement Equipment',
     'skills.docs': 'Documentation & Graphics',
 
-    // Umiejętności software
+    // Software skills
     'skill.c': 'C',
     'skill.cpp': 'C++',
     'skill.python': 'Python',
@@ -40,19 +64,19 @@ const Map<String, Map<String, String>> strings = {
     'skill.bash': 'bash',
     'skill.vhdl': 'VHDL',
 
-    // Umiejętności embedded
+    // Embedded skills
     'skill.stm32_hal_cubemx': 'STM32 (HAL/CubeMX)',
     'skill.avr': 'AVR',
     'skill.esp32': 'ESP32',
     'skill.freertos_basics': 'FreeRTOS basics',
 
-    // Umiejętności tools
+    // Tools skills
     'skill.stm32cubeide': 'STM32CubeIDE',
     'skill.keil_uvision': 'Keil µVision',
     'skill.visual_studio_code': 'Visual Studio Code',
     'skill.git': 'Git',
 
-    // Umiejętności protocols
+    // Protocols skills
     'skill.can': 'CAN',
     'skill.spi': 'SPI',
     'skill.i2c': 'I2C',
@@ -64,21 +88,21 @@ const Map<String, Map<String, String>> strings = {
     'skill.gnss': 'GNSS',
     'skill.gprs_lte': 'GPRS/LTE',
 
-    // Umiejętności sbc
+    // SBC skills
     'skill.raspberry_pi': 'Raspberry Pi',
 
-    // Umiejętności pcb
+    // PCB skills
     'skill.altium_designer': 'Altium Designer',
     'skill.circuitstudio': 'CircuitStudio',
     'skill.pads': 'PADS',
     'skill.ltspice': 'LTspice',
 
-    // Umiejętności proto
+    // Prototyping skills
     'skill.pcb_assembly': 'PCB assembly',
     'skill.smd_tht_soldering': 'SMD/THT soldering',
     'skill.3d_printing': '3D printing',
 
-    // Umiejętności test
+    // Test & Measurement skills
     'skill.oscilloscope': 'Oscilloscope',
     'skill.multimeter': 'Multimeter',
     'skill.power_supplies': 'Power supplies',
@@ -86,15 +110,15 @@ const Map<String, Map<String, String>> strings = {
     'skill.frequency_counters': 'Frequency counters',
     'skill.debuggers_st_link_swd': 'Debuggers: ST-Link/SWD',
 
-    // Umiejętności docs
+    // Documentation & Graphics skills
     'skill.latex': 'LaTeX',
     'skill.inkscape': 'Inkscape',
     'skill.gimp': 'GIMP',
     'skill.microsoft_office': 'Microsoft Office',
 
-    // #########################################################
+    // ============================================
     // MY PROJECTS
-    // #########################################################
+    // ============================================
 
     // Project m1
     'project.m1.title': 'Pekingese Tracker',
@@ -111,9 +135,9 @@ const Map<String, Map<String, String>> strings = {
     'project.m3.subtitle': 'Set of exercises and tricks specifically for Pekingese.',
     'project.m3.description': 'The app offers a library of trainings, instructional videos, and weekly challenges tailored to Pekingese - an intelligent breed with a very specific temperament. The project also includes a simple system for assessing training progress.',
 
-    // #########################################################
+    // ============================================
     // TEAM PROJECTS
-    // #########################################################
+    // ============================================
 
     // Project t1
     'project.t1.title': 'Pekingese Social Club',
@@ -131,6 +155,20 @@ const Map<String, Map<String, String>> strings = {
     'nav.skills': 'Umiejętności',
     'nav.projects': 'Projekty',
     'greeting': "Cześć,\nJestem Lucynka\nFlutter Developer",
+        'biography': "Jak dasz pracę to podam łapkę. \n\n"
+                 "Pekińczyk to jedna z ras psów należąca do grupy "
+                 "psów do towarzystwa, zaklasyfikowana do sekcji "
+                 "spanieli japońskich i pekińczyków. Typ jamnikowaty. "
+                 "Nie podlega próbom pracy.\n\n"
+				         "Pekińczyk jest rasą wyhodowaną w Mandżurii. Do połowy XIX "
+				         "wieku rasa ta znana była wyłącznie w Chinach, gdzie "
+				         "pekińczyki hodowane były jako psy świątynne. Według chińskich "
+				         "wierzeń drobna budowa pekińczyka pozwalała mu łatwo gonić "
+				         "i chwytać pojawiające się w świątyniach demony, a jego "
+				         "waleczne serce - bez trudu stawiać czoła nawet "
+				         "najpotężniejszym złym duchom. Inna legenda wspomina, że "
+				         "pekińczyki miały być owocem miłości lwa do małpki, który "
+				         "to związek został pobłogosławiony przez samego Buddę. ",
     'about_short': "Pekińczyk — pies do towarzystwa...",
     'skills_section': "Umiejętności",
     'projects_my': "Moje projekty",
@@ -140,9 +178,14 @@ const Map<String, Map<String, String>> strings = {
     'contact': "✉ Napisz do mnie",
     'return': "Powrót",
     'copy_email': "Kopiuj e-mail",
+    'email_copied': "Adres e-mail został skopiowany!",
     'github_source': "Zobacz kod na GitHubie",
     'made_by_p1': "Stworzone przez: ${PersonalInfo.name} — zbudowane z ",
     'made_by_p2': " Flutter 3.38.4\n© 2025 • Projekt open-source (MIT)",
+
+    // ============================================
+    // Skills
+    // ============================================
 
     'skills.software': 'Programowanie',
     'skills.embedded': 'Mikrokontrolery i systemy wbudowane',
@@ -154,7 +197,7 @@ const Map<String, Map<String, String>> strings = {
     'skills.test': 'Sprzęt pomiarowy i diagnostyczny',
     'skills.docs': 'Dokumentacja i grafika',
 
-    // Umiejętności software
+    // Software skills
     'skill.c': 'C',
     'skill.cpp': 'C++',
     'skill.python': 'Python',
@@ -163,19 +206,19 @@ const Map<String, Map<String, String>> strings = {
     'skill.bash': 'bash',
     'skill.vhdl': 'VHDL',
 
-    // Umiejętności embedded
+    // Embedded skills
     'skill.stm32_hal_cubemx': 'STM32 (HAL/CubeMX)',
     'skill.avr': 'AVR',
     'skill.esp32': 'ESP32',
     'skill.freertos_basics': 'Podstawy FreeRTOS',
 
-    // Umiejętności tools
+    // Tools skills
     'skill.stm32cubeide': 'STM32CubeIDE',
     'skill.keil_uvision': 'Keil µVision',
     'skill.visual_studio_code': 'Visual Studio Code',
     'skill.git': 'Git',
 
-    // Umiejętności protocols
+    // Protocols skills
     'skill.can': 'CAN',
     'skill.spi': 'SPI',
     'skill.i2c': 'I2C',
@@ -187,21 +230,21 @@ const Map<String, Map<String, String>> strings = {
     'skill.gnss': 'GNSS',
     'skill.gprs_lte': 'GPRS/LTE',
 
-    // Umiejętności sbc
+    // SBC skills
     'skill.raspberry_pi': 'Raspberry Pi',
 
-    // Umiejętności pcb
+    // PCB skills
     'skill.altium_designer': 'Altium Designer',
     'skill.circuitstudio': 'CircuitStudio',
     'skill.pads': 'PADS',
     'skill.ltspice': 'LTspice',
 
-    // Umiejętności proto
+    // Prototyping skills
     'skill.pcb_assembly': 'Montaż PCB',
     'skill.smd_tht_soldering': 'Lutowanie SMD/THT',
     'skill.3d_printing': 'Drukowanie 3D',
 
-    // Umiejętności test
+    // Test & Measurement skills
     'skill.oscilloscope': 'Oscyloskop',
     'skill.multimeter': 'Multimetr',
     'skill.power_supplies': 'Zasilacze',
@@ -209,15 +252,15 @@ const Map<String, Map<String, String>> strings = {
     'skill.frequency_counters': 'Liczniki częstotliwości',
     'skill.debuggers_st_link_swd': 'Debugery: ST-Link/SWD',
 
-    // Umiejętności docs
+    // Documentation & Graphics skills
     'skill.latex': 'LaTeX',
     'skill.inkscape': 'Inkscape',
     'skill.gimp': 'GIMP',
     'skill.microsoft_office': 'Microsoft Office',
 
-    // #########################################################
-    // MY PROJECTS - MOJE PROJEKTY
-    // #########################################################
+    // ============================================
+    // MY PROJECTS
+    // ============================================
 
     // Projekt m1
     'project.m1.title': 'Pekińczyk Tracker',
@@ -234,9 +277,9 @@ const Map<String, Map<String, String>> strings = {
     'project.m3.subtitle': 'Zestaw ćwiczeń i tricków specjalnie dla pekińczyków.',
     'project.m3.description': 'Aplikacja oferuje bibliotekę treningów, filmów instruktażowych oraz wyzwań tygodniowych dostosowanych do pekińczyków — rasy inteligentnej, ale o bardzo specyficznym temperamencie. Projekt zawiera również prosty system ocen postępów w szkoleniu.',
 
-    // #########################################################
-    // TEAM PROJECTS - PROJEKTY ZESPOŁOWE
-    // #########################################################
+    // ============================================
+    // TEAM PROJECTS
+    // ============================================
 
     // Projekt t1
     'project.t1.title': 'Pekińczyk Social Club',
@@ -251,6 +294,10 @@ const Map<String, Map<String, String>> strings = {
   },
 };
 
+/// Retrieves a translated string for the current locale.
+/// 
+/// Returns the translation for the given key in the current language.
+/// If the key is not found, returns a placeholder string with the key.
 String t(String key) {
   final lang = localeNotifier.value;
   return strings[lang]?[key] ?? '⛔ $key';

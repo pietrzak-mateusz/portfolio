@@ -1,21 +1,13 @@
 import 'dart:convert';
 
+/// Personal information storage with basic bot protection.
+/// 
+/// Uses Base64 encoding to obscure the email address from simple scrapers.
+/// The email is never stored as a complete string in the compiled code.
 class PersonalInfo {
   // The name and surname are not encoded
   static const String name = 'Lucynka'; // name
   static const String surname = 'Klusi'; // surname
-  
-  // Portfolio owner biography
-  static const String biography = 
-                              "Jak dasz pracę to podam łapkę. \n\n"
-                              "Pekińczyk to jedna z ras psów należąca do grupy "
-                              "psów do towarzystwa, zaklasyfikowana do sekcji "
-                              "spanieli japońskich i pekińczyków. Typ jamnikowaty. "
-                              "Nie podlega próbom pracy.\n\n"
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                              "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-                              "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "
-                              "nisi ut aliquip ex ea commodo consequat.\n";
 
   // Class for securely storing and providing contact information
   /// HOW IT WORKS:

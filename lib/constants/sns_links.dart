@@ -1,3 +1,8 @@
+/// Social media and external links used throughout the portfolio.
+/// 
+/// Centralized location for all external URLs to ensure consistency
+/// and ease of updates. These static constants are used for navigation
+/// and linking to social profiles, blog, and other online resources.
 class SnsLinks {
   static const String github = "https://github.com/Matteeo03/portfolio";
   static const String linkedIn = "https://";

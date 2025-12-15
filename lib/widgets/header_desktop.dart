@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../constants/nav_items.dart';
-import '../i18n/locale_controller.dart';
-import '../i18n/strings.dart';
-import 'language_switcher.dart';
+import 'package:my_portfolio/constants/colors.dart';
+import 'package:my_portfolio/constants/nav_items.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/widgets/language_switcher.dart';
 
+/// Desktop header widget with navigation menu and language switcher.
+/// 
+/// Features a centered navigation menu with internationalized text
+/// and a language selector on the right side.
 class HeaderDesktop extends StatelessWidget {
   const HeaderDesktop({
     super.key,
     required this.onNavMenuTap,
   });
 
+  /// Callback triggered when a navigation menu item is tapped.
+  /// Provides the index of the selected navigation item.
   final Function(int) onNavMenuTap;
 
   @override
@@ -19,9 +25,10 @@ class HeaderDesktop extends StatelessWidget {
       height: 60.0,
       decoration: BoxDecoration(
         color: CustomColor.scaffoldBg,
+        // Subtle shadow for visual separation
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withAlpha((0.1 * 255).round()),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -36,10 +43,11 @@ class HeaderDesktop extends StatelessWidget {
           const SizedBox(width: 120),
 
           // --------------------
-          // ŚRODEK – MENU (i18n)
+          // CENTER – INTERNATIONALIZED NAVIGATION MENU
           // --------------------
           Expanded(
             child: ValueListenableBuilder<String>(
+              // Listens for locale changes to update text
               valueListenable: localeNotifier,
               builder: (_, __, ___) {
                 return Row(
@@ -67,7 +75,7 @@ class HeaderDesktop extends StatelessWidget {
           ),
 
           // --------------------
-          // PRAWA STRONA – LANGUAGE SWITCHER
+          // RIGHT SIDE – LANGUAGE SWITCHER WITH ICON
           // --------------------
           const Row(
             children: [

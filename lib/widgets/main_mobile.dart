@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/constants/personal_info.dart';
-import '../i18n/l_text.dart';
+import 'package:my_portfolio/i18n/l_text.dart';
 
+/// Mobile version of the main portfolio section.
+/// 
+/// Vertical layout optimized for small screens, with responsive image sizing.
+/// Text content appears above the profile image for better mobile reading flow.
 class MainMobile extends StatelessWidget {
   const MainMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    // final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
 
-    // jeśli ekran jest szeroki (tablet/duży fon), trzymaj proporcję z desktopem,
-    // inaczej daj większy obrazek dla telefonów
+    // Responsive image width calculation:
+    // - Phones (< 700px): 75% of screen width for larger image
+    // - Tablets (≥ 700px): 1/3 of screen width, matching desktop proportions
     final double imageWidth = screenWidth < 700 ? screenWidth * 0.75 : screenWidth / 3;
 
     return Container(
@@ -21,8 +24,7 @@ class MainMobile extends StatelessWidget {
         horizontal: 20.0,
         vertical: 30.0,
       ),
-      // wysokość trzymamy elastyczną; nie "na siłę" identyczna z desktop
-      // (mobilny content naturalnie przewija się w pionie)
+      // Flexible minimum height; mobile content naturally scrolls vertically
       constraints: const BoxConstraints(
         minHeight: 560.0,
       ),
@@ -30,11 +32,11 @@ class MainMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // TEKST (najpierw tekst, potem zdjęcie)
+          // TEXT CONTENT (text first for better mobile reading flow)
           const LText(
             'greeting',
             style: TextStyle(
-              fontSize: 30, // dopasowane do desktop (desktop miał 30)
+              fontSize: 30, // Consistent with desktop font size
               height: 1.5,
               fontWeight: FontWeight.bold,
               color: CustomColor.whitePrimary,
@@ -42,8 +44,8 @@ class MainMobile extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          const Text(
-            PersonalInfo.biography,
+          const LText(
+            'biography',
             style: TextStyle(
               fontSize: 16,
               height: 1.5,
@@ -54,7 +56,7 @@ class MainMobile extends StatelessWidget {
 
           const SizedBox(height: 30),
 
-          // OBRAZEK — dopasowany szerokością do ekranu (spójny z desktop)
+          // PROFILE IMAGE with responsive sizing
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/constants/sns_links.dart';
+import 'package:my_portfolio/constants/size.dart';
+// import 'package:my_portfolio/constants/sns_links.dart';
+import 'package:my_portfolio/i18n/l_text.dart';
+import 'package:my_portfolio/widgets/drawer_mobile.dart';
+import 'package:my_portfolio/widgets/footer.dart';
+import 'package:my_portfolio/widgets/header_desktop.dart';
+import 'package:my_portfolio/widgets/header_mobile.dart';
 import 'package:my_portfolio/widgets/main_desktop.dart';
 import 'package:my_portfolio/widgets/main_mobile.dart';
 import 'package:my_portfolio/widgets/projects_section.dart';
 import 'package:my_portfolio/widgets/skills_desktop.dart';
 import 'package:my_portfolio/widgets/skills_mobile.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../constants/size.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
-import '../widgets/drawer_mobile.dart';
-import '../widgets/footer.dart';
-import '../widgets/header_desktop.dart';
-import '../widgets/header_mobile.dart';
-import '../i18n/l_text.dart';
-
+/// Main portfolio homepage with responsive layout and navigation.
+/// 
+/// Contains: Header, Main section, Skills, Projects, and Footer.
+/// Uses responsive breakpoints to switch between mobile and desktop layouts.
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -25,6 +28,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
+  
+  // Keys for scroll navigation to different sections
   final List<GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
 
   @override
@@ -36,6 +41,7 @@ class _HomePageState extends State<HomePage> {
       return Scaffold(
         key: scaffoldKey,
         backgroundColor: CustomColor.scaffoldBg,
+        // Mobile drawer for navigation on small screens
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
             ? null
             : DrawerMobile(onNavItemTap: (int navIndex) {
@@ -44,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               }),
         body: Stack(
           children: [
-            // SCROLLOWALNY CONTENT
+            // Scrollable page content
             SingleChildScrollView(
               controller: scrollController,
               scrollDirection: Axis.vertical,
@@ -52,16 +58,16 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   SizedBox(key: navbarKeys.first),
                   
-                  // Odstęp na sticky header
+                  // Spacing for sticky header
                   const SizedBox(height: 80),
 
-                  // MAIN
+                  // Main section - different layout for desktop/mobile
                   if (constraints.maxWidth >= kMinDesktopWidth)
                     const MainDesktop()
                   else
                     const MainMobile(),
 
-                  // SKILLS
+                  // Skills section
                   Container(
                     key: navbarKeys[1],
                     width: screenWidth,
@@ -70,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // title
+                        // Section title
                         const LText(
                           'skills_section',
                           style: TextStyle(
@@ -81,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 50),
 
-                        // platforms and skills
+                        // Skills content - responsive layout
                         if (constraints.maxWidth >= kMedDesktopWidth)
                           const SkillsDesktopTwoColumns()
                         else
@@ -91,20 +97,20 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: 30),
 
-                  // PROJECTS
+                  // Projects section
                   ProjectsSection(
                     key: navbarKeys[2],
                   ),
 
                   const SizedBox(height: 0),
 
-                  // FOOTER
+                  // Footer with contact info and links
                   const Footer(),
                 ],
               ),
             ),
 
-            // STICKY HEADER NA GÓRZE
+            // Sticky header at the top
             if (constraints.maxWidth >= kMinDesktopWidth)
               Positioned(
                 top: 0,
@@ -125,17 +131,21 @@ class _HomePageState extends State<HomePage> {
       );
     });
   }
-
+  
+  /// Scrolls to a specific section or opens external link for blog.
   void scrollToSection(int navIndex) async {
+    /*
+    // Blog link (navIndex 4) opens in external browser
     if (navIndex == 4) {
-      // Otwórz link w nowej karcie
       final url = Uri.parse(SnsLinks.blog);
       if (await canLaunchUrl(url)) {
         await launchUrl(url, mode: LaunchMode.externalApplication);
       }
       return;
     }
+    */
 
+    // Scroll to other sections using their GlobalKey
     final key = navbarKeys[navIndex];
     Scrollable.ensureVisible(
       key.currentContext!,
