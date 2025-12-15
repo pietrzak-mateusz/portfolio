@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-List<String> navTitles = [
-  "Home",
-  "Skills",
-  "Projects",
+/// Klucze tłumaczeń (strings.dart)
+const List<String> navTitleKeys = [
+  'nav.home',
+  'nav.skills',
+  'nav.projects',
 ];
 
-List<IconData> navIcons = [
+const List<IconData> navIcons = [
   Icons.home,
   Icons.handyman_outlined,
   Icons.apps,

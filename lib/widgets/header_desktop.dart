@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../constants/nav_items.dart';
+import '../i18n/locale_controller.dart';
+import '../i18n/strings.dart';
 import 'language_switcher.dart';
 
 class HeaderDesktop extends StatelessWidget {
@@ -31,34 +33,36 @@ class HeaderDesktop extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // --------------------
-          // LEWA STRONA (pusta – balans)
-          // --------------------
           const SizedBox(width: 120),
 
           // --------------------
-          // ŚRODEK – MENU
+          // ŚRODEK – MENU (i18n)
           // --------------------
           Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                for (int i = 0; i < navTitles.length; i++)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: TextButton(
-                      onPressed: () => onNavMenuTap(i),
-                      child: Text(
-                        navTitles[i],
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          color: CustomColor.whitePrimary,
+            child: ValueListenableBuilder<String>(
+              valueListenable: localeNotifier,
+              builder: (_, __, ___) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (int i = 0; i < navTitleKeys.length; i++)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: TextButton(
+                          onPressed: () => onNavMenuTap(i),
+                          child: Text(
+                            t(navTitleKeys[i]),
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: CustomColor.whitePrimary,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-              ],
+                  ],
+                );
+              },
             ),
           ),
 
@@ -69,10 +73,9 @@ class HeaderDesktop extends StatelessWidget {
             children: [
               Icon(Icons.language, size: 24, color: CustomColor.whiteSecondary),
               SizedBox(width: 6),
-              // Twój obecny przełącznik
               LanguageSwitcher(),
             ],
-          )
+          ),
         ],
       ),
     );

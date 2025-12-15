@@ -3,6 +3,9 @@ import '../constants/personal_info.dart';
 
 const Map<String, Map<String, String>> strings = {
   'en': {
+    'nav.home': 'Home',
+    'nav.skills': 'Skills',
+    'nav.projects': 'Projects',
     'greeting': "Hi,\nI'm Lucynka\nA Flutter Developer",
     'about_short': "Pekingese — a companion dog breed...",
     'skills_section': "Technical Skills",
@@ -124,6 +127,9 @@ const Map<String, Map<String, String>> strings = {
 
   },
   'pl': {
+    'nav.home': 'Strona główna',
+    'nav.skills': 'Umiejętności',
+    'nav.projects': 'Projekty',
     'greeting': "Cześć,\nJestem Lucynka\nFlutter Developer",
     'about_short': "Pekińczyk — pies do towarzystwa...",
     'skills_section': "Umiejętności",
