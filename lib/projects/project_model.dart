@@ -1,3 +1,5 @@
+library;
+
 /// Domain model representing a single portfolio project.
 /// This class is intentionally simple and immutable.
 ///
@@ -5,7 +7,6 @@
 /// - perform any logic
 /// - know about localization implementations
 /// - depend on Flutter widgets
-
 class Project {
   /// Unique project identifier (e.g. "m1", "t2")
   final String id;

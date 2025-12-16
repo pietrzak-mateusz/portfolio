@@ -1,3 +1,5 @@
+library;
+
 /// Static project-related data used by the portfolio.
 /// This file contains:
 /// - mappings of project IDs to assets and technologies
