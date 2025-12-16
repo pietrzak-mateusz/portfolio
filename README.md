@@ -1,4 +1,4 @@
-# Portfolio — Personal Website
+# Portfolio - Personal Website
 
 A personal portfolio built with **Flutter Web**.
 
@@ -33,7 +33,7 @@ Designed to present professional experience and projects across desktop and mobi
 ## Features
 
 - Responsive layout: desktop / tablet / mobile  
-- Bilingual (Polish / English) — language switcher  
+- Bilingual (Polish / English) - language switcher  
 - Projects gallery with detailed project pages (1–3 images per project)  
 - Skills section grouped by category  
 - Simple contact (e-mail / copy-to-clipboard)  
@@ -149,14 +149,14 @@ web/
 
 ## Notes on architecture
 
-- Data (projects, skills) is separated from UI — add new projects by editing `project_data` and adding images.
+- Data (projects, skills) is separated from UI - add new projects by editing `project_data` and adding images.
 - Translation keys are in `i18n/strings.dart` (pattern: `project.{id}.title` etc.).
 - Desktop / mobile variants are implemented per-section (e.g. `main_desktop.dart` / `main_mobile.dart`) for responsive control.
 
 ## How to add a project
 
 1. Add image(s) to `assets/`
-2. Add an entry to `project_data.dart` (or `project_repository`) — follow existing IDs `m1`, `t1`...
+2. Add an entry to `project_data.dart` (or `project_repository`) - follow existing IDs `m1`, `t1`...
 3. Add translation strings in `i18n/strings.dart` for `project.{id}.title`, `...subtitle`, `...description`
 4. Run locally and verify layout
 
