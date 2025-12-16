@@ -1,7 +1,7 @@
 # Portfolio — Personal website
 
-> Simple, responsive personal portfolio built with **Flutter Web**.  
-> Showcases projects, skills and contact details.
+Simple, responsive portfolio built with **Flutter Web**.  
+Showcases projects, skills and contact details.
 
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://pietrzak-mateusz.github.io/portfolio/)
 [![Flutter](https://img.shields.io/badge/Flutter-3.38.4-blue.svg)](https://flutter.dev/)
@@ -88,6 +88,8 @@ git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
 git push -f origin gh-pages
 ```
 
+---
+
 1. Build the web app:
 
    ```bash
@@ -117,9 +119,7 @@ git push -f origin gh-pages
 
 > **Important:** Your repository must be **public** for GitHub Pages to work with the free plan. Private repositories require a GitHub Pro account for GitHub Pages hosting.
 
-After a few minutes, your site will be available at:
-
-https://YOUR_USERNAME.github.io/portfolio/
+After a few minutes, your site will be available at *https://YOUR_USERNAME.github.io/portfolio/*
 
 ## Project structure (short)
 
