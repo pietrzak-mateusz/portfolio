@@ -1,7 +1,15 @@
-# Portfolio — Personal website
+# Portfolio — Personal Website
 
-Simple, responsive portfolio built with **Flutter Web**.  
-Showcases projects, skills and contact details.
+A personal portfolio built with **Flutter Web**.
+
+The website features:
+- a navigation header with section-based menu,
+- a short biography introducing the portfolio owner,
+- a structured overview of technical skills,
+- a projects section presenting both individual and collaborative work,
+- a fully responsive layout with a dedicated mobile version (hamburger menu).
+
+Designed to present professional experience and projects across desktop and mobile devices.
 
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://pietrzak-mateusz.github.io/portfolio/)
 [![Flutter](https://img.shields.io/badge/Flutter-3.38.4-blue.svg)](https://flutter.dev/)
@@ -12,15 +20,15 @@ Showcases projects, skills and contact details.
 
 ### Desktop
 ![Desktop view](assets/screenshots/desktop.png)
-> *Main page showing project showcase and skills section*
+> *Desktop layout with navigation header, biography section, skills overview and project cards.*
 
 ### Mobile
 ![Mobile view](assets/screenshots/mobile.png)
-> ...
+> *Mobile-optimized layout with collapsible hamburger menu and stacked content sections.*
 
 ### Project detail page
 ![Project details](assets/screenshots/project-detail.png)
-> ...
+> *Dedicated project page displaying detailed description, technology stack and image gallery.*
 
 ## Features
 
