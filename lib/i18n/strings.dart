@@ -1,5 +1,11 @@
 import 'package:my_portfolio/data/personal_info.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/i18n/biography.dart';
+import 'package:my_portfolio/i18n/skills.dart';
+import 'package:my_portfolio/i18n/projects/project_m1.dart';
+import 'package:my_portfolio/i18n/projects/project_m2.dart';
+import 'package:my_portfolio/i18n/projects/project_m3.dart';
+import 'package:my_portfolio/i18n/projects/project_t1.dart';
 
 /// Internationalization strings for the portfolio application.
 /// 
@@ -15,160 +21,13 @@ import 'package:my_portfolio/i18n/locale_controller.dart';
 /// - Projects: 'project.{id}.title/subtitle/description'
 /// - UI elements: descriptive names (e.g., 'greeting', 'built_with')
 const Map<String, Map<String, String>> strings = {
-  'en': {
-    'nav.home': 'Home',
-    'nav.skills': 'Skills',
-    'nav.projects': 'Projects',
-    'greeting': "Hi,\nI'm Lucynka\nA Flutter Developer",
-    'biography': "If you give me a job, I'll give you a paw. \n\n"
-                 "The Pekingese is a companion dog breed classified in the Japanese Spaniels and Pekingese section. "
-                 "It has a dachshund-type build and does not undergo working trials.\n\n"
-                 "Bred in Manchuria, the Pekingese was unknown outside China until the mid-19th century. "
-                 "In China, they were kept as temple dogs. According to Chinese beliefs, their small size "
-                 "helped them chase temple demons, while their brave hearts let them face powerful evil spirits.\n\n"
-                 "Another legend says Pekingese resulted from a lion and monkey's love—a union blessed by Buddha.",
-    'skills_section': "Technical Skills",
-    'projects_my': "My projects",
-    'projects_team': "Team Projects",
-    'built_with': "Built with: ",
-    'details_button' :"View details",
-    'contact': "✉ Mail me",
-    'return': "   Top",
-    'copy_email': "Copy e-mail",
-    'email_copied': "E-mail address copied!",
-    'github_source': "View source on GitHub",
-    'made_by_p1': "Made by: ${PersonalInfo.name} — built with ",
-    'made_by_p2': " Flutter 3.38.4\n© 2025 • This project is open-source (MIT)",
-
-    // ============================================
-    // Skills
-    // ============================================
-
-    // Categories
-    'skills.software': 'Software Development',
-    'skills.embedded': 'Microcontrollers & Embedded Systems',
-    'skills.tools': 'Development Tools & IDEs',
-    'skills.protocols': 'Communication Protocols & Interfaces',
-    'skills.sbc': 'Single-Board Computers',
-    'skills.pcb': 'PCB Design & Circuit Simulation',
-    'skills.proto': 'Prototyping & Assembly',
-    'skills.test': 'Test & Measurement Equipment',
-    'skills.docs': 'Documentation & Graphics',
-
-    // Software skills
-    'skill.c': 'C',
-    'skill.cpp': 'C++',
-    'skill.python': 'Python',
-    'skill.matlab': 'MATLAB',
-    'skill.labview': 'LabVIEW',
-    'skill.bash': 'bash',
-    'skill.vhdl': 'VHDL',
-
-    // Embedded skills
-    'skill.stm32_hal_cubemx': 'STM32 (HAL/CubeMX)',
-    'skill.avr': 'AVR',
-    'skill.esp32': 'ESP32',
-    'skill.freertos_basics': 'FreeRTOS basics',
-
-    // Tools skills
-    'skill.stm32cubeide': 'STM32CubeIDE',
-    'skill.keil_uvision': 'Keil µVision',
-    'skill.visual_studio_code': 'Visual Studio Code',
-    'skill.git': 'Git',
-
-    // Protocols skills
-    'skill.can': 'CAN',
-    'skill.spi': 'SPI',
-    'skill.i2c': 'I2C',
-    'skill.uart': 'UART',
-    'skill.ethernet': 'Ethernet',
-    'skill.ble': 'BLE',
-    'skill.wifi': 'WiFi',
-    'skill.nfc': 'NFC',
-    'skill.gnss': 'GNSS',
-    'skill.gprs_lte': 'GPRS/LTE',
-
-    // SBC skills
-    'skill.raspberry_pi': 'Raspberry Pi',
-
-    // PCB skills
-    'skill.altium_designer': 'Altium Designer',
-    'skill.circuitstudio': 'CircuitStudio',
-    'skill.pads': 'PADS',
-    'skill.ltspice': 'LTspice',
-
-    // Prototyping skills
-    'skill.pcb_assembly': 'PCB assembly',
-    'skill.smd_tht_soldering': 'SMD/THT soldering',
-    'skill.3d_printing': '3D printing',
-
-    // Test & Measurement skills
-    'skill.oscilloscope': 'Oscilloscope',
-    'skill.multimeter': 'Multimeter',
-    'skill.power_supplies': 'Power supplies',
-    'skill.logic_analyzers': 'Logic analyzers',
-    'skill.frequency_counters': 'Frequency counters',
-    'skill.debuggers_st_link_swd': 'Debuggers: ST-Link/SWD',
-
-    // Documentation & Graphics skills
-    'skill.latex': 'LaTeX',
-    'skill.inkscape': 'Inkscape',
-    'skill.gimp': 'GIMP',
-    'skill.microsoft_office': 'Microsoft Office',
-
-    // ============================================
-    // MY PROJECTS
-    // ============================================
-
-    // Project m1
-    'project.m1.title': 'Pekingese Tracker',
-    'project.m1.subtitle': 'App for monitoring Pekingese activity.',
-    'project.m1.description': 'The app allows Pekingese owners to track daily activity, walked distances, feeding times, and health behaviors. The project implements a simple statistics system and data export functionality. Designed with small dog breeds in mind, which require regular monitoring of physical activity.',
-
-    // Project m2
-    'project.m2.title': 'Pekingese Diet Planner',
-    'project.m2.subtitle': 'Individual diet planner for Pekingese.',
-    'project.m2.description': 'The project focuses on creating optimal nutrition plans for Pekingese, considering age, weight, allergies, and activity level. The app allows recording meals and monitoring the dog\'s reactions to specific ingredients.',
-
-    // Project m3
-    'project.m3.title': 'Pekingese Training Hub',
-    'project.m3.subtitle': 'Set of exercises and tricks specifically for Pekingese.',
-    'project.m3.description': 'The app offers a library of trainings, instructional videos, and weekly challenges tailored to Pekingese - an intelligent breed with a very specific temperament. The project also includes a simple system for assessing training progress.',
-
-    // ============================================
-    // TEAM PROJECTS
-    // ============================================
-
-    // Project t1
-    'project.t1.title': 'Pekingese Social Club',
-    'project.t1.subtitle': 'Social app for Pekingese owners.',
-    'project.t1.description': 'Team project of an application that allows Pekingese owners to share photos, create walking groups, organize events, and contact nearby breeders. The project uses Firebase Authentication and Firestore for community management.',
-
-    // Project t2
-    'project.t2.title': 'Pekingese Health Companion',
-    'project.t2.subtitle': 'Platform for monitoring Pekingese health.',
-    'project.t2.description': 'Project created by a team of veterinarians and developers. The app offers a system for reminders about vaccinations, check-up visits, and medication administration. Additionally, it integrates with an external API to fetch information about common diseases for the Pekingese breed and suggest preventive actions.',
-
-  },
-  'pl': {
+    'pl': {
     'nav.home': 'Strona główna',
     'nav.skills': 'Umiejętności',
     'nav.projects': 'Projekty',
     'greeting': "Cześć,\nJestem Lucynka\nFlutter Developer",
-        'biography': "Jak dasz pracę to podam łapkę. \n\n"
-                 "Pekińczyk to jedna z ras psów należąca do grupy "
-                 "psów do towarzystwa, zaklasyfikowana do sekcji "
-                 "spanieli japońskich i pekińczyków. Typ jamnikowaty. "
-                 "Nie podlega próbom pracy.\n\n"
-				         "Pekińczyk jest rasą wyhodowaną w Mandżurii. Do połowy XIX "
-				         "wieku rasa ta znana była wyłącznie w Chinach, gdzie "
-				         "pekińczyki hodowane były jako psy świątynne. Według chińskich "
-				         "wierzeń drobna budowa pekińczyka pozwalała mu łatwo gonić "
-				         "i chwytać pojawiające się w świątyniach demony, a jego "
-				         "waleczne serce - bez trudu stawiać czoła nawet "
-				         "najpotężniejszym złym duchom. Inna legenda wspomina, że "
-				         "pekińczyki miały być owocem miłości lwa do małpki, który "
-				         "to związek został pobłogosławiony przez samego Buddę. ",
+    // Biography
+    ...biographyStringsPl,
     'about_short': "Pekińczyk — pies do towarzystwa...",
     'skills_section': "Umiejętności",
     'projects_my': "Moje projekty",
@@ -183,114 +42,63 @@ const Map<String, Map<String, String>> strings = {
     'made_by_p1': "Stworzone przez: ${PersonalInfo.name} — zbudowane z ",
     'made_by_p2': " Flutter 3.38.4\n© 2025 • Projekt open-source (MIT)",
 
-    // ============================================
     // Skills
-    // ============================================
-
-    'skills.software': 'Programowanie',
-    'skills.embedded': 'Mikrokontrolery i systemy wbudowane',
-    'skills.tools': 'Narzędzia programistyczne i IDE',
-    'skills.protocols': 'Protokoły komunikacyjne i interfejsy',
-    'skills.sbc': 'Komputery jednopłytkowe',
-    'skills.pcb': 'Projektowanie PCB i symulacja obwodów',
-    'skills.proto': 'Prototypowanie i montaż',
-    'skills.test': 'Sprzęt pomiarowy i diagnostyczny',
-    'skills.docs': 'Dokumentacja i grafika',
-
-    // Software skills
-    'skill.c': 'C',
-    'skill.cpp': 'C++',
-    'skill.python': 'Python',
-    'skill.matlab': 'MATLAB',
-    'skill.labview': 'LabVIEW',
-    'skill.bash': 'bash',
-    'skill.vhdl': 'VHDL',
-
-    // Embedded skills
-    'skill.stm32_hal_cubemx': 'STM32 (HAL/CubeMX)',
-    'skill.avr': 'AVR',
-    'skill.esp32': 'ESP32',
-    'skill.freertos_basics': 'Podstawy FreeRTOS',
-
-    // Tools skills
-    'skill.stm32cubeide': 'STM32CubeIDE',
-    'skill.keil_uvision': 'Keil µVision',
-    'skill.visual_studio_code': 'Visual Studio Code',
-    'skill.git': 'Git',
-
-    // Protocols skills
-    'skill.can': 'CAN',
-    'skill.spi': 'SPI',
-    'skill.i2c': 'I2C',
-    'skill.uart': 'UART',
-    'skill.ethernet': 'Ethernet',
-    'skill.ble': 'BLE',
-    'skill.wifi': 'WiFi',
-    'skill.nfc': 'NFC',
-    'skill.gnss': 'GNSS',
-    'skill.gprs_lte': 'GPRS/LTE',
-
-    // SBC skills
-    'skill.raspberry_pi': 'Raspberry Pi',
-
-    // PCB skills
-    'skill.altium_designer': 'Altium Designer',
-    'skill.circuitstudio': 'CircuitStudio',
-    'skill.pads': 'PADS',
-    'skill.ltspice': 'LTspice',
-
-    // Prototyping skills
-    'skill.pcb_assembly': 'Montaż PCB',
-    'skill.smd_tht_soldering': 'Lutowanie SMD/THT',
-    'skill.3d_printing': 'Drukowanie 3D',
-
-    // Test & Measurement skills
-    'skill.oscilloscope': 'Oscyloskop',
-    'skill.multimeter': 'Multimetr',
-    'skill.power_supplies': 'Zasilacze',
-    'skill.logic_analyzers': 'Analizatory logiczne',
-    'skill.frequency_counters': 'Liczniki częstotliwości',
-    'skill.debuggers_st_link_swd': 'Debugery: ST-Link/SWD',
-
-    // Documentation & Graphics skills
-    'skill.latex': 'LaTeX',
-    'skill.inkscape': 'Inkscape',
-    'skill.gimp': 'GIMP',
-    'skill.microsoft_office': 'Microsoft Office',
+    ...skillsStringsPl,
 
     // ============================================
     // MY PROJECTS
     // ============================================
-
     // Projekt m1
-    'project.m1.title': 'Pekińczyk Tracker',
-    'project.m1.subtitle': 'Aplikacja do monitorowania aktywności pekińczyka.',
-    'project.m1.description': 'Aplikacja umożliwia właścicielom pekińczyków śledzenie dziennej aktywności, przebytych spacerów, godzin karmienia oraz zachowań zdrowotnych. W projekcie zaimplementowano prosty system statystyk oraz możliwość eksportu danych. Zaprojektowana z myślą o małych rasach psów, które wymagają regularnej kontroli aktywności fizycznej.',
-
+    ...projectM1StringsPl,
     // Projekt m2
-    'project.m2.title': 'Pekińczyk Diet Planner',
-    'project.m2.subtitle': 'Indywidualny planer diety pekińczyka.',
-    'project.m2.description': 'Projekt skupia się na tworzeniu optymalnych planów żywieniowych dla pekińczyków, z uwzględnieniem wieku, wagi, alergii oraz poziomu aktywności. Aplikacja pozwala rejestrować posiłki i monitorować reakcje psa na poszczególne składniki.',
-
+    ...projectM2StringsPl,
     // Projekt m3
-    'project.m3.title': 'Pekińczyk Training Hub',
-    'project.m3.subtitle': 'Zestaw ćwiczeń i tricków specjalnie dla pekińczyków.',
-    'project.m3.description': 'Aplikacja oferuje bibliotekę treningów, filmów instruktażowych oraz wyzwań tygodniowych dostosowanych do pekińczyków — rasy inteligentnej, ale o bardzo specyficznym temperamencie. Projekt zawiera również prosty system ocen postępów w szkoleniu.',
+    ...projectM3StringsPl,
 
     // ============================================
     // TEAM PROJECTS
     // ============================================
-
     // Projekt t1
-    'project.t1.title': 'Pekińczyk Social Club',
-    'project.t1.subtitle': 'Aplikacja społecznościowa dla właścicieli pekińczyków.',
-    'project.t1.description': 'Zespołowy projekt aplikacji umożliwiającej właścicielom pekińczyków dzielenie się zdjęciami, tworzenie grup spacerowych, organizowanie wydarzeń i kontaktowanie się z pobliskimi hodowcami. W projekcie wykorzystano Firebase Authentication oraz Firestore do zarządzania społecznością.',
+    ...projectT1StringsPl,
+  },
+  'en': {
+    'nav.home': 'Home',
+    'nav.skills': 'Skills',
+    'nav.projects': 'Projects',
+    'greeting': "Hi,\nI'm Lucynka\nA Flutter Developer",
+    // Biography
+    ...biographyStringsEn,
+    'skills_section': "Technical Skills",
+    'projects_my': "My projects",
+    'projects_team': "Team Projects",
+    'built_with': "Built with: ",
+    'details_button' :"View details",
+    'contact': "✉ Mail me",
+    'return': "   Top",
+    'copy_email': "Copy e-mail",
+    'email_copied': "E-mail address copied!",
+    'github_source': "View source on GitHub",
+    'made_by_p1': "Made by: ${PersonalInfo.name} — built with ",
+    'made_by_p2': " Flutter 3.38.4\n© 2025 • This project is open-source (MIT)",
+    
+    // Skills
+    ...skillsStringsEn,
 
-    // Projekt t2
-    'project.t2.title': 'Pekińczyk Health Companion',
-    'project.t2.subtitle': 'Platforma do monitorowania zdrowia pekińczyka.',
-    'project.t2.description': 'Projekt tworzony w zespole weterynarzy i programistów. Aplikacja oferuje system przypomnień o szczepieniach, wizytach kontrolnych oraz podawaniu leków. Dodatkowo integruje się z zewnętrznym API, aby pobierać informacje o typowych chorobach dla rasy pekińczyk i sugerować działania profilaktyczne.',
+    // ============================================
+    // MY PROJECTS
+    // ============================================
+    // Projekt m1
+    ...projectM1StringsEn,
+    // Projekt m2
+    ...projectM2StringsEn,
+    // Projekt m3
+    ...projectM3StringsEn,
 
+    // ============================================
+    // TEAM PROJECTS
+    // ============================================
+    // Projekt t1
+    ...projectT1StringsEn,
   },
 };
 
