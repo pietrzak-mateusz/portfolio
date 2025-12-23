@@ -57,13 +57,13 @@ Newtonian Noise - seismic vibrations and low-frequency acoustic pressure variati
 SOLUTION
 As part of the research team led by Dr. Mariusz Suchenek at AstroCeNT (Nicolaus Copernicus Astronomical Center, Polish Academy of Sciences), I contributed to the development and deployment of seismic and infrasound sensors designed at the institute. My responsibilities included assembling custom PCB boards designed by the research group, testing sensor prototypes in laboratory conditions, and participating in field installations. The network consists of precision seismic sensors monitoring ground vibrations and infrasound microphones measuring low-frequency pressure changes. In total we installed over 100 pairs of sensors. I traveled to international research facilities to assist in sensor deployment and system integration, gaining experience in multinational scientific collaborations.
 
-Infrasound microphones – key specifications
-- Frequency range: 0.1–120 Hz
+Infrasound microphones - key specifications
+- Frequency range: 0.1-120 Hz
 - Sensitivity: 2.5 mV/Pa
 - Distortion: < 1.5 dB
 - Unit cost: ~100 EUR 
 
-Seismometers – key specifications
+Seismometers - key specifications
 - Dynamic range: 134 dB
 - Timing accuracy: < 20 µs
 - Sampling rate: from 0.5 ms
