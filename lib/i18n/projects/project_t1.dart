@@ -1,7 +1,7 @@
 
 const Map<String, String> projectT1StringsPl = {
   'project.t1.title': 'Rozproszona sieć czujników sejsmicznych i infradźwiękowych',
-  'project.t1.subtitle': 'Prace badawczo-wdrożeniowe nad rozproszoną siecią czujników sejsmicznych i infradźwiękowych do monitorowania szumu środowiskowego (Newtonian Noise) w detektorach fal grawitacyjnych, realizowane w ośrodkach badawczych we Włoszech i w Holandii.',
+  'project.t1.subtitle': 'Rozwój i wdrożenie sieci czujników sejsmicznych i infradźwiękowych monitorujących szum środowiskowy w detektorach fal grawitacyjnych. Instalacje w trzech międzynarodowych ośrodkach.',
   'project.t1.image.0': '...',
   'project.t1.image.1': '...',
   'project.t1.description': '''
@@ -43,7 +43,7 @@ https://doi.org/10.22323/1.441.0104
 
 const Map<String, String> projectT1StringsEn = {
   'project.t1.title': 'Distributed network of seismic and infrasound sensors',
-  'project.t1.subtitle': 'Research and implementation work on a distributed network of seismic and infrasound sensors for monitoring environmental noise (Newtonian Noise) in gravitational wave detectors, conducted at research centers in Italy and the Netherlands.',
+  'project.t1.subtitle': 'Development and deployment of seismic and infrasound sensor networks monitoring environmental noise at gravitational wave detectors. Installations across three international sites.',
   'project.t1.image.0': '...',
   'project.t1.image.1': '...',
   'project.t1.description': '''

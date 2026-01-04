@@ -17,39 +17,15 @@ const List<Map<String, dynamic>> skillCategories = [
       "skill.labview",
       "skill.bash",
       "skill.vhdl",
+      "skill.git",
     ],
   },
   {
     "categoryKey": "skills.embedded",
     "skills": [
-      "skill.stm32_hal_cubemx",
+      "skill.stm32",
       "skill.avr",
       "skill.esp32",
-      "skill.freertos_basics",
-    ],
-  },
-  {
-    "categoryKey": "skills.tools",
-    "skills": [
-      "skill.stm32cubeide",
-      "skill.keil_uvision",
-      "skill.visual_studio_code",
-      "skill.git",
-    ],
-  },
-  {
-    "categoryKey": "skills.protocols",
-    "skills": [
-      "skill.can",
-      "skill.spi",
-      "skill.i2c",
-      "skill.uart",
-      "skill.ethernet",
-      "skill.ble",
-      "skill.wifi",
-      "skill.nfc",
-      "skill.gnss",
-      "skill.gprs_lte",
     ],
   },
   {
@@ -83,16 +59,13 @@ const List<Map<String, dynamic>> skillCategories = [
       "skill.power_supplies",
       "skill.logic_analyzers",
       "skill.frequency_counters",
-      "skill.debuggers_st_link_swd",
+      "skill.waveform_generator",
     ],
   },
   {
-    "categoryKey": "skills.docs",
+    "categoryKey": "skills.other",
     "skills": [
       "skill.latex",
-      "skill.inkscape",
-      "skill.gimp",
-      "skill.microsoft_office",
     ],
   },
 ];

@@ -31,9 +31,6 @@ Projektant systemu obejmował: mechanikę, elektronikę mocy, firmware, algorytm
 - Szybkość zmian temperatury: 0,5 °C/min
 - Pełny cykl -30 °C do +120 °C: ~5 godzin
 - Maksymalne zużycie mocy: ~50 W
-
-**Tech:** Systemy wbudowane, STM32F103, Grzanie indukcyjne, Przetwornica LLC, IGBT, FAN7382N, Regulacja PID, ESP8285, DS18B20, Automatyzacja Python, Altium Designer, PCB
-
   ''',
 };
 
@@ -72,8 +69,5 @@ Full system designer and integrator - mechanical design, power electronics, firm
 - Controlled ramp rate: 0.5 °C/min
 - Full cycle (-30 °C to +120 °C): ~5 hours
 - Maximum power consumption: ~50 W
-
-**Tech:** Embedded Systems, STM32F103, Induction Heating, LLC Resonant Converter, IGBT, FAN7382N, PID Control, ESP8285, DS18B20, Python Automation, Altium Designer, PCB
-
   ''',
 };
