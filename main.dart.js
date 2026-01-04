@@ -71945,7 +71945,7 @@ $.fK=function(){var s=t.n
 return A.c([A.c([0.41233895,0.35762064,0.18051042],s),A.c([0.2126,0.7152,0.0722],s),A.c([0.01932141,0.11916382,0.95034478],s)],t.zg)}()
 $.o5=A.c([95.047,100,108.883],t.n)
 $.axO=function(){var s=t.s
-return A.az(["m1",A.c(["assets/projects/m1_1.JPG","assets/projects/m1_2.JPG","assets/projects/m1_3.JPG"],s),"m2",A.c(["assets/projects/m2_1.JPG","assets/projects/m2_2.JPG","assets/projects/m2_3.png"],s),"m3",A.c(["assets/projects/m3_1.JPG","assets/projects/m3_2.JPG","assets/projects/m3_3.JPG"],s),"t1",A.c(["assets/projects/t1_1.JPG","assets/projects/t1_2.JPG","assets/projects/t1_3.JPG"],s)],t.N,t.yp)}()
+return A.az(["m1",A.c(["assets/projects/m1_1.JPG","assets/projects/m1_2.JPG","assets/projects/m1_3.JPG"],s),"m2",A.c(["assets/projects/m2_1.jpg","assets/projects/m2_2.jpg","assets/projects/m2_3.png"],s),"m3",A.c(["assets/projects/m3_1.jpg","assets/projects/m3_2.jpg","assets/projects/m3_3.jpg"],s),"t1",A.c(["assets/projects/t1_1.JPG","assets/projects/t1_2.JPG","assets/projects/t1_3.JPG"],s)],t.N,t.yp)}()
 $.axN=function(){var s=t.s
 return A.az(["m1",A.c(["project.m1.image.0","project.m1.image.1","project.m1.image.2"],s),"m2",A.c(["project.m2.image.0","project.m2.image.1","project.m2.image.2"],s),"m3",A.c(["project.m3.image.0","project.m3.image.1","project.m3.image.2"],s),"t1",A.c(["project.t1.image.0","project.t1.image.1","project.t1.image.2"],s)],t.N,t.yp)}()
 $.axP=function(){var s="Embedded Systems",r="Ultrasonic Sensors",q="Analog-digital systems",p=t.s
