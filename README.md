@@ -27,7 +27,7 @@ Designed to present professional experience and projects across desktop and mobi
 > *Mobile-optimized layout with collapsible hamburger menu and stacked content sections.*
 
 ### Project detail page
-![Project details](assets/screenshots/project_detail_view.jpg)
+![Project details](assets/screenshots/project_detail_view.png)
 > *Dedicated project page displaying detailed description, technology stack and image gallery.*
 
 ## Features
