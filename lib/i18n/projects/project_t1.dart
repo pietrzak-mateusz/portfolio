@@ -4,7 +4,7 @@ const Map<String, String> projectT1StringsPl = {
   'project.t1.subtitle': 'Rozwój i wdrożenie sieci czujników sejsmicznych i infradźwiękowych monitorujących szum środowiskowy w detektorach fal grawitacyjnych. Instalacje w trzech międzynarodowych ośrodkach.',
   'project.t1.image.0': 'Instalacja mikrofonu infradźwiękowego w ETpathfinder (Maastricht University).',
   'project.t1.image.1': 'Montaż infradźwiękowego czujnika w kopalni Sos Enattos (Sardynia) - potencjalna lokalizacja ET.',
-  'project.t1.image.2': 'Instalacja czujników w Virgo (EGO, Włochy) – mikrofony infradźwiękowe na statywach i czujniki sejsmiczne (żółte urządzenia pod statywami).',
+  'project.t1.image.2': 'Instalacja czujników w Virgo (EGO, Włochy) - mikrofony infradźwiękowe na statywach i czujniki sejsmiczne (żółte urządzenia pod statywami).',
   'project.t1.description': '''
 Monitorowanie szumu newtonowskiego w detektorach fal grawitacyjnych
 
@@ -48,7 +48,7 @@ const Map<String, String> projectT1StringsEn = {
   'project.t1.subtitle': 'Development and deployment of seismic and infrasound sensor networks monitoring environmental noise at gravitational wave detectors. Installations across three international sites.',
   'project.t1.image.0': 'Infrasound microphone installation at ETpathfinder, Maastricht University.',
   'project.t1.image.1': 'Infrasound sensor installation at Sos Enattos mine (Sardinia) — a candidate ET site.',
-  'project.t1.image.2': 'Sensor installation at Virgo (EGO, Italy) – infrasound microphones on tripods and seismic sensors (yellow devices below tripods)',
+  'project.t1.image.2': 'Sensor installation at Virgo (EGO, Italy) - infrasound microphones on tripods and seismic sensors (yellow devices below tripods)',
   'project.t1.description': '''
 Newtonian Noise Monitoring for Gravitational Wave Detectors
 

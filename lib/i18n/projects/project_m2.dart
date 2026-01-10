@@ -15,7 +15,7 @@ Mechaniczne anemometry charakteryzują się dużą bezwładnością, niską czu�
 
 ROZWIĄZANIE
 Zaprojektowałem dwuosiowy anemometr ultradźwiękowy oparty na pomiarze przesunięcia fazowego sygnałów 40\u00A0kHz pomiędzy nadajnikiem a\u00A0odbiornikiem piezoelektrycznym. Zaimplementowałem enkoder kwadraturowy w\u00A0celu rozszerzenia zakresu pomiarowego oraz system zdarzeń sterowany przez DMA w\u00A0mikrokontrolerze ATxmega do próbkowania w\u00A0czasie rzeczywistym. 
-Część analogowa obejmuje wzmacniacz transimpedancyjny, filtry pasmowe oraz detektor przejścia przez zero. Oprogramowanie realizuje pomiar przesunięcia fazowego między przetwornikami piezoelektrycznymi, korekcję pomiarów i\u00A0zapis danych; wyniki są ciągle zapisywane na kartę SD (FatFs – Generic FAT Filesystem Module).
+Część analogowa obejmuje wzmacniacz transimpedancyjny, filtry pasmowe oraz detektor przejścia przez zero. Pomiar przesunięcia fazowego realizowany jest przez porównanie różnicy faz sygnału nadajnika i odbiornika, mierzony przy pomocy licznika mikrokontrolera w trybie Input Capture. Oprogramowanie realizuje korekcję pomiarów i\u00A0zapis danych; wyniki są ciągle zapisywane na kartę SD (FatFs - Generic FAT Filesystem Module).
 System zapewnia szybką reakcję na podmuchy oraz dokładny pomiar kierunku przy użyciu tanich przetworników piezoelektrycznych.
 
 REZULTATY
@@ -47,7 +47,7 @@ This requires long averaging times and introduces measurement errors. Commercial
 
 SOLUTION
 I designed a two-axis ultrasonic anemometer based on phase-shift measurement of 40\u00A0kHz signals between piezoelectric transmitter and receiver. Implemented a\u00A0quadrature encoder to extend measurement range and used a DMA-driven event system on an ATxmega microcontroller for real-time sampling.
-The electronics include a\u00A0transimpedance amplifier, bandpass filters and a\u00A0zero-crossing detector. The software performs phase shift measurement between piezoelectric transducers, measurement correction, and data logging. Results are continuously written to an SD card (FatFs – Generic FAT Filesystem Module).
+The electronics include a\u00A0transimpedance amplifier, bandpass filters and a\u00A0zero-crossing detector. Phase-shift measurement is performed by comparing the phase difference between transmitter and receiver signals using the microcontroller's timer in Input Capture mode. The software performs measurement correction and data logging. Results are continuously written to an SD card (FatFs - Generic FAT Filesystem Module).
 The system provides fast response to gusts and accurate directional measurement using low-cost piezoelectric transducers.
 
 RESULTS
