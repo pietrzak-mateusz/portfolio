@@ -71,9 +71,29 @@ class Footer extends StatelessWidget {
           // CLICKABLE GITHUB LINK
           // ----------------------------------
           InkWell(
-            onTap: () {
+            onTap: () async {
               // Launches the GitHub URL (works on web and desktop)
-              launchUrl(Uri.parse(SnsLinks.github));
+              final Uri url = Uri.parse(SnsLinks.github);
+              try {
+                if (await canLaunchUrl(url)) {
+                  final bool success = await launchUrl(url);
+                  if (!success && context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: LText('error_launching_url')),
+                    );
+                  }
+                } else if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: LText('error_launching_url')),
+                  );
+                }
+              } catch (e) {
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: LText('error_launching_url')),
+                  );
+                }
+              }
             },
             child: Row(
               mainAxisSize: MainAxisSize.min,
