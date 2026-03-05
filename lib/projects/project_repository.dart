@@ -37,4 +37,12 @@ class ProjectRepository {
   static List<Project> listFromIds(List<String> ids) {
     return ids.map(fromId).toList();
   }
+
+  /// Cached list of personal projects (unmodifiable).
+  static final List<Project> myProjects =
+      List.unmodifiable(listFromIds(myProjectIds));
+
+  /// Cached list of team projects (unmodifiable).
+  static final List<Project> teamProjects =
+      List.unmodifiable(listFromIds(teamProjectIds));
 }
