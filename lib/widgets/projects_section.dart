@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/i18n/l_text.dart';
 import 'package:my_portfolio/projects/project_repository.dart';
+=======
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
+>>>>>>> refactor-data-driven-theme-6144380311073143533
 import 'package:my_portfolio/widgets/project_card.dart';
 
 /// Projects section widget displaying personal and team projects.
@@ -21,7 +26,7 @@ class ProjectsSection extends StatelessWidget {
     return Container(
       width: 140,
       decoration: BoxDecoration(
-        color: CustomColor.bgLight2,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(5),
       ),
       child: InkWell(
@@ -35,19 +40,23 @@ class ProjectsSection extends StatelessWidget {
             curve: Curves.easeInOut,
           );
         },
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.arrow_upward, color: Colors.white, size: 20),
-              SizedBox(width: 12),
-              LText(
-                'return', // "Back to top"
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
+              Icon(Icons.arrow_upward, color: Theme.of(context).colorScheme.onSurface, size: 20),
+              const SizedBox(width: 12),
+              ValueListenableBuilder<String>(
+                valueListenable: localeNotifier,
+                builder: (context, lang, _) {
+                  return Text(
+                    PortfolioService.data.translations['return']?[lang] ?? PortfolioService.data.translations['return']?['en'] ?? '',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontSize: 16,
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -58,9 +67,14 @@ class ProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     // Build project lists using the factory (single source of truth)
     final myProjects = ProjectRepository.myProjects;
     final teamProjects = ProjectRepository.teamProjects;
+=======
+    final myProjects = PortfolioService.data.projects.where((p) => p.type == 'my').toList();
+    final teamProjects = PortfolioService.data.projects.where((p) => p.type == 'team').toList();
+>>>>>>> refactor-data-driven-theme-6144380311073143533
 
     return Container(
       width: double.infinity,
@@ -70,13 +84,16 @@ class ProjectsSection extends StatelessWidget {
           // --------------------
           // MY PROJECTS
           // --------------------
-          const LText(
-            'projects_my',
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: CustomColor.whitePrimary,
-            ),
+          ValueListenableBuilder<String>(
+            valueListenable: localeNotifier,
+            builder: (context, lang, _) {
+              return Text(
+                PortfolioService.data.translations['projects_my']?[lang] ?? PortfolioService.data.translations['projects_my']?['en'] ?? '',
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            },
           ),
 
           const SizedBox(height: 50),
@@ -98,13 +115,16 @@ class ProjectsSection extends StatelessWidget {
           // --------------------
           // TEAM PROJECTS
           // --------------------
-          const LText(
-            'projects_team',
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: CustomColor.whitePrimary,
-            ),
+          ValueListenableBuilder<String>(
+            valueListenable: localeNotifier,
+            builder: (context, lang, _) {
+              return Text(
+                PortfolioService.data.translations['projects_team']?[lang] ?? PortfolioService.data.translations['projects_team']?['en'] ?? '',
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            },
           ),
 
           const SizedBox(height: 50),

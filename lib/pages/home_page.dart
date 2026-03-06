@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/constants/size.dart';
 import 'package:my_portfolio/i18n/l_text.dart';
 import 'package:my_portfolio/widgets/drawer_mobile.dart';
 import 'package:my_portfolio/widgets/footer.dart';
@@ -11,6 +9,10 @@ import 'package:my_portfolio/widgets/main_mobile.dart';
 import 'package:my_portfolio/widgets/projects_section.dart';
 import 'package:my_portfolio/widgets/skills_desktop.dart';
 import 'package:my_portfolio/widgets/skills_mobile.dart';
+
+// Responsive breakpoints
+const double kMinDesktopWidth = 600.0;
+const double kMedDesktopWidth = 800.0;
 
 /// Main portfolio homepage with responsive layout and navigation.
 /// 
@@ -36,9 +38,10 @@ class _HomePageState extends State<HomePage> {
     final screenWidth = screenSize.width;
 
     return LayoutBuilder(builder: (context, constraints) {
+      final theme = Theme.of(context);
       return Scaffold(
         key: scaffoldKey,
-        backgroundColor: CustomColor.scaffoldBg,
+        backgroundColor: theme.scaffoldBackgroundColor,
         // Mobile drawer for navigation on small screens
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
             ? null
@@ -70,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                     key: navbarKeys[1],
                     width: screenWidth,
                     padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                    color: CustomColor.bgLight1,
+                    color: theme.colorScheme.surface,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -80,7 +83,6 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: CustomColor.whitePrimary,
                           ),
                         ),
                         const SizedBox(height: 50),

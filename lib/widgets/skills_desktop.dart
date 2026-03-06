@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/data/skill_items.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
-import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
+import 'package:my_portfolio/models/portfolio_model.dart';
 
 // ============================================
 // TWO-COLUMN VARIANT (for wider screens)
@@ -18,9 +17,9 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Split categories into two columns
-    final halfLength = (skillCategories.length / 2).ceil();
-    final leftColumn = skillCategories.sublist(0, halfLength);
-    final rightColumn = skillCategories.sublist(halfLength);
+    final halfLength = (PortfolioService.data.skills.length / 2).ceil();
+    final leftColumn = PortfolioService.data.skills.sublist(0, halfLength);
+    final rightColumn = PortfolioService.data.skills.sublist(halfLength);
 
     return Center(
       child: ConstrainedBox(
@@ -34,10 +33,7 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   for (var category in leftColumn) ...[
-                    _buildSkillCategory(
-                      categoryKey: category["categoryKey"],
-                      skills: List<String>.from(category["skills"]),
-                    ),
+                    _buildSkillCategory(context, category),
                     const SizedBox(height: 24),
                   ],
                 ],
@@ -52,10 +48,7 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   for (var category in rightColumn) ...[
-                    _buildSkillCategory(
-                      categoryKey: category["categoryKey"],
-                      skills: category["skills"],
-                    ),
+                    _buildSkillCategory(context, category),
                     const SizedBox(height: 24),
                   ],
                 ],
@@ -70,17 +63,12 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
   /// Builds a single skill category widget with translated content.
   /// 
   /// Displays the category title and a list of skills separated by bullet points.
-  Widget _buildSkillCategory({
-    required String categoryKey,
-    required List<String> skills,
-  }) {
+  Widget _buildSkillCategory(BuildContext context, SkillCategoryModel category) {
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
-      builder: (context, locale, _) {
+      builder: (context, lang, _) {
         // Translate all skills and join them with a bullet separator
-        final skillsText = skills
-            .map((skillKey) => t(skillKey))
-            .join(' • ');
+        final skillsText = category.items.join(' • ');
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,11 +77,10 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
             // CATEGORY TITLE
             // --------------------
             Text(
-              t(categoryKey),
-              style: const TextStyle(
+              category.title[lang] ?? category.title['en']!,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-                color: CustomColor.whitePrimary,
               ),
             ),
 
@@ -104,9 +91,9 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
             // --------------------
             Text(
               skillsText,
-              style: const TextStyle(
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 fontSize: 14,
-                color: CustomColor.whiteSecondary,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 height: 1.6,
               ),
             ),

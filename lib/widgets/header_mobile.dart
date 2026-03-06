@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
 
 /// Mobile header widget with a hamburger menu button.
 /// 
@@ -28,7 +27,7 @@ class HeaderMobile extends StatelessWidget {
           Material(
             elevation: 8,
             borderRadius: BorderRadius.circular(12),
-            color: CustomColor.bgLight2,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             child: InkWell(
               onTap: onMenuTap,
               borderRadius: BorderRadius.circular(12),
@@ -38,13 +37,13 @@ class HeaderMobile extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: CustomColor.whitePrimary,
+                    color: Theme.of(context).colorScheme.onSurface,
                     width: 1,
                   ),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.menu,
-                  color: CustomColor.whitePrimary,
+                  color: Theme.of(context).colorScheme.onSurface,
                   size: 28,
                 ),
               ),

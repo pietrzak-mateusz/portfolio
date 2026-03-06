@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/data/nav_items.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
-import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 import 'package:my_portfolio/widgets/language_switcher.dart';
 
 /// Desktop header widget with navigation menu and language switcher.
@@ -24,7 +22,7 @@ class HeaderDesktop extends StatelessWidget {
     return Container(
       height: 60.0,
       decoration: BoxDecoration(
-        color: CustomColor.scaffoldBg,
+        color: Theme.of(context).scaffoldBackgroundColor,
         // Subtle shadow for visual separation
         boxShadow: [
           BoxShadow(
@@ -49,21 +47,20 @@ class HeaderDesktop extends StatelessWidget {
             child: ValueListenableBuilder<String>(
               // Listens for locale changes to update text
               valueListenable: localeNotifier,
-              builder: (_, __, ___) {
+              builder: (context, lang, _) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    for (int i = 0; i < navTitleKeys.length; i++)
+                    for (int i = 0; i < PortfolioService.data.navigation.length; i++)
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextButton(
                           onPressed: () => onNavMenuTap(i),
                           child: Text(
-                            t(navTitleKeys[i]),
-                            style: const TextStyle(
+                            PortfolioService.data.navigation[i].label[lang] ?? PortfolioService.data.navigation[i].label['en']!,
+                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
-                              color: CustomColor.whitePrimary,
                             ),
                           ),
                         ),
@@ -77,11 +74,11 @@ class HeaderDesktop extends StatelessWidget {
           // --------------------
           // RIGHT SIDE – LANGUAGE SWITCHER WITH ICON
           // --------------------
-          const Row(
+          Row(
             children: [
-              Icon(Icons.language, size: 24, color: CustomColor.whiteSecondary),
-              SizedBox(width: 6),
-              LanguageSwitcher(),
+              Icon(Icons.language, size: 24, color: Theme.of(context).colorScheme.onSurfaceVariant),
+              const SizedBox(width: 6),
+              const LanguageSwitcher(),
             ],
           ),
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/i18n/l_text.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 
 /// Mobile version of the main portfolio section.
 /// 
@@ -33,25 +33,31 @@ class MainMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // TEXT CONTENT (text first for better mobile reading flow)
-          const LText(
-            'greeting',
-            style: TextStyle(
-              fontSize: 30, // Consistent with desktop font size
-              height: 1.5,
-              fontWeight: FontWeight.bold,
-              color: CustomColor.whitePrimary,
-            ),
+          ValueListenableBuilder<String>(
+            valueListenable: localeNotifier,
+            builder: (context, lang, _) {
+              return Text(
+                PortfolioService.data.personalInfo.greeting[lang] ?? PortfolioService.data.personalInfo.greeting['en']!,
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  height: 1.5,
+                ),
+              );
+            },
           ),
           const SizedBox(height: 20),
 
-          const LText(
-            'biography',
-            style: TextStyle(
-              fontSize: 16,
-              height: 1.5,
-              fontWeight: FontWeight.bold,
-              color: CustomColor.whitePrimary,
-            ),
+          ValueListenableBuilder<String>(
+            valueListenable: localeNotifier,
+            builder: (context, lang, _) {
+              return Text(
+                PortfolioService.data.personalInfo.biography[lang] ?? PortfolioService.data.personalInfo.biography['en']!,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontSize: 16,
+                  height: 1.5,
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            },
           ),
 
           const SizedBox(height: 30),
