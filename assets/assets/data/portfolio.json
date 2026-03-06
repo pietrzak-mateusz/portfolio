@@ -1,0 +1,430 @@
+{
+  "personalInfo": {
+    "name": "Mateusz",
+    "surname": "Pietrzak",
+    "emailParts": [
+      "bWF0ZXVzeg==",
+      "cGlldHJ6YWswMw==",
+      "Z21haWw=",
+      "Y29t"
+    ],
+    "greeting": {
+      "pl": "Mateusz Pietrzak",
+      "en": "Mateusz Pietrzak"
+    },
+    "biography": {
+      "pl": "Inżynier elektronik oraz doktorant specjalizujący się w\u00A0systemach embedded - od projektowania PCB, przez implementację firmware, po testy laboratoryjne i\u00A0terenowe. Zajmuję się projektowaniem układów pomiarowych, programowaniem mikrokontrolerów (STM32, AVR) oraz przetwarzaniem sygnałów. Posiadam doświadczenie w\u00A0montażu i\u00A0testach prototypów oraz we\u00A0wdrożeniach rozproszonych sieci czujników w\u00A0międzynarodowych ośrodkach badawczych. Interesują mnie projekty łączące projektowanie sprzętu i\u00A0oprogramowania systemowego.",
+      "en": "Electronics engineer and PhD researcher specializing in embedded systems - from PCB design and firmware implementation to laboratory and field testing. I\u00A0design measurement systems, program microcontrollers (STM32, AVR), and implement signal processing algorithms. I\u00A0have hands-on experience assembling and testing prototypes, and deploying distributed sensor networks at\u00A0international research facilities. I'm looking for opportunities that combine hardware design with low-level system software."
+    }
+  },
+  "socialLinks": {
+    "github": "https://github.com/pietrzak-mateusz/portfolio",
+    "linkedin": ""
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "label": {
+        "pl": "Strona główna",
+        "en": "Home"
+      }
+    },
+    {
+      "id": "skills",
+      "label": {
+        "pl": "Umiejętności",
+        "en": "Skills"
+      }
+    },
+    {
+      "id": "projects",
+      "label": {
+        "pl": "Projekty",
+        "en": "Projects"
+      }
+    }
+  ],
+  "translations": {
+    "skills_section": {
+      "pl": "Umiejętności",
+      "en": "Technical Skills"
+    },
+    "projects_my": {
+      "pl": "Moje projekty",
+      "en": "My projects"
+    },
+    "projects_team": {
+      "pl": "Projekty zespołowe",
+      "en": "Team Projects"
+    },
+    "built_with": {
+      "pl": "Wykorzystane technologie: ",
+      "en": "Built with: "
+    },
+    "details_button": {
+      "pl": "Zobacz szczegóły",
+      "en": "View details"
+    },
+    "contact": {
+      "pl": "✉ Napisz do mnie",
+      "en": "✉ Mail me"
+    },
+    "return": {
+      "pl": "Powrót",
+      "en": "   Top"
+    },
+    "copy_email": {
+      "pl": "Kopiuj e-mail",
+      "en": "Copy e-mail"
+    },
+    "email_copied": {
+      "pl": "Adres e-mail został skopiowany!",
+      "en": "E-mail address copied!"
+    },
+    "github_source": {
+      "pl": "Zobacz kod na GitHubie",
+      "en": "View source on GitHub"
+    },
+    "made_by_p1": {
+      "pl": "Stworzone przez: Mateusz Pietrzak — zbudowane z ",
+      "en": "Made by: Mateusz Pietrzak — built with "
+    },
+    "made_by_p2": {
+      "pl": " Flutter 3.38.4\n© 2025 • Projekt open-source (MIT)",
+      "en": " Flutter 3.38.4\n© 2025 • This project is open-source (MIT)"
+    }
+  },
+  "skills": [
+    {
+      "id": "software",
+      "title": {
+        "pl": "Programowanie",
+        "en": "Software Development"
+      },
+      "items": [
+        "C",
+        "C++",
+        "Python",
+        "MATLAB",
+        "LabVIEW",
+        "bash",
+        "VHDL",
+        "Git"
+      ]
+    },
+    {
+      "id": "embedded",
+      "title": {
+        "pl": "Mikrokontrolery i systemy wbudowane",
+        "en": "Microcontrollers & Embedded Systems"
+      },
+      "items": [
+        "STM32",
+        "AVR",
+        "ESP32"
+      ]
+    },
+    {
+      "id": "sbc",
+      "title": {
+        "pl": "Komputery jednopłytkowe",
+        "en": "Single-Board Computers"
+      },
+      "items": [
+        "Raspberry Pi"
+      ]
+    },
+    {
+      "id": "pcb",
+      "title": {
+        "pl": "Projektowanie PCB i symulacja obwodów",
+        "en": "PCB Design & Circuit Simulation"
+      },
+      "items": [
+        "Altium Designer",
+        "CircuitStudio",
+        "PADS",
+        "LTspice"
+      ]
+    },
+    {
+      "id": "proto",
+      "title": {
+        "pl": "Prototypowanie i montaż",
+        "en": "Prototyping & Assembly"
+      },
+      "items": [
+        "Montaż PCB",
+        "Lutowanie SMD/THT",
+        "Druk 3D"
+      ]
+    },
+    {
+      "id": "test",
+      "title": {
+        "pl": "Aparatura pomiarowa",
+        "en": "Test & Measurement Equipment"
+      },
+      "items": [
+        "Oscyloskop",
+        "Multimetr",
+        "Zasilacze",
+        "Analizatory logiczne",
+        "Licznik częstotliwości",
+        "Generator sygnałów arbitralnych"
+      ]
+    },
+    {
+      "id": "other",
+      "title": {
+        "pl": "Inne",
+        "en": "Other"
+      },
+      "items": [
+        "LaTeX"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "m1",
+      "type": "my",
+      "title": {
+        "pl": "Wielowiązkowy Radar Ultradźwiękowy",
+        "en": "Ultrasonic Monopulse Radar"
+      },
+      "subtitle": {
+        "pl": "Ultradźwiękowy system lokalizacji obiektów wykorzystujący technikę monoimpulsową.",
+        "en": "Ultrasonic object localization system using monopulse technique."
+      },
+      "description": {
+        "pl": "Ultradźwiękowy system lokalizacji obiektów wykorzystujący technikę monoimpulsową\n\nRadar wykrywa obiekty w zakresie 0,5-15\u00A0m z\u00A0rozdzielczością kątową 1-8° i\u00A0dokładnością odległości ~1\u00A0cm.\n\nPROBLEM\nAutonomiczne pojazdy i\u00A0systemy bezpieczeństwa wymagają tanich, dokładnych czujników do wykrywania przeszkód. Tradycyjne sonary ultradźwiękowe nie określają kierunku obiektu, a\u00A0radary elektromagnetyczne są drogie. Potrzebne było rozwiązanie łączące niski koszt z\u00A0możliwością lokalizacji (odległość + kierunek).\n\nROZWIĄZANIE\nZaprojektowałem radar wykorzystujący trzy przetworniki piezoelektryczne (40\u00A0kHz) w\u00A0konfiguracji monoimpulsowej. Zbudowałem kompletny tor analogowy: nadajnik z\u00A0mostkiem\u00A0H (40\u00A0V), demodulatory IQ z\u00A0mieszaczami AD633, filtry Sallen-Key oraz system cyfrowy na STM32F411. Synchronizacja przez sprzężone liczniki zapewniła stabilność fazy. Opracowałem algorytm wyznaczania pozycji na podstawie sygnału Δ/Σ z\u00A0funkcją pelengacyjną. Projekt umożliwia jednoczesne oszacowanie odległości i\u00A0kierunku przy użyciu niedrogiego sprzętu ultradźwiękowego.\n\nREZULTATY\nOsiągnięto zasięg 15\u00A0m dla obiektów sferycznych (balon o\u00A0śr.\u00A080\u00A0cm), rozdzielczość azymutalną 1°\u00A0(obiekty bliskie) i\u00A08° (dalekie), próbkowanie 200 kHz. Opracowano prototyp systemu gotowy do integracji z\u00A0pojazdami autonomicznymi.\n\nMoja rola: pełna realizacja projektu w\u00A0zakresie hardware i\u00A0software.\n\n",
+        "en": "Ultrasonic object localization system using monopulse technique.\n\nRadar detects objects at 0.5-15\u00A0m range with 1-8° angular resolution and 1\u00A0cm distance accuracy.\n\nPROBLEM\nAutonomous vehicles and safety systems require affordable, accurate sensors for obstacle detection. Traditional ultrasonic sonars lack directional information, while electromagnetic radars are costly. A\u00A0solution combining low cost with accurate localization (distance + direction) was needed.\n\nSOLUTION\nI designed a radar using three piezoelectric transducers (40 kHz) in monopulse configuration. Built complete analog chain: H-bridge transmitter (40V), IQ demodulators with AD633 mixers, Sallen-Key filters, and STM32F411 digital system. Synchronization via coupled timers achieved phase stability. Developed position algorithm based on Δ/Σ signal with bearing function. This project enabled simultaneous distance and direction estimation using low-cost ultrasonic hardware.\n\nRESULTS\nAchieved 15\u00A0m range for spherical objects (80\u00A0cm dia. balloon), 1° azimuth resolution (near objects) and 8° (far), 200 kHz sampling. A\u00A0system prototype ready for integration into autonomous vehicles has been developed.\n\nMy role: complete hardware and software implementation.\n\n"
+      },
+      "images": [
+        "assets/projects/m1_1.JPG",
+        "assets/projects/m1_2.JPG",
+        "assets/projects/m1_3.JPG"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Prototyp radaru ultradźwiękowego podczas testów zasięgu (obiekt w tle: balon Ø80 cm na dystansie ~12 m)",
+          "en": "Ultrasonic radar prototype during range testing (target: Ø80 cm balloon at ~12 m distance)"
+        },
+        {
+          "pl": "Test wykrywania wielu celów - jednoczesny pomiar odległości i azymut dwóch obiektów",
+          "en": "Multi-target detection test - simultaneous range and azimuth measurement of two objects"
+        },
+        {
+          "pl": "Kompletny system: przetworniki ultradźwiękowe, elektronika pomiarowa, mikrokontroler STM32",
+          "en": "Complete system: ultrasonic transducers, analog front-end, STM32 microcontroller"
+        }
+      ],
+      "technologies": [
+        "Embedded Systems",
+        "Ultrasonic Sensors",
+        "STM32F411RE",
+        "Analog-digital systems",
+        "IQ Demodulation",
+        "Monopulse Technique",
+        "C/C++",
+        "MATLAB",
+        "Altium Designer",
+        "PCB",
+        "UART",
+        "DMA",
+        "3D printing"
+      ],
+      "externalLinks": [
+        {
+          "title": {
+            "pl": "Praca Dyplomowa (APD PW)",
+            "en": "Diploma Thesis (APD PW)"
+          },
+          "url": "https://apd.usos.pw.edu.pl/diplomas/46829/?_s=1"
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "type": "my",
+      "title": {
+        "pl": "Anemometr Ultradźwiękowy",
+        "en": "Ultrasonic Anemometer"
+      },
+      "subtitle": {
+        "pl": "Dwuosiowy ultradźwiękowy czujnik prędkości i kierunku wiatru z pomiarem przesunięcia fazowego oraz rejestracją danych.",
+        "en": "Two-axis ultrasonic wind speed and direction sensor with phase-shift measurement and data logging."
+      },
+      "description": {
+        "pl": "Dwuosiowy anemometr ultradźwiękowy wykorzystujący pomiar przesunięcia fazowego.\n\nUrządzenie mierzy prędkość wiatru w\u00A0zakresie 0-20\u00A0m/s z\u00A0rozdzielczością 0,1\u00A0m/s oraz dokładnością kierunku\u00A0±1°.\n\nPROBLEM\nMechaniczne anemometry charakteryzują się dużą bezwładnością, niską czułością na nagłe podmuchy oraz podatnością na zużycie mechaniczne. Wymaga to długiego czasu uśredniania i\u00A0prowadzi do błędów pomiarowych. Komercyjne ultradźwiękowe czujniki wiatru są kosztowne, co ogranicza ich dostępność. Potrzebne było tanie i\u00A0wydajne rozwiązanie.\n\nROZWIĄZANIE\nZaprojektowałem dwuosiowy anemometr ultradźwiękowy oparty na pomiarze przesunięcia fazowego sygnałów 40\u00A0kHz pomiędzy nadajnikiem a\u00A0odbiornikiem piezoelektrycznym. Część analogowa obejmuje wzmacniacz transimpedancyjny, filtry pasmowe oraz detektor przejścia przez zero. Pomiar przesunięcia fazowego realizowany jest przez porównanie różnicy faz sygnału nadajnika i\u00A0odbiornika, mierzony przy pomocy licznika mikrokontrolera w trybie Input Capture. Oprogramowanie realizuje korekcję pomiarów i\u00A0zapis danych. Wyniki są ciągle zapisywane na kartę SD (FatFs - Generic FAT Filesystem Module). Zaimplementowałem enkoder kwadraturowy w\u00A0celu rozszerzenia zakresu pomiarowego oraz system zdarzeń sterowany przez DMA w\u00A0mikrokontrolerze ATxmega do próbkowania w\u00A0czasie rzeczywistym. System zapewnia szybką reakcję na podmuchy oraz dokładny pomiar kierunku przy użyciu tanich przetworników piezoelektrycznych.\n\nREZULTATY\nOsiągnięto zakres pomiarowy 0-20\u00A0m/s z\u00A0błędem <8%\u00A0względem referencyjnej stacji pogodowej, rozdzielczość kierunku 1°\u00A0oraz możliwość ciągłego zapisu danych na kartę SD.\nCzas reakcji i\u00A0czułość na podmuchy znacząco przewyższają typowe anemometry mechaniczne.\n\nMoja rola: pełna realizacja projektu w\u00A0zakresie hardware i\u00A0software.\n\n",
+        "en": "Two-axis ultrasonic anemometer using phase-shift measurement.\n\nDevice measures wind speed up to 0-20\u00A0m/s with 0.1\u00A0m/s resolution and ±1°\u00A0direction accuracy.\n\nPROBLEM\nMechanical anemometers suffer from high inertia, insensitivity to sudden gusts, and mechanical wear.\nThis requires long averaging times and introduces measurement errors. Commercial ultrasonic wind sensors are expensive, limiting their accessibility. A low-cost, high-performance solution was needed.\n\nSOLUTION\nI designed a two-axis ultrasonic anemometer based on phase-shift measurement of 40\u00A0kHz signals between piezoelectric transmitter and receiver. The electronics include a\u00A0transimpedance amplifier, bandpass filters and a\u00A0zero-crossing detector. Phase-shift measurement is performed by comparing the phase difference between transmitter and receiver signals using the microcontroller's timer in Input Capture mode. The software performs measurement correction and data logging. Results are continuously written to an SD card (FatFs - Generic FAT Filesystem Module). Implemented a\u00A0quadrature encoder to extend measurement range and used a DMA-driven event system on an ATxmega microcontroller for real-time sampling. The system provides fast response to gusts and accurate directional measurement using low-cost piezoelectric transducers.\n\nRESULTS\nAchieved 0-20\u00A0m/s measurement range with <8% error compared to a\u00A0reference weather station, 1°\u00A0direction resolution, and continuous SD logging capability.\nResponse time and gust sensitivity significantly outperform typical mechanical anemometers.\n\nMy role: complete hardware and software implementation.\n\n"
+      },
+      "images": [
+        "assets/projects/m2_1.jpg",
+        "assets/projects/m2_2.jpg",
+        "assets/projects/m2_3.jpg"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Kalibracja w tunelu aerodynamicznym - porównanie z anemometrem mechanicznym stacji pogodowej",
+          "en": "Calibration in wind tunnel setup - comparison with reference mechanical anemometer"
+        },
+        {
+          "pl": "Dwuosiowa konfiguracja przetworników ultradźwiękowych (40 kHz) do pomiaru kierunku i prędkości wiatru",
+          "en": "Dual-axis configuration of ultrasonic transducers (40 kHz) for wind direction and velocity measurement"
+        },
+        {
+          "pl": "Testy terenowe - pomiar prędkości wiatru pozornego z samochodu (weryfikacja zakresu większych prędkości wiatru)",
+          "en": "Field tests - measurement of apparent wind speed from a moving car (verification of higher wind speed range)"
+        }
+      ],
+      "technologies": [
+        "Embedded Systems",
+        "Ultrasonic Sensors",
+        "ATXmega16A4U",
+        "Analog-digital systems",
+        "Real-Time Systems",
+        "FAT32",
+        "C",
+        "MATLAB",
+        "Altium Designer",
+        "PCB",
+        "SPI",
+        "UART",
+        "DMA"
+      ],
+      "externalLinks": [
+        {
+          "title": {
+            "pl": "Praca Dyplomowa (APD PW)",
+            "en": "Diploma Thesis (APD PW)"
+          },
+          "url": "https://apd.usos.pw.edu.pl/diplomas/22611/?_s=1"
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "type": "my",
+      "title": {
+        "pl": "Komora termiczna z grzaniem indukcyjnym",
+        "en": "Thermal Chamber with Induction Heating"
+      },
+      "subtitle": {
+        "pl": "Komora termiczna z ogrzewaniem indukcyjnym do testowania sprzętu elektronicznego (od -30 °C do +120 °C), wyposażona w rezonansowy półmostkowy stopień mocy LLC, regulację PID i interfejs użytkownika.",
+        "en": "Thermal chamber with induction heating for electronic hardware testing (-30 °C to +120 °C), featuring resonant half-bridge LLC power stage, PID control, and user interface."
+      },
+      "description": {
+        "pl": "Laboratoryjny system do kontrolowanych testów temperaturowych elektroniki (-30 °C do +120 °C)\n\nKompaktowa komora termiczna umożliwiająca realizację powtarzalnych przebiegów temperaturowych od -30 °C do +120 °C z\u00A0kontrolowaną szybkością zmian 0,5 °C/min.\n\nPROBLEM\nWiele badań laboratoryjnych i\u00A0testów niezawodności wymaga jednorodnego, stabilnego środowiska temperaturowego w\u00A0szerokim zakresie temperatur. Motywacją projektu było stworzenie platformy testowej umożliwiającej generowanie powtarzalnych przebiegów temperaturowych dla elektroniki i\u00A0precyzyjnych pomiarów.\n\nROZWIĄZANIE\nZaprojektowałem i\u00A0zbudowałem kompletną komorę termiczną łączącą wymianę ciepła przez zanurzenie w\u00A0oleju z\u00A0grzaniem indukcyjnym oraz aktywnym chłodzeniem. Badany układ umieszczany jest w\u00A0stalowym, sześciennym zbiorniku (wyspawanym przeze mnie), wypełnionym olejem parafinowym. Olej zapewnia bezpieczną elektrycznie pracę oraz bardzo jednorodną wymianę ciepła w\u00A0całym zakresie temperatur.\n\nUzyskanie temperatur ujemnych zrealizowano przy użyciu przenośnej elektrycznej zamrażarki do rur. Do zbiornika dospawano dedykowane uchwyty umożliwiające bezpośrednie mocowanie uchwytów chłodzących, co zapewnia efektywne odprowadzanie ciepła przez ścianki naczynia i\u00A0stabilne chłodzenie do -30 °C.\n\nNagrzewanie realizowane jest indukcyjnie - stalowy zbiornik pełni rolę elementu grzejnego, w\u00A0którym indukowane są prądy wirowe. Energia przekazywana jest z\u00A0cewki pochodzącej z\u00A0pola grzejnego kuchenki indukcyjnej i\u00A0równomiernie rozprowadzana do oleju oraz badanego układu.\n\nCewka zasilana jest przez rezonansową przetwornicę pół-mostkową LLC z\u00A0tranzystorami IGBT (FGHL40T65MQDT). Regulacja mocy odbywa się poprzez zmianę częstotliwości pracy względem punktu rezonansowego, z\u00A0zachowaniem pracy w trybie ZVS. Tranzystory sterowane są przez układ FAN7382N z\u00A0kontrolowanym czasem martwym.\n\nSterowanie systemem, generacja PWM oraz regulacja temperatury zostały zaimplementowane na mikrokontrolerze STM32F103. Pomiar temperatury realizują czujniki DS18B20, a\u00A0regulator PID umożliwia realizację liniowych ramp temperaturowych. Prosty interfejs WWW uruchomiony na ESP8285 pozwala na ręczne sterowanie, a\u00A0system może być również w\u00A0pełni automatyzowany z\u00A0użyciem skryptów Python.\n\nZabezpieczenia realizowane są przez polimerowe bezpieczniki nadprądowe oraz bezpiecznik termiczny BF121, który odcina zasilanie przy temperaturach powyżej 121\u00A0°C.\n\nKomora została wykorzystana m.in. do badań temperaturowych rezonatorów kwarcowych i\u00A0analizy stabilności częstotliwości.\n\nREZULTATY\nProjekt systemu obejmował: mechanikę, elektronikę mocy, firmware, algorytmy sterowania, interfejs użytkownika, automatyzację i\u00A0walidację.\n- Zakres temperatur: -30 °C do +120 °C\n- Szybkość zmian temperatury: 0,5 °C/min\n- Pełny cykl -30 °C do +120 °C: ~5 godzin\n- Maksymalne zużycie mocy: ~50 W\n\n",
+        "en": "Laboratory system for controlled temperature testing of electronic hardware (-30 °C to +120 °C)\n\nCompact laboratory thermal chamber enabling repeatable temperature profiles from -30 °C to +120 °C with controlled ramp rate of 0.5 °C/min.\n\nPROBLEM\nMany laboratory experiments and reliability tests require controlled, homogeneous thermal environments over a\u00A0wide temperature range. The motivation for this project was to build a\u00A0flexible thermal test platform capable of generating repeatable temperature profiles suitable for electronic hardware and precision measurements.\n\nSOLUTION\nI designed and built a\u00A0complete thermal chamber system combining immersion-based heat transfer with inductive heating and active cooling.\nThe device under test is placed inside a\u00A0welded steel cubic vessel (fabricated by me) filled with paraffin oil. The oil provides electrically safe operation and highly uniform thermal coupling across the entire temperature range.\n\nLow-temperature operation is achieved using a\u00A0portable electric pipe-freezing unit. Dedicated mounting brackets were welded to the steel vessel, allowing direct attachment of the cooling heads and efficient heat extraction through the vessel walls. This approach enables stable operation down to -30 °C without modifying the cooling unit itself.\n\nHigh-temperature operation is implemented via induction heating. The steel vessel acts as the heating element, with eddy currents induced by a coil sourced from an induction cooktop field generator. Heat is transferred uniformly from the vessel walls into the oil bath and the tested electronics.\n\nThe induction coil is driven by a\u00A0resonant LLC half-bridge power stage using IGBT transistors (FGHL40T65MQDT). Power is regulated by shifting the operating frequency relative to the resonant point, enabling smooth control of induced current and thermal power. Zero-voltage switching (ZVS) operation minimizes switching losses. The IGBTs are driven by a\u00A0FAN7382N half-bridge gate driver IC with controlled dead time.\n\nSystem control, PWM with dead time generation, and temperature regulation are implemented on an STM32F103 microcontroller. Temperature feedback is provided by DS18B20 digital sensors, with a\u00A0software PID controller executing linear temperature ramps. A web-based user interface is hosted on an ESP8285 module, enabling manual control of induced power regulation. The system can also be fully automated via external Python scripts over serial communication.\n\nHardware safety features include polymer overcurrent protection and a BF121 thermal fuse disconnecting power above 121 °C.\n\nThe system was successfully used for controlled temperature characterization of quartz resonators, enabling precise analysis of frequency stability and thermal behavior.\n\nRESULTS\nFull system designer and integrator - mechanical design, power electronics, firmware, control algorithms, UI, automation, and system validation.\n- Temperature range: -30 °C to +120 °C\n- Controlled ramp rate: 0.5 °C/min\n- Full cycle (-30 °C to +120 °C): ~5 hours\n- Maximum power consumption: ~50 W\n\n"
+      },
+      "images": [
+        "assets/projects/m3_1.jpg",
+        "assets/projects/m3_2.jpg",
+        "assets/projects/m3_3.jpg"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Komora podczas testu niskotemperaturowego - próbka zanurzona w oleju parafinowym, widoczne chłodzące po bokach",
+          "en": "Chamber during low-temperature test - sample immersed in paraffin oil, cooling visible on sides"
+        },
+        {
+          "pl": "Testowany układ elektroniczny wewnątrz komory (po spuszczeniu oleju)",
+          "en": "Electronic system under test inside chamber (after draining oil)"
+        },
+        {
+          "pl": "Moduł sterujący: sterownik pół-mostka LLC (IGBT + FAN7382N), ESP8285, STM32F103",
+          "en": "Control module: LLC half-bridge driver (IGBT + FAN7382N), ESP8285, STM32F103"
+        }
+      ],
+      "technologies": [
+        "Embedded Systems",
+        "STM32F103",
+        "Induction Heating",
+        "LLC Resonant Converter",
+        "IGBT",
+        "FAN7382N",
+        "PID Control",
+        "ESP8285",
+        "DS18B20",
+        "Python",
+        "Altium Designer",
+        "PCB"
+      ],
+      "externalLinks": [
+      ]
+    },
+    {
+      "id": "t1",
+      "type": "team",
+      "title": {
+        "pl": "Rozproszona sieć czujników sejsmicznych i infradźwiękowych",
+        "en": "Distributed network of seismic and infrasound sensors"
+      },
+      "subtitle": {
+        "pl": "Rozwój i wdrożenie sieci czujników sejsmicznych i infradźwiękowych monitorujących szum środowiskowy w detektorach fal grawitacyjnych. Instalacje w trzech międzynarodowych ośrodkach.",
+        "en": "Development and deployment of seismic and infrasound sensor networks monitoring environmental noise at gravitational wave detectors. Installations across three international sites."
+      },
+      "description": {
+        "pl": "Monitorowanie szumu newtonowskiego w detektorach fal grawitacyjnych\n\nRozproszona sieć czujników sejsmicznych i\u00A0infradźwiękowych monitorująca szum środowiskowy w\u00A0detektorach fal grawitacyjnych w\u00A0trzech międzynarodowych lokalizacjach badawczych.\n\nPROBLEM\nSzum newtonowski - wibracje sejsmiczne i\u00A0zmiany ciśnienia w\u00A0zakresie niskich częstotliwości dźwięku - ogranicza czułość detektorów fal grawitacyjnych takich jak Virgo i\u00A0planowany Einstein Telescope. Zrozumienie i\u00A0charakteryzacja tego szumu środowiskowego jest kluczowa dla poprawy działania detektorów i\u00A0umożliwienia detekcji jeszcze słabszych sygnałów fal grawitacyjnych pochodzących z\u00A0odległych zjawisk kosmicznych.\n\nROZWIĄZANIE\nW ramach zespołu badawczego kierowanego przez dr. Mariusza Suchenka w AstroCeNT (Centrum Astronomiczne im. Mikołaja Kopernika PAN), brałem udział w tworzeniu i\u00A0wdrażaniu sieci czujników sejsmicznych i\u00A0infradźwiękowych opracowanych w\u00A0instytucie. Moje obowiązki obejmowały montaż dedykowanych płytek PCB, testowanie prototypów czujników w\u00A0warunkach laboratoryjnych oraz udział w\u00A0instalacjach terenowych w\u00A0ośrodkach badawczych. Sieć składa się z\u00A0precyzyjnych czujników sejsmicznych monitorujących drgania gruntu oraz mikrofonów infradźwiękowych mierzących zmiany ciśnienia od niskich częstotliwości. Razem zainstalowaliśmy ponad 100 par czujników. Wyjeżdżałem do międzynarodowych ośrodków badawczych, aby wspierać instalację czujników i\u00A0integrację systemów, zdobywając doświadczenie w\u00A0wielonarodowych współpracach naukowych.\n\nMikrofony infradźwiękowe - kluczowe parametry\n- Zakres częstotliwości: 0,1-120 Hz\n- Czułość: 2,5 mV/Pa\n- Nieliniowość (zniekształcenia): < 1,5 dB\n- Koszt jednostkowy: ~100 EUR\n\nSejsmometry - kluczowe parametry\n- Zakres dynamiki: 134 dB\n- Dokładność synchronizacji czasu: < 20 µs\n- Częstotliwość próbkowania: od 0,5 ms\n\nREZULTATY\nSieci czujników pomyślnie wdrożone i\u00A0działające w\u00A0trzech kluczowych lokalizacjach: detektor fal grawitacyjnych Virgo EGO (Cascina, Włochy), podziemny ośrodek badawczy Sos Enattos (Sardynia, Włochy) oraz laboratorium rozwoju technologii ET Path Finder (Maastricht, Holandia). Dane zbierane z\u00A0tych instalacji są analizowane przez zespoły badawcze w\u00A0celu opracowania strategii redukcji szumu dla detektorów nowej generacji. Dla technologii czujników opracowanej przez grupę złożono wnioski patentowe.\n\nMoja rola: Specjalista-technik i\u00A0doktorant - montaż PCB, testy prototypów czujników, instalacje terenowe w\u00A0międzynarodowych ośrodkach, wsparcie techniczne dla współprac wielonarodowych.\n\n",
+        "en": "Newtonian Noise Monitoring for Gravitational Wave Detectors\n\nDistributed sensor network monitoring environmental noise at gravitational wave detector sites across three international research sites.\n\nPROBLEM\nNewtonian Noise - seismic vibrations and low-frequency acoustic pressure variations - limits the sensitivity of gravitational wave detectors like Virgo and the planned Einstein Telescope. Understanding and characterizing this environmental noise is critical for improving detector performance and enabling the detection of weaker gravitational wave signals from distant cosmic events.\n\nSOLUTION\nAs part of the research team led by Dr. Mariusz Suchenek at AstroCeNT (Nicolaus Copernicus Astronomical Center, Polish Academy of Sciences), I contributed to the development and deployment of seismic and infrasound sensors designed at the institute. My responsibilities included assembling custom PCB boards designed by the research group, testing sensor prototypes in laboratory conditions, and participating in field installations. The network consists of precision seismic sensors monitoring ground vibrations and infrasound microphones measuring low-frequency pressure changes. In total we installed over 100 pairs of sensors. I traveled to international research facilities to assist in sensor deployment and system integration, gaining experience in multinational scientific collaborations.\n\nInfrasound microphones - key specifications\n- Frequency range: 0.1-120 Hz\n- Sensitivity: 2.5 mV/Pa\n- Distortion: < 1.5 dB\n- Unit cost: ~100 EUR\n\nSeismometers - key specifications\n- Dynamic range: 134 dB\n- Timing accuracy: < 20 µs\n- Sampling rate: from 0.5 ms\n\nRESULTS\nSensor networks successfully deployed and operational at three critical sites: Virgo EGO gravitational wave detector (Cascina, Italy), Sos Enattos underground research facility (Sardinia, Italy), and ET Path Finder technology development lab (Maastricht, Netherlands). Data collected from these installations is currently being analyzed by research teams to develop noise cancellation strategies for next-generation detectors. Patent applications have been filed for the sensor technology developed by the group.\n\nMy role: Technical specialist and PhD researcher - PCB assembly, sensor prototype testing, field installations at international sites, technical support for multinational collaborations.\n\n"
+      },
+      "images": [
+        "assets/projects/t1_1.JPG",
+        "assets/projects/t1_2.JPG",
+        "assets/projects/t1_3.JPG"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Instalacja mikrofonu infradźwiękowego w ETpathfinder (Maastricht University).",
+          "en": "Infrasound microphone installation at ETpathfinder, Maastricht University."
+        },
+        {
+          "pl": "Montaż infradźwiękowego czujnika w kopalni Sos Enattos (Sardynia) - potencjalna lokalizacja ET.",
+          "en": "Infrasound sensor installation at Sos Enattos mine (Sardinia) — a candidate ET site."
+        },
+        {
+          "pl": "Instalacja czujników w Virgo (EGO, Włochy) - mikrofony infradźwiękowe na statywach i czujniki sejsmiczne.",
+          "en": "Sensor installation at Virgo (EGO, Italy) - infrasound microphones on tripods and seismic sensors."
+        }
+      ],
+      "technologies": [
+        "Distributed sensor networks",
+        "Seismic sensors",
+        "Infrasound microphones / Infrasound sensors",
+        "Data acquisition",
+        "Nanometrics Centaur",
+        "STM32",
+        "Altium Designer",
+        "Python",
+        "C/C++",
+        "MATLAB",
+        "Raspberry Pi"
+      ],
+      "externalLinks": [
+        {
+          "title": {
+            "pl": "Publikacja: Springer Nature",
+            "en": "Publication: Springer Nature"
+          },
+          "url": "https://doi.org/10.1140/epjp/s13360-023-04834-0"
+        },
+		        {
+          "title": {
+            "pl": "Materiały konferencyjne: XIII ET Symposium (2023)",
+            "en": "Conference Materials: XIII ET Symposium (2023)"
+          },
+          "url": "https://indico.ego-gw.it/event/562/contributions/5213/attachments/2731/4824/2023_MSuchenek.pdf"
+        },
+		        {
+          "title": {
+            "pl": "Publikacja: Proceedings of Science",
+            "en": "Publication: Proceedings of Science"
+          },
+          "url": "https://doi.org/10.22323/1.441.0104 "
+        }
+      ]
+    }
+  ]
+}
