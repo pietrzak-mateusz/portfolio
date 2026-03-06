@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/i18n/l_text.dart';
-import 'package:my_portfolio/projects/project_repository.dart';
-=======
 import 'package:my_portfolio/i18n/locale_controller.dart';
 import 'package:my_portfolio/services/portfolio_service.dart';
->>>>>>> refactor-data-driven-theme-6144380311073143533
 import 'package:my_portfolio/widgets/project_card.dart';
 
 /// Projects section widget displaying personal and team projects.
@@ -67,14 +61,8 @@ class ProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    // Build project lists using the factory (single source of truth)
-    final myProjects = ProjectRepository.myProjects;
-    final teamProjects = ProjectRepository.teamProjects;
-=======
     final myProjects = PortfolioService.data.projects.where((p) => p.type == 'my').toList();
     final teamProjects = PortfolioService.data.projects.where((p) => p.type == 'team').toList();
->>>>>>> refactor-data-driven-theme-6144380311073143533
 
     return Container(
       width: double.infinity,
