@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/i18n/l_text.dart';
-import 'package:my_portfolio/projects/project_model.dart';
+import 'package:my_portfolio/models/portfolio_model.dart';
+import 'package:my_portfolio/i18n/locale_controller.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 import 'package:my_portfolio/pages/project_detail_page.dart';
 
 /// Card widget for displaying project previews in a horizontal layout.
@@ -15,7 +15,7 @@ class ProjectCardWidget extends StatelessWidget {
   });
 
   /// The project data to display in this card
-  final Project project;
+  final ProjectModel project;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ProjectCardWidget extends StatelessWidget {
       height: 200,
       width: 820, // Wider than typical cards for horizontal layout
       decoration: BoxDecoration(
-        color: CustomColor.bgLight2,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(8),
       ),
       clipBehavior: Clip.antiAlias,
@@ -48,26 +48,38 @@ class ProjectCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Project title (internationalized)
-                  LText(
-                    project.titleKey,
-                    style: const TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: CustomColor.whitePrimary,
-                    ),
+                  ValueListenableBuilder<String>(
+                    valueListenable: localeNotifier,
+                    builder: (context, lang, _) {
+                      return Text(
+                        project.title[lang] ?? project.title['en']!,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontSize: 17,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      );
+                    },
                   ),
 
                   const SizedBox(height: 12),
 
                   // Project description/subtitle (internationalized)
                   Expanded(
-                    child: LText(
-                      project.subtitleKey,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        height: 1.4,
-                        color: CustomColor.whiteSecondary,
-                      ),
+                    child: ValueListenableBuilder<String>(
+                      valueListenable: localeNotifier,
+                      builder: (context, lang, _) {
+                        return Text(
+                          project.subtitle[lang] ?? project.subtitle['en']!,
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontSize: 15,
+                            height: 1.4,
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        );
+                      },
                     ),
                   ),
 
@@ -92,16 +104,20 @@ class ProjectCardWidget extends StatelessWidget {
                           vertical: 10,
                         ),
                         decoration: BoxDecoration(
-                          color: CustomColor.bgLight1,
+                          color: Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        child: const LText(
-                          'details_button',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        child: ValueListenableBuilder<String>(
+                          valueListenable: localeNotifier,
+                          builder: (context, lang, _) {
+                            return Text(
+                              PortfolioService.data.translations['details_button']?[lang] ?? PortfolioService.data.translations['details_button']?['en'] ?? '',
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),

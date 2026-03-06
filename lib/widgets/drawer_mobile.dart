@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/data/nav_items.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
-import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 import 'package:my_portfolio/widgets/language_switcher.dart';
 
 /// Mobile navigation drawer for the portfolio app.
@@ -27,11 +25,12 @@ class DrawerMobile extends StatelessWidget {
       // Drawer width is 50% of screen width
       width: screenWidth * 0.5,
       child: Drawer(
-        backgroundColor: CustomColor.scaffoldBg,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         child: ValueListenableBuilder<String>(
           // Listens to locale changes for dynamic text updates
           valueListenable: localeNotifier,
-          builder: (_, __, ___) {
+          builder: (context, lang, _) {
+            final navIcons = [Icons.home, Icons.build, Icons.apps]; // Assuming standard icons since data/nav_items.dart is gone
             return ListView(
               children: [
                 // --------------------
@@ -47,9 +46,9 @@ class DrawerMobile extends StatelessWidget {
                     ),
                     child: IconButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.close,
-                        color: CustomColor.whitePrimary,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                   ),
@@ -58,12 +57,11 @@ class DrawerMobile extends StatelessWidget {
                 // --------------------
                 // INTERNATIONALIZED NAVIGATION ITEMS
                 // --------------------
-                for (int i = 0; i < navIcons.length; i++)
+                for (int i = 0; i < PortfolioService.data.navigation.length; i++)
                   ListTile(
                     contentPadding:
                         const EdgeInsets.symmetric(horizontal: 30),
-                    titleTextStyle: const TextStyle(
-                      color: CustomColor.whitePrimary,
+                    titleTextStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
                     ),
@@ -73,14 +71,14 @@ class DrawerMobile extends StatelessWidget {
                     },
                     leading: Icon(
                       navIcons[i],
-                      color: CustomColor.whiteSecondary,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
-                    title: Text(t(navTitleKeys[i])),
+                    title: Text(PortfolioService.data.navigation[i].label[lang] ?? PortfolioService.data.navigation[i].label['en']!),
                   ),
 
                 const SizedBox(height: 24),
-                const Divider(
-                  color: CustomColor.whiteSecondary,
+                Divider(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                   thickness: 0.3,
                 ),
                 const SizedBox(height: 16),
@@ -88,16 +86,16 @@ class DrawerMobile extends StatelessWidget {
                 // --------------------
                 // LANGUAGE SWITCHER WITH ICON
                 // --------------------
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
                       Icons.language,
                       size: 22,
-                      color: CustomColor.whiteSecondary,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
-                    SizedBox(width: 10),
-                    LanguageSwitcher(),
+                    const SizedBox(width: 10),
+                    const LanguageSwitcher(),
                   ],
                 ),
 

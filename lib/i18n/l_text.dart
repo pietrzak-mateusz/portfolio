@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
-import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 
 /// Classes responsible for language changes
 /// Internationalized text widgets that automatically update when the locale changes.
-/// These widgets listen to `localeNotifier` and use the `t()` function for translation.
+/// These widgets listen to `localeNotifier` and use the PortfolioService translations.
 
 class LText extends StatelessWidget {
-  final String keyName; // Translation key from strings.dart
+  final String keyName; // Translation key
   final TextStyle? style;
   final TextAlign? textAlign;
 
@@ -23,9 +22,9 @@ class LText extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
-      builder: (_, __, ___) {
+      builder: (context, lang, _) {
         return Text(
-          t(keyName),
+          PortfolioService.data.translations[keyName]?[lang] ?? PortfolioService.data.translations[keyName]?['en'] ?? keyName,
           style: style,
           textAlign: textAlign,
         );
@@ -55,17 +54,16 @@ class LRichText extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
-      builder: (_, __, ___) {
-        final left = t(leftKey);
-        final right = t(rightKey);
+      builder: (context, lang, _) {
+        final left = PortfolioService.data.translations[leftKey]?[lang] ?? PortfolioService.data.translations[leftKey]?['en'] ?? leftKey;
+        final right = PortfolioService.data.translations[rightKey]?[lang] ?? PortfolioService.data.translations[rightKey]?['en'] ?? rightKey;
 
-        final baseStyle = style ??
-            const TextStyle(
-              fontWeight: FontWeight.w400,
-              height: 1.4,
-              color: CustomColor.whiteSecondary,
-              fontSize: 14,
-            );
+        final baseStyle = style ?? Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontWeight: FontWeight.w400,
+          height: 1.4,
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
+          fontSize: 14,
+        );
 
         return RichText(
           textAlign: TextAlign.center,
@@ -94,7 +92,7 @@ class LRichText extends StatelessWidget {
 
 /// TextSpan wrapper for internationalized text within RichText widgets.
 class LSpan extends StatelessWidget {
-  final String keyName; // Translation key from strings.dart
+  final String keyName; // Translation key
   final TextStyle? style;
 
   const LSpan(
@@ -107,10 +105,10 @@ class LSpan extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
-      builder: (_, __, ___) {
+      builder: (context, lang, _) {
         return Text.rich(
           TextSpan(
-            text: t(keyName),
+            text: PortfolioService.data.translations[keyName]?[lang] ?? PortfolioService.data.translations[keyName]?['en'] ?? keyName,
             style: style,
           ),
         );

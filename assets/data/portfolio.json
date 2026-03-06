@@ -1,0 +1,359 @@
+{
+  "personalInfo": {
+    "name": "Mateusz",
+    "surname": "Pietrzak",
+    "emailParts": [
+      "bWF0ZXVzeg==",
+      "cGlldHJ6YWswMw==",
+      "Z21haWw=",
+      "Y29t"
+    ],
+    "greeting": {
+      "pl": "Mateusz Pietrzak",
+      "en": "Mateusz Pietrzak"
+    },
+    "biography": {
+      "pl": "Cześć!\nNazywam się Mateusz.\nJestem pasjonatem elektroniki, inżynierii sprzętu komputerowego oraz wbudowanych systemów.\nZapraszam do zapoznania się z moim portfolio.",
+      "en": "Hello!\nMy name is Mateusz.\nI am passionate about electronics, hardware engineering, and embedded systems.\nFeel free to explore my portfolio."
+    }
+  },
+  "socialLinks": {
+    "github": "https://github.com/MateuszPietrzak",
+    "linkedin": "https://www.linkedin.com/in/mateusz-pietrzak-pl/"
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "label": {
+        "pl": "Strona główna",
+        "en": "Home"
+      }
+    },
+    {
+      "id": "skills",
+      "label": {
+        "pl": "Umiejętności",
+        "en": "Skills"
+      }
+    },
+    {
+      "id": "projects",
+      "label": {
+        "pl": "Projekty",
+        "en": "Projects"
+      }
+    }
+  ],
+  "translations": {
+    "skills_section": {
+      "pl": "Umiejętności",
+      "en": "Technical Skills"
+    },
+    "projects_my": {
+      "pl": "Moje projekty",
+      "en": "My projects"
+    },
+    "projects_team": {
+      "pl": "Projekty zespołowe",
+      "en": "Team Projects"
+    },
+    "built_with": {
+      "pl": "Wykorzystane technologie: ",
+      "en": "Built with: "
+    },
+    "details_button": {
+      "pl": "Zobacz szczegóły",
+      "en": "View details"
+    },
+    "contact": {
+      "pl": "✉ Napisz do mnie",
+      "en": "✉ Mail me"
+    },
+    "return": {
+      "pl": "Powrót",
+      "en": "   Top"
+    },
+    "copy_email": {
+      "pl": "Kopiuj e-mail",
+      "en": "Copy e-mail"
+    },
+    "email_copied": {
+      "pl": "Adres e-mail został skopiowany!",
+      "en": "E-mail address copied!"
+    },
+    "github_source": {
+      "pl": "Zobacz kod na GitHubie",
+      "en": "View source on GitHub"
+    },
+    "made_by_p1": {
+      "pl": "Stworzone przez: Mateusz Pietrzak — zbudowane z ",
+      "en": "Made by: Mateusz Pietrzak — built with "
+    },
+    "made_by_p2": {
+      "pl": " Flutter 3.38.4\n© 2025 • Projekt open-source (MIT)",
+      "en": " Flutter 3.38.4\n© 2025 • This project is open-source (MIT)"
+    }
+  },
+  "skills": [
+    {
+      "id": "embedded",
+      "title": {
+        "pl": "Systemy wbudowane & IoT",
+        "en": "Embedded Systems & IoT"
+      },
+      "items": [
+        "STM32 (C/C++, HAL, LL)",
+        "AVR (C)",
+        "Arduino",
+        "ESP8266 / ESP32",
+        "Raspberry Pi",
+        "FreeRTOS"
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": {
+        "pl": "Elektronika & Sprzęt",
+        "en": "Electronics & Hardware"
+      },
+      "items": [
+        "Projektowanie PCB (Altium Designer)",
+        "Lutowanie (SMD, THT)",
+        "Obsługa aparatury (Oscyloskop, Generator)",
+        "Druk 3D"
+      ]
+    },
+    {
+      "id": "programming",
+      "title": {
+        "pl": "Programowanie & Skrypty",
+        "en": "Programming & Scripts"
+      },
+      "items": [
+        "C / C++",
+        "Python (Skrypty, Analiza danych)",
+        "MATLAB",
+        "Flutter / Dart (Podstawy)"
+      ]
+    },
+    {
+      "id": "tools",
+      "title": {
+        "pl": "Narzędzia & Inne",
+        "en": "Tools & Other"
+      },
+      "items": [
+        "Git / GitHub",
+        "Linux",
+        "Język angielski (B2)"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "m1",
+      "type": "my",
+      "title": {
+        "pl": "Własny system radaru ultradźwiękowego",
+        "en": "Custom Ultrasonic Radar System"
+      },
+      "subtitle": {
+        "pl": "STM32 • C/C++ • Altium Designer • MATLAB",
+        "en": "STM32 • C/C++ • Altium Designer • MATLAB"
+      },
+      "description": {
+        "pl": "Zaprojektowałem i zbudowałem od podstaw układ do precyzyjnego pomiaru odległości. Opracowałem własną elektronikę, która wzmacnia i filtruje sygnały z czujnika ultradźwiękowego, a następnie przetwarza je przy pomocy mikrokontrolera STM32. Zaimplementowałem zaawansowane algorytmy przetwarzania sygnałów, takie jak demodulacja IQ, w celu osiągnięcia wysokiej dokładności pomiaru.",
+        "en": "Designed and built from scratch a system for precise distance measurement. Developed custom electronics to amplify and filter signals from an ultrasonic sensor, and processed them using an STM32 microcontroller. Implemented advanced signal processing algorithms, such as IQ demodulation, to achieve high measurement accuracy."
+      },
+      "images": [
+        "assets/projects/m1_1.JPG",
+        "assets/projects/m1_2.JPG",
+        "assets/projects/m1_3.JPG"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Zmontowane urządzenie",
+          "en": "Assembled device"
+        },
+        {
+          "pl": "Widok płytki PCB",
+          "en": "PCB view"
+        },
+        {
+          "pl": "Proces projektowania w Altium Designer",
+          "en": "Design process in Altium Designer"
+        }
+      ],
+      "technologies": [
+        "Embedded Systems",
+        "Ultrasonic Sensors",
+        "STM32F411RE",
+        "Analog-digital systems",
+        "IQ Demodulation",
+        "Monopulse Technique",
+        "C/C++",
+        "MATLAB",
+        "Altium Designer",
+        "PCB",
+        "UART",
+        "DMA",
+        "3D printing"
+      ],
+      "githubLink": "https://github.com/MateuszPietrzak",
+      "webLink": null
+    },
+    {
+      "id": "m2",
+      "type": "my",
+      "title": {
+        "pl": "Moduł do komunikacji ultradźwiękowej",
+        "en": "Ultrasonic Communication Module"
+      },
+      "subtitle": {
+        "pl": "ATXmega • C • Altium Designer • PCB",
+        "en": "ATXmega • C • Altium Designer • PCB"
+      },
+      "description": {
+        "pl": "Stworzyłem urządzenie umożliwiające przesyłanie i odbieranie danych za pomocą fal ultradźwiękowych. Zaprojektowałem obwody analogowe nadajnika i odbiornika oraz oprogramowałem mikrokontroler z rodziny Xmega w języku C. Zaimplementowałem protokół komunikacyjny oraz obsługę systemu plików FAT32 na karcie SD w celu rejestracji danych.",
+        "en": "Created a device capable of transmitting and receiving data using ultrasonic waves. Designed the analog transmitter and receiver circuits and programmed an Xmega microcontroller in C. Implemented a communication protocol and FAT32 file system support on an SD card for data logging."
+      },
+      "images": [
+        "assets/projects/m2_1.jpg",
+        "assets/projects/m2_2.jpg",
+        "assets/projects/m2_3.jpg"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Prototyp na płytce stykowej",
+          "en": "Breadboard prototype"
+        },
+        {
+          "pl": "Pierwsza wersja PCB",
+          "en": "First PCB version"
+        },
+        {
+          "pl": "Testowanie układu",
+          "en": "System testing"
+        }
+      ],
+      "technologies": [
+        "Embedded Systems",
+        "Ultrasonic Sensors",
+        "ATXmega16A4U",
+        "Analog-digital systems",
+        "Real-Time Systems",
+        "FAT32",
+        "C",
+        "MATLAB",
+        "Altium Designer",
+        "PCB",
+        "SPI",
+        "UART",
+        "DMA"
+      ],
+      "githubLink": "https://github.com/MateuszPietrzak",
+      "webLink": null
+    },
+    {
+      "id": "m3",
+      "type": "my",
+      "title": {
+        "pl": "Sterownik nagrzewnicy indukcyjnej",
+        "en": "Induction Heater Controller"
+      },
+      "subtitle": {
+        "pl": "STM32 • Power Electronics • ESP8285",
+        "en": "STM32 • Power Electronics • ESP8285"
+      },
+      "description": {
+        "pl": "Zaprojektowałem inteligentny sterownik dla nagrzewnicy indukcyjnej opartej na topologii rezonansowej LLC. Opracowałem układ zasilania i sterowania dla tranzystorów IGBT (Half-Bridge). Oprogramowanie na STM32 wykorzystuje algorytm PID do stabilizacji temperatury na podstawie odczytów z czujnika DS18B20. Dodatkowo zintegrowałem moduł ESP8285, umożliwiając zdalne monitorowanie i konfigurację parametrów przez sieć Wi-Fi.",
+        "en": "Designed a smart controller for an induction heater based on the LLC resonant topology. Developed the power and control circuitry for IGBT transistors (Half-Bridge). The STM32 software uses a PID algorithm to stabilize the temperature based on readings from a DS18B20 sensor. Additionally, integrated an ESP8285 module, enabling remote monitoring and parameter configuration via Wi-Fi."
+      },
+      "images": [
+        "assets/projects/m3_1.jpg",
+        "assets/projects/m3_2.jpg",
+        "assets/projects/m3_3.jpg"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Zmontowana elektronika sterująca",
+          "en": "Assembled control electronics"
+        },
+        {
+          "pl": "Widok w programie Altium Designer",
+          "en": "View in Altium Designer"
+        },
+        {
+          "pl": "Cewka indukcyjna podczas pracy",
+          "en": "Induction coil during operation"
+        }
+      ],
+      "technologies": [
+        "Embedded Systems",
+        "STM32F103",
+        "Induction Heating",
+        "LLC Resonant Converter",
+        "IGBT",
+        "FAN7382N",
+        "PID Control",
+        "ESP8285",
+        "DS18B20",
+        "Python",
+        "Altium Designer",
+        "PCB"
+      ],
+      "githubLink": "https://github.com/MateuszPietrzak",
+      "webLink": null
+    },
+    {
+      "id": "t1",
+      "type": "team",
+      "title": {
+        "pl": "System rozproszonych pomiarów sejsmicznych",
+        "en": "Distributed Seismic Measurement System"
+      },
+      "subtitle": {
+        "pl": "Sensors • Data acquisition • Python",
+        "en": "Sensors • Data acquisition • Python"
+      },
+      "description": {
+        "pl": "W ramach projektu zespołowego współtworzyłem system do rozproszonego pomiaru i akwizycji danych sejsmicznych oraz infradźwiękowych. Odpowiadałem za integrację różnych czujników i rejestratorów (m.in. Nanometrics Centaur) w jedną spójną sieć. Opracowałem skrypty w Pythonie do automatycznego pobierania, analizy i wizualizacji zgromadzonych danych.",
+        "en": "As part of a team project, co-developed a system for distributed measurement and acquisition of seismic and infrasound data. Responsible for integrating various sensors and dataloggers (e.g., Nanometrics Centaur) into a cohesive network. Developed Python scripts for automatic downloading, analysis, and visualization of the collected data."
+      },
+      "images": [
+        "assets/projects/t1_1.JPG",
+        "assets/projects/t1_2.JPG",
+        "assets/projects/t1_3.JPG"
+      ],
+      "imageCaptions": [
+        {
+          "pl": "Rozmieszczanie czujników w terenie",
+          "en": "Deploying sensors in the field"
+        },
+        {
+          "pl": "Aparatura rejestrująca",
+          "en": "Recording equipment"
+        },
+        {
+          "pl": "Przykładowa analiza zebranych danych",
+          "en": "Example analysis of collected data"
+        }
+      ],
+      "technologies": [
+        "Distributed sensor networks",
+        "Seismic sensors",
+        "Infrasound microphones / Infrasound sensors",
+        "Data acquisition",
+        "Nanometrics Centaur",
+        "STM32",
+        "Altium Designer",
+        "Python",
+        "C/C++",
+        "MATLAB",
+        "Raspberry Pi"
+      ],
+      "githubLink": "https://github.com/MateuszPietrzak",
+      "webLink": null
+    }
+  ]
+}

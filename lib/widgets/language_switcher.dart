@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
 
 /// Toggle switch widget for switching between Polish (PL) and English (EN) languages.
@@ -27,7 +26,7 @@ class LanguageSwitcher extends StatelessWidget {
             height: 32,
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
-              color: CustomColor.bgLight2,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(18),
             ),
             child: Stack(
@@ -41,7 +40,7 @@ class LanguageSwitcher extends StatelessWidget {
                     width: 32,
                     height: 26,
                     decoration: BoxDecoration(
-                      color: CustomColor.whitePrimary,
+                      color: Theme.of(context).colorScheme.onSurface,
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
@@ -55,12 +54,12 @@ class LanguageSwitcher extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'PL',
-                          style: TextStyle(
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             fontSize: 12,
                             fontWeight: isPL ? FontWeight.bold : FontWeight.normal,
                             color: isPL 
-                                ? CustomColor.scaffoldBg 
-                                : CustomColor.whiteSecondary,
+                                ? Theme.of(context).scaffoldBackgroundColor
+                                : Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
                         ),
                       ),
@@ -70,12 +69,12 @@ class LanguageSwitcher extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'EN',
-                          style: TextStyle(
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             fontSize: 12,
                             fontWeight: !isPL ? FontWeight.bold : FontWeight.normal,
                             color: !isPL 
-                                ? CustomColor.scaffoldBg 
-                                : CustomColor.whiteSecondary,
+                                ? Theme.of(context).scaffoldBackgroundColor
+                                : Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
                         ),
                       ),

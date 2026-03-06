@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/pages/home_page.dart';
 import 'package:my_portfolio/styles/theme.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 
 /// Main entry point of the portfolio application.
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await PortfolioService.loadData();
   runApp(const MyApp());
 }
 

@@ -1,15 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/i18n/l_text.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
-import 'package:my_portfolio/i18n/strings.dart';
-import 'package:my_portfolio/projects/project_model.dart';
+import 'package:my_portfolio/models/portfolio_model.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 
 /// Detailed view page for a single project.
 /// Displays project images, description, technologies, and navigation controls.
 class ProjectDetailPage extends StatefulWidget {
-  final Project project;
+  final ProjectModel project;
   const ProjectDetailPage({super.key, required this.project});
 
   @override
@@ -35,7 +33,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
     final sliderHeight = sliderWidth * 3 / 4; // 4:3 aspect ratio
 
     return Scaffold(
-      backgroundColor: CustomColor.scaffoldBg,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Stack(
         children: [
           // Main scrollable content
@@ -46,14 +44,17 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
               children: [
                 // Project title
                 Center(
-                  child: LText(
-                    widget.project.titleKey,
-                    style: const TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: CustomColor.whitePrimary,
-                    ),
-                    textAlign: TextAlign.center,
+                  child: ValueListenableBuilder<String>(
+                    valueListenable: localeNotifier,
+                    builder: (context, lang, _) {
+                      return Text(
+                        widget.project.title[lang] ?? widget.project.title['en']!,
+                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      );
+                    },
                   ),
                 ),
 
@@ -66,14 +67,18 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        LText(
-                          'built_with',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: CustomColor.whiteSecondary.withAlpha((0.7 * 255).round()),
-                            letterSpacing: 0.5,
-                          ),
+                        ValueListenableBuilder<String>(
+                          valueListenable: localeNotifier,
+                          builder: (context, lang, _) {
+                            return Text(
+                              PortfolioService.data.translations['built_with']?[lang] ?? PortfolioService.data.translations['built_with']?['en'] ?? '',
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: Theme.of(context).colorScheme.onSurfaceVariant.withAlpha((0.7 * 255).round()),
+                                letterSpacing: 0.5,
+                              ),
+                            );
+                          },
                         ),
                         const SizedBox(height: 12),
 
@@ -85,13 +90,12 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                             return Container(
                               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                               decoration: BoxDecoration(
-                                color: CustomColor.bgLight2,
+                                color: Theme.of(context).colorScheme.surfaceContainerHighest,
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
                                 tech,
-                                style: const TextStyle(
-                                  color: CustomColor.whiteSecondary,
+                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                   fontSize: 14,
                                 ),
                               ),
@@ -140,18 +144,16 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
                         const SizedBox(height: 12),
 
-                        if (widget.project.imageCaptionKeys != null)
+                        if (widget.project.imageCaptions.isNotEmpty)
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: ValueListenableBuilder<String>(
                               valueListenable: localeNotifier,
-                              builder: (_, __, ___) {
+                              builder: (context, lang, _) {
                                 return Text(
-                                  t(widget.project.imageCaptionKeys![_currentPage]),
-                                  style: const TextStyle(
-                                    color: CustomColor.whiteSecondary,
+                                  widget.project.imageCaptions[_currentPage][lang] ?? widget.project.imageCaptions[_currentPage]['en'] ?? '',
+                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                     fontSize: 16,
-                                    // fontStyle: FontStyle.italic,
                                   ),
                                   textAlign: TextAlign.center,
                                 );
@@ -167,7 +169,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               IconButton(
-                                icon: const Icon(Icons.chevron_left, color: CustomColor.whiteSecondary),
+                                icon: Icon(Icons.chevron_left, color: Theme.of(context).colorScheme.onSurfaceVariant),
                                 onPressed: _currentPage > 0
                                     ? () {
                                         _pageController.previousPage(
@@ -179,13 +181,12 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                               ),
                               Text(
                                 '${_currentPage + 1} / ${widget.project.images.length}',
-                                style: const TextStyle(
-                                  color: CustomColor.whiteSecondary,
-                                  fontSize: 20,
+                                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                                 ),
                               ),
                               IconButton(
-                                icon: const Icon(Icons.chevron_right, color: CustomColor.whiteSecondary),
+                                icon: Icon(Icons.chevron_right, color: Theme.of(context).colorScheme.onSurfaceVariant),
                                 onPressed: _currentPage < widget.project.images.length - 1
                                     ? () {
                                         _pageController.nextPage(
@@ -210,19 +211,15 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                     constraints: BoxConstraints(maxWidth: sliderWidth),
                     child: ValueListenableBuilder<String>(
                       valueListenable: localeNotifier,
-                      builder: (_, __, ___) {
+                      builder: (context, lang, _) {
                         return RichText(
                           textAlign: TextAlign.justify,
                           textWidthBasis: TextWidthBasis.longestLine,
                           text: TextSpan(
-                            // Usuwamy parametr 'text', używamy 'children'
-                            children: parseTextWithLinks(
-                              t(widget.project.descriptionKey), 
-                              TextStyle( // To jest Twój styl bazowy
-                                fontSize: 18,
-                                height: 1.5,
-                                color: CustomColor.whiteSecondary,
-                              ),
+                            text: widget.project.description[lang] ?? widget.project.description['en']!,
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              fontSize: 18,
+                              height: 1.5,
                             ),
                           ),
                         );
@@ -243,7 +240,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
             child: Material(
               elevation: 8,
               borderRadius: BorderRadius.circular(12),
-              color: CustomColor.bgLight2,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               child: InkWell(
                 onTap: () => Navigator.pop(context),
                 borderRadius: BorderRadius.circular(12),
@@ -253,13 +250,13 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: CustomColor.whitePrimary,
+                      color: Theme.of(context).colorScheme.onSurface,
                       width: 1,
                     ),
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.arrow_back,
-                    color: CustomColor.whitePrimary,
+                    color: Theme.of(context).colorScheme.onSurface,
                     size: 28,
                   ),
                 ),

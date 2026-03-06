@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/data/skill_items.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
-import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
+import 'package:my_portfolio/models/portfolio_model.dart';
 
 /// Mobile version of the skills section.
 /// 
@@ -17,14 +16,11 @@ class SkillsMobile extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Iterate through each skill category and build its widget
-        for (int i = 0; i < skillCategories.length; i++) ...[
-          _buildSkillCategory(
-            categoryKey: skillCategories[i]["categoryKey"],
-            skills: List<String>.from(skillCategories[i]["skills"]),
-          ),
+        for (int i = 0; i < PortfolioService.data.skills.length; i++) ...[
+          _buildSkillCategory(context, PortfolioService.data.skills[i]),
 
           // Add spacing between categories, but not after the last one
-          if (i < skillCategories.length - 1)
+          if (i < PortfolioService.data.skills.length - 1)
             const SizedBox(height: 20),
         ],
       ],
@@ -35,17 +31,12 @@ class SkillsMobile extends StatelessWidget {
   /// 
   /// Displays the category title and a list of skills as a single string
   /// with bullet separators. The content is automatically translated.
-  Widget _buildSkillCategory({
-    required String categoryKey,
-    required List<String> skills,
-  }) {
+  Widget _buildSkillCategory(BuildContext context, SkillCategoryModel category) {
     return ValueListenableBuilder<String>(
       valueListenable: localeNotifier,
-      builder: (_, __, ___) {
+      builder: (context, lang, _) {
         // Combine all translated skills with bullet separators
-        final skillsText = skills
-            .map((skillKey) => t(skillKey))
-            .join(' • ');
+        final skillsText = category.items.join(' • ');
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,11 +45,10 @@ class SkillsMobile extends StatelessWidget {
             // CATEGORY TITLE
             // --------------------
             Text(
-              t(categoryKey),
-              style: const TextStyle(
+              category.title[lang] ?? category.title['en']!,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: CustomColor.whitePrimary,
                 letterSpacing: 0.3,
               ),
             ),
@@ -70,10 +60,9 @@ class SkillsMobile extends StatelessWidget {
             // --------------------
             Text(
               skillsText,
-              style: const TextStyle(
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 fontSize: 14,
                 height: 1.5,
-                color: CustomColor.whiteSecondary,
               ),
             ),
           ],

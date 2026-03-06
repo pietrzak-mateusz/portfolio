@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/constants/colors.dart';
-import 'package:my_portfolio/i18n/l_text.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
-import 'package:my_portfolio/i18n/strings.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 
 /// Desktop version of the main portfolio section.
 /// 
@@ -36,30 +34,31 @@ class MainDesktop extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Greeting text
-                    const LText(
-                      'greeting',
-                      style: TextStyle(
-                        fontSize: 30,
-                        height: 1.5,
-                        fontWeight: FontWeight.bold,
-                        color: CustomColor.whitePrimary,
-                      ),
+                    ValueListenableBuilder<String>(
+                      valueListenable: localeNotifier,
+                      builder: (context, lang, _) {
+                        return Text(
+                          PortfolioService.data.personalInfo.greeting[lang] ?? PortfolioService.data.personalInfo.greeting['en']!,
+                          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                            height: 1.5,
+                          ),
+                        );
+                      },
                     ),
                     const SizedBox(height: 12),
                     // Biography text with justified alignment
                     ValueListenableBuilder<String>(
                       valueListenable: localeNotifier,
-                      builder: (context, _, __) {
+                      builder: (context, lang, _) {
                         return RichText(
                           textAlign: TextAlign.justify,
                           textWidthBasis: TextWidthBasis.longestLine,
                           text: TextSpan(
-                            text: t('biography'),
-                            style: const TextStyle(
+                            text: PortfolioService.data.personalInfo.biography[lang] ?? PortfolioService.data.personalInfo.biography['en']!,
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                               fontSize: 17,
                               height: 1.5,
                               fontWeight: FontWeight.bold,
-                              color: CustomColor.whitePrimary,
                             ),
                           ),
                         );
