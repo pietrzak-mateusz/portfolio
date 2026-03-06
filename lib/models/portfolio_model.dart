@@ -105,6 +105,20 @@ class SkillCategoryModel {
   }
 }
 
+class ExternalLinkModel {
+  final Map<String, String> title;
+  final String url;
+
+  ExternalLinkModel({required this.title, required this.url});
+
+  factory ExternalLinkModel.fromJson(Map<String, dynamic> json) {
+    return ExternalLinkModel(
+      title: Map<String, String>.from(json['title']),
+      url: json['url'],
+    );
+  }
+}
+
 class ProjectModel {
   final String id;
   final String type; // 'my' or 'team'
@@ -116,6 +130,7 @@ class ProjectModel {
   final List<String> technologies;
   final String? githubLink;
   final String? webLink;
+  final List<ExternalLinkModel> externalLinks;
 
   ProjectModel({
     required this.id,
@@ -128,6 +143,7 @@ class ProjectModel {
     required this.technologies,
     this.githubLink,
     this.webLink,
+    this.externalLinks = const [],
   });
 
   factory ProjectModel.fromJson(Map<String, dynamic> json) {
@@ -144,6 +160,9 @@ class ProjectModel {
       technologies: List<String>.from(json['technologies']),
       githubLink: json['githubLink'],
       webLink: json['webLink'],
+      externalLinks: json['externalLinks'] != null
+          ? (json['externalLinks'] as List).map((item) => ExternalLinkModel.fromJson(item)).toList()
+          : [],
     );
   }
 }

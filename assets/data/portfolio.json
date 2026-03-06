@@ -235,8 +235,15 @@
         "DMA",
         "3D printing"
       ],
-      "githubLink": "https://github.com/pietrzak-mateusz/portfolio",
-      "webLink": "https://apd.usos.pw.edu.pl/diplomas/46829/?_s=1"
+      "externalLinks": [
+        {
+          "title": {
+            "pl": "Praca Dyplomowa (APD PW)",
+            "en": "Diploma Thesis (APD PW)"
+          },
+          "url": "https://apd.usos.pw.edu.pl/diplomas/46829/?_s=1"
+        }
+      ]
     },
     {
       "id": "m2",
@@ -287,8 +294,15 @@
         "UART",
         "DMA"
       ],
-      "githubLink": "https://github.com/pietrzak-mateusz/portfolio",
-      "webLink": "https://apd.usos.pw.edu.pl/diplomas/22611/?_s=1"
+      "externalLinks": [
+        {
+          "title": {
+            "pl": "Praca Dyplomowa (APD PW)",
+            "en": "Diploma Thesis (APD PW)"
+          },
+          "url": "https://apd.usos.pw.edu.pl/diplomas/22611/?_s=1"
+        }
+      ]
     },
     {
       "id": "m3",
@@ -338,8 +352,8 @@
         "Altium Designer",
         "PCB"
       ],
-      "githubLink": "https://github.com/pietrzak-mateusz/portfolio",
-      "webLink": ""
+      "externalLinks": [
+      ]
     },
     {
       "id": "t1",
@@ -388,8 +402,29 @@
         "MATLAB",
         "Raspberry Pi"
       ],
-      "githubLink": "https://github.com/pietrzak-mateusz/portfolio",
-      "webLink": "https://doi.org/10.1140/epjp/s13360-023-04834-0"
+      "externalLinks": [
+        {
+          "title": {
+            "pl": "Publikacja: Springer Nature",
+            "en": "Publication: Springer Nature"
+          },
+          "url": "https://doi.org/10.1140/epjp/s13360-023-04834-0"
+        },
+		        {
+          "title": {
+            "pl": "Materiały konferencyjne: XIII ET Symposium (2023)",
+            "en": "Conference Materials: XIII ET Symposium (2023)"
+          },
+          "url": "https://indico.ego-gw.it/event/562/contributions/5213/attachments/2731/4824/2023_MSuchenek.pdf"
+        },
+		        {
+          "title": {
+            "pl": "Publikacja: Proceedings of Science",
+            "en": "Publication: Proceedings of Science"
+          },
+          "url": "https://doi.org/10.22323/1.441.0104 "
+        }
+      ]
     }
   ]
 }

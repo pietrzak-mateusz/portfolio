@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
 import 'package:my_portfolio/models/portfolio_model.dart';
 import 'package:my_portfolio/services/portfolio_service.dart';
+import 'package:my_portfolio/utils/text_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// Detailed view page for a single project.
 /// Displays project images, description, technologies, and navigation controls.
@@ -216,10 +218,12 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                           textAlign: TextAlign.justify,
                           textWidthBasis: TextWidthBasis.longestLine,
                           text: TextSpan(
-                            text: widget.project.description[lang] ?? widget.project.description['en']!,
-                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              fontSize: 18,
-                              height: 1.5,
+                            children: parseTextWithLinks(
+                              widget.project.description[lang] ?? widget.project.description['en']!,
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                fontSize: 16,
+                                height: 1.5,
+                              ),
                             ),
                           ),
                         );
@@ -227,6 +231,62 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                     ),
                   ),
                 ),
+
+                const SizedBox(height: 40),
+
+                // 5. RESOURCES & LINKS
+                if (widget.project.externalLinks.isNotEmpty)
+                  Center(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: sliderWidth),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ValueListenableBuilder<String>(
+                            valueListenable: localeNotifier,
+                            builder: (context, lang, _) {
+                              return Text(
+                                PortfolioService.data.translations['resources_links']?[lang] ?? PortfolioService.data.translations['resources_links']?['en'] ?? '',
+                                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              );
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          ...widget.project.externalLinks.map((link) {
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: InkWell(
+                                onTap: () => _launchURL(link.url),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(Icons.link, size: 20, color: Theme.of(context).colorScheme.primary),
+                                    const SizedBox(width: 8),
+                                    Flexible(
+                                      child: ValueListenableBuilder<String>(
+                                        valueListenable: localeNotifier,
+                                        builder: (context, lang, _) {
+                                          return Text(
+                                            link.title[lang] ?? link.title['en']!,
+                                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                              color: Theme.of(context).colorScheme.primary,
+                                              decoration: TextDecoration.underline,
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }),
+                        ],
+                      ),
+                    ),
+                  ),
 
                 const SizedBox(height: 40),
               ],
@@ -266,5 +326,13 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
         ],
       ),
     );
+  }
+
+  /// Opens the provided URL in the default browser.
+  void _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
   }
 }
