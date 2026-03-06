@@ -60,4 +60,18 @@ ThemeData kCustomTheme = ThemeData.dark().copyWith(
       ),
     ),
   ),
+  textButtonTheme: TextButtonThemeData(
+    style: ButtonStyle(
+      overlayColor: WidgetStateProperty.resolveWith<Color?>(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.focused) ||
+              states.contains(WidgetState.pressed)) {
+            return CustomColor.bgLight2;
+          }
+          return null; // Defer to the widget's default.
+        },
+      ),
+    ),
+  ),
 );

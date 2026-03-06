@@ -2,11 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
 import 'package:my_portfolio/models/portfolio_model.dart';
 
+/// A stateful widget that displays a swipeable gallery of project images.
+///
+/// It includes an image slider, dynamic localized captions for the currently
+/// viewed image, and navigation controls (arrows and page indicator).
 class ProjectImageGallery extends StatefulWidget {
+  /// The project containing the images and captions.
   final ProjectModel project;
+
+  /// The width of the image slider.
   final double sliderWidth;
+
+  /// The height of the image slider.
   final double sliderHeight;
 
+  /// Creates a [ProjectImageGallery] widget.
   const ProjectImageGallery({
     super.key,
     required this.project,

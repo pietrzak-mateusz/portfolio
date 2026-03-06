@@ -4,6 +4,7 @@ import 'package:my_portfolio/models/portfolio_model.dart';
 import 'package:my_portfolio/i18n/locale_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/widgets/project_detail/project_image_gallery.dart';
+import 'package:my_portfolio/services/portfolio_service.dart';
 import 'package:my_portfolio/widgets/project_detail/project_description.dart';
 import 'package:my_portfolio/widgets/project_detail/project_resources.dart';
 
@@ -47,39 +48,60 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
 
                 // 1. TITLE
                 Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: ValueListenableBuilder<String>(
-                      valueListenable: localeNotifier,
-                      builder: (context, lang, _) {
-                        return Text(
-                          widget.project.title[lang] ?? widget.project.title['en']!,
-                          style: Theme.of(context).textTheme.headlineMedium,
-                          textAlign: TextAlign.center,
-                        );
-                      },
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: sliderWidth),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: ValueListenableBuilder<String>(
+                        valueListenable: localeNotifier,
+                        builder: (context, lang, _) {
+                          return Text(
+                            widget.project.title[lang] ?? widget.project.title['en']!,
+                            style: Theme.of(context).textTheme.headlineMedium,
+                            textAlign: TextAlign.left,
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 24),
 
-                // 2. TECH STACK CHIPS
+                // 2. TECH STACK CHIPS & LABEL
                 Center(
                   child: ConstrainedBox(
                     constraints: BoxConstraints(maxWidth: sliderWidth),
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: widget.project.technologies.map((tech) {
-                        return Chip(
-                          label: Text(tech),
-                          backgroundColor: Theme.of(context).colorScheme.surface,
-                          labelStyle: Theme.of(context).textTheme.labelMedium,
-                          side: BorderSide.none,
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                        );
-                      }).toList(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ValueListenableBuilder<String>(
+                          valueListenable: localeNotifier,
+                          builder: (context, lang, _) {
+                            final text = PortfolioService.data.translations['built_with']?[lang] ??
+                                         PortfolioService.data.translations['built_with']?['en'] ??
+                                         (lang == 'pl' ? 'Wykorzystane technologie' : 'Built with');
+                            return Text(
+                              text,
+                              style: Theme.of(context).textTheme.titleLarge,
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        Wrap(
+                          alignment: WrapAlignment.start,
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: widget.project.technologies.map((tech) {
+                            return Chip(
+                              label: Text(tech),
+                              backgroundColor: Theme.of(context).colorScheme.surface,
+                              labelStyle: Theme.of(context).textTheme.labelMedium,
+                              side: BorderSide.none,
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            );
+                          }).toList(),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -88,11 +110,15 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                 // 3. GITHUB & WEB LINKS
                 if (widget.project.githubLink != null || widget.project.webLink != null)
                   Center(
-                    child: Wrap(
-                      spacing: 16,
-                      runSpacing: 16,
-                      alignment: WrapAlignment.center,
-                      children: [
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: sliderWidth),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Wrap(
+                          spacing: 16,
+                          runSpacing: 16,
+                          alignment: WrapAlignment.start,
+                          children: [
                         if (widget.project.githubLink != null)
                           ElevatedButton.icon(
                             onPressed: () => _launchURL(widget.project.githubLink!),
@@ -108,7 +134,9 @@ class _ProjectDetailPageState extends State<ProjectDetailPage> {
                               backgroundColor: Theme.of(context).colorScheme.secondary,
                             ),
                           ),
-                      ],
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 if (widget.project.githubLink != null || widget.project.webLink != null)

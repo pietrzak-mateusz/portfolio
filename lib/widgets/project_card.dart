@@ -19,6 +19,8 @@ class ProjectCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = MediaQuery.of(context).size.width < 600;
+
     return Container(
       height: 200,
       width: 820, // Wider than typical cards for horizontal layout
@@ -53,7 +55,9 @@ class ProjectCardWidget extends StatelessWidget {
                     builder: (context, lang, _) {
                       return Text(
                         project.title[lang] ?? project.title['en']!,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: isMobile
+                            ? Theme.of(context).textTheme.titleSmall
+                            : Theme.of(context).textTheme.titleMedium,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       );
@@ -67,9 +71,12 @@ class ProjectCardWidget extends StatelessWidget {
                     child: ValueListenableBuilder<String>(
                       valueListenable: localeNotifier,
                       builder: (context, lang, _) {
+                        final style = isMobile
+                            ? Theme.of(context).textTheme.bodyMedium
+                            : Theme.of(context).textTheme.bodyLarge;
                         return Text(
                           project.subtitle[lang] ?? project.subtitle['en']!,
-                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          style: style?.copyWith(
                             height: 1.4,
                             color: Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
