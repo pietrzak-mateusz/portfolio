@@ -15,22 +15,26 @@ class PortfolioModel {
     required this.projects,
   });
 
-  factory PortfolioModel.fromJson(Map<String, dynamic> json) {
+  factory PortfolioModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return PortfolioModel(
+        personalInfo: PersonalInfoModel.empty(),
+        socialLinks: SocialLinksModel.empty(),
+        navigation: [],
+        translations: {},
+        skills: [],
+        projects: [],
+      );
+    }
     return PortfolioModel(
-      personalInfo: PersonalInfoModel.fromJson(json['personalInfo']),
-      socialLinks: SocialLinksModel.fromJson(json['socialLinks']),
-      navigation: (json['navigation'] as List)
-          .map((item) => NavigationItemModel.fromJson(item))
-          .toList(),
-      translations: (json['translations'] as Map<String, dynamic>).map(
-        (key, value) => MapEntry(key, Map<String, String>.from(value)),
-      ),
-      skills: (json['skills'] as List)
-          .map((item) => SkillCategoryModel.fromJson(item))
-          .toList(),
-      projects: (json['projects'] as List)
-          .map((item) => ProjectModel.fromJson(item))
-          .toList(),
+      personalInfo: PersonalInfoModel.fromJson(json['personalInfo'] as Map<String, dynamic>?),
+      socialLinks: SocialLinksModel.fromJson(json['socialLinks'] as Map<String, dynamic>?),
+      navigation: (json['navigation'] as List?)?.map((item) => NavigationItemModel.fromJson(item as Map<String, dynamic>?)).toList() ?? [],
+      translations: (json['translations'] as Map<String, dynamic>?)?.map(
+        (key, value) => MapEntry(key, Map<String, String>.from(value as Map)),
+      ) ?? {},
+      skills: (json['skills'] as List?)?.map((item) => SkillCategoryModel.fromJson(item as Map<String, dynamic>?)).toList() ?? [],
+      projects: (json['projects'] as List?)?.map((item) => ProjectModel.fromJson(item as Map<String, dynamic>?)).toList() ?? [],
     );
   }
 }
@@ -40,6 +44,7 @@ class PersonalInfoModel {
   final String surname;
   final List<String> emailParts;
   final Map<String, String> greeting;
+  final String profileImage;
   final Map<String, String> biography;
 
   PersonalInfoModel({
@@ -47,30 +52,58 @@ class PersonalInfoModel {
     required this.surname,
     required this.emailParts,
     required this.greeting,
+    required this.profileImage,
     required this.biography,
   });
 
-  factory PersonalInfoModel.fromJson(Map<String, dynamic> json) {
+  factory PersonalInfoModel.empty() {
     return PersonalInfoModel(
-      name: json['name'],
-      surname: json['surname'],
-      emailParts: List<String>.from(json['emailParts']),
-      greeting: Map<String, String>.from(json['greeting']),
-      biography: Map<String, String>.from(json['biography']),
+      name: '',
+      surname: '',
+      emailParts: [],
+      greeting: {},
+      profileImage: '',
+      biography: {},
+    );
+  }
+
+  factory PersonalInfoModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return PersonalInfoModel.empty();
+    return PersonalInfoModel(
+      name: json['name'] as String? ?? '',
+      surname: json['surname'] as String? ?? '',
+      emailParts: (json['emailParts'] as List?)?.map((e) => e as String).toList() ?? [],
+      greeting: (json['greeting'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
+      profileImage: json['profileImage'] as String? ?? '',
+      biography: (json['biography'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
     );
   }
 }
 
 class SocialLinksModel {
   final String github;
+  final String githubIcon;
+  final String flutterIcon;
   final String linkedin;
 
-  SocialLinksModel({required this.github, required this.linkedin});
+  SocialLinksModel({
+    required this.github,
+    required this.githubIcon,
+    required this.flutterIcon,
+    required this.linkedin,
+  });
 
-  factory SocialLinksModel.fromJson(Map<String, dynamic> json) {
+  factory SocialLinksModel.empty() {
+    return SocialLinksModel(github: '', githubIcon: '', flutterIcon: '', linkedin: '');
+  }
+
+  factory SocialLinksModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return SocialLinksModel.empty();
     return SocialLinksModel(
-      github: json['github'],
-      linkedin: json['linkedin'],
+      github: json['github'] as String? ?? '',
+      githubIcon: json['githubIcon'] as String? ?? '',
+      flutterIcon: json['flutterIcon'] as String? ?? '',
+      linkedin: json['linkedin'] as String? ?? '',
     );
   }
 }
@@ -81,10 +114,11 @@ class NavigationItemModel {
 
   NavigationItemModel({required this.id, required this.label});
 
-  factory NavigationItemModel.fromJson(Map<String, dynamic> json) {
+  factory NavigationItemModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return NavigationItemModel(id: '', label: {});
     return NavigationItemModel(
-      id: json['id'],
-      label: Map<String, String>.from(json['label']),
+      id: json['id'] as String? ?? '',
+      label: (json['label'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
     );
   }
 }
@@ -96,11 +130,12 @@ class SkillCategoryModel {
 
   SkillCategoryModel({required this.id, required this.title, required this.items});
 
-  factory SkillCategoryModel.fromJson(Map<String, dynamic> json) {
+  factory SkillCategoryModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return SkillCategoryModel(id: '', title: {}, items: []);
     return SkillCategoryModel(
-      id: json['id'],
-      title: Map<String, String>.from(json['title']),
-      items: List<String>.from(json['items']),
+      id: json['id'] as String? ?? '',
+      title: (json['title'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
+      items: (json['items'] as List?)?.map((e) => e as String).toList() ?? [],
     );
   }
 }
@@ -111,10 +146,11 @@ class ExternalLinkModel {
 
   ExternalLinkModel({required this.title, required this.url});
 
-  factory ExternalLinkModel.fromJson(Map<String, dynamic> json) {
+  factory ExternalLinkModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return ExternalLinkModel(title: {}, url: '');
     return ExternalLinkModel(
-      title: Map<String, String>.from(json['title']),
-      url: json['url'],
+      title: (json['title'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
+      url: json['url'] as String? ?? '',
     );
   }
 }
@@ -146,23 +182,20 @@ class ProjectModel {
     this.externalLinks = const [],
   });
 
-  factory ProjectModel.fromJson(Map<String, dynamic> json) {
+  factory ProjectModel.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return ProjectModel(id: '', type: '', title: {}, subtitle: {}, description: {}, images: [], imageCaptions: [], technologies: []);
     return ProjectModel(
-      id: json['id'],
-      type: json['type'],
-      title: Map<String, String>.from(json['title']),
-      subtitle: Map<String, String>.from(json['subtitle']),
-      description: Map<String, String>.from(json['description']),
-      images: List<String>.from(json['images']),
-      imageCaptions: (json['imageCaptions'] as List)
-          .map((item) => Map<String, String>.from(item))
-          .toList(),
-      technologies: List<String>.from(json['technologies']),
-      githubLink: json['githubLink'],
-      webLink: json['webLink'],
-      externalLinks: json['externalLinks'] != null
-          ? (json['externalLinks'] as List).map((item) => ExternalLinkModel.fromJson(item)).toList()
-          : [],
+      id: json['id'] as String? ?? '',
+      type: json['type'] as String? ?? '',
+      title: (json['title'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
+      subtitle: (json['subtitle'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
+      description: (json['description'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as String)) ?? {},
+      images: (json['images'] as List?)?.map((e) => e as String).toList() ?? [],
+      imageCaptions: (json['imageCaptions'] as List?)?.map((item) => (item as Map<String, dynamic>).map((k, v) => MapEntry(k, v as String))).toList() ?? [],
+      technologies: (json['technologies'] as List?)?.map((e) => e as String).toList() ?? [],
+      githubLink: json['githubLink'] as String?,
+      webLink: json['webLink'] as String?,
+      externalLinks: (json['externalLinks'] as List?)?.map((item) => ExternalLinkModel.fromJson(item as Map<String, dynamic>?)).toList() ?? [],
     );
   }
 }

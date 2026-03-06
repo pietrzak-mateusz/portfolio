@@ -26,7 +26,7 @@ class HeaderDesktop extends StatelessWidget {
         // Subtle shadow for visual separation
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withAlpha((0.1 * 255).round()),
+            color: Theme.of(context).colorScheme.shadow,
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -59,7 +59,6 @@ class HeaderDesktop extends StatelessWidget {
                           child: Text(
                             PortfolioService.data.navigation[i].label[lang] ?? PortfolioService.data.navigation[i].label['en']!,
                             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              fontSize: 20,
                               fontWeight: FontWeight.w500,
                             ),
                           ),

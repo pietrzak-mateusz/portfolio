@@ -51,10 +51,8 @@ class MainMobile extends StatelessWidget {
             builder: (context, lang, _) {
               return Text(
                 PortfolioService.data.personalInfo.biography[lang] ?? PortfolioService.data.personalInfo.biography['en']!,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontSize: 16,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   height: 1.5,
-                  fontWeight: FontWeight.bold,
                 ),
               );
             },
@@ -67,7 +65,7 @@ class MainMobile extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
-                "assets/profilowe.webp",
+                PortfolioService.data.personalInfo.profileImage,
                 width: imageWidth,
                 fit: BoxFit.contain,
               ),

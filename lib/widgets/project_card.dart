@@ -33,7 +33,7 @@ class ProjectCardWidget extends StatelessWidget {
           Container(
             width: 200,
             height: 200,
-            color: Colors.black12, // Fallback background
+            color: Theme.of(context).colorScheme.shadow, // Fallback background
             child: Image.asset(
               project.images[0], // First image as preview
               fit: BoxFit.cover,
@@ -53,9 +53,7 @@ class ProjectCardWidget extends StatelessWidget {
                     builder: (context, lang, _) {
                       return Text(
                         project.title[lang] ?? project.title['en']!,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontSize: 17,
-                        ),
+                        style: Theme.of(context).textTheme.titleMedium,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       );
@@ -71,8 +69,7 @@ class ProjectCardWidget extends StatelessWidget {
                       builder: (context, lang, _) {
                         return Text(
                           project.subtitle[lang] ?? project.subtitle['en']!,
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontSize: 15,
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                             height: 1.4,
                             color: Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
@@ -112,8 +109,7 @@ class ProjectCardWidget extends StatelessWidget {
                           builder: (context, lang, _) {
                             return Text(
                               PortfolioService.data.translations['details_button']?[lang] ?? PortfolioService.data.translations['details_button']?['en'] ?? '',
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                fontSize: 14,
+                              style: Theme.of(context).textTheme.labelLarge?.copyWith(
                                 fontWeight: FontWeight.w500,
                               ),
                             );

@@ -47,7 +47,6 @@ class SkillsMobile extends StatelessWidget {
             Text(
               category.title[lang] ?? category.title['en']!,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                fontSize: 15,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 0.3,
               ),
@@ -60,8 +59,7 @@ class SkillsMobile extends StatelessWidget {
             // --------------------
             Text(
               skillsText,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontSize: 14,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 height: 1.5,
               ),
             ),

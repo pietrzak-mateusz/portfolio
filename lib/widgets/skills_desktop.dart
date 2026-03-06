@@ -78,10 +78,7 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
             // --------------------
             Text(
               category.title[lang] ?? category.title['en']!,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
 
             const SizedBox(height: 12),
@@ -92,7 +89,6 @@ class SkillsDesktopTwoColumns extends StatelessWidget {
             Text(
               skillsText,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontSize: 14,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
                 height: 1.6,
               ),

@@ -107,7 +107,7 @@ class Footer extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
-                  "assets/github.png",
+                  PortfolioService.data.socialLinks.githubIcon,
                   width: 20,
                   height: 20,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -133,10 +133,10 @@ class Footer extends StatelessWidget {
           const SizedBox(height: 22),
 
           // ---- FOOTER CREDITS TEXT WITH FLUTTER ICON ----
-          const LRichText(
+          LRichText(
             leftKey: 'made_by_p1',
             rightKey: 'made_by_p2',
-            iconAsset: 'assets/flutter.png',
+            iconAsset: PortfolioService.data.socialLinks.flutterIcon,
             iconHeight: 16,
           ),
         ],
