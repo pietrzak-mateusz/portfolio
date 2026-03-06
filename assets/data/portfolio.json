@@ -12,6 +12,7 @@
       "pl": "Mateusz Pietrzak",
       "en": "Mateusz Pietrzak"
     },
+    "profileImage": "assets/profilowe.webp",
     "biography": {
       "pl": "Inżynier elektronik oraz doktorant specjalizujący się w\u00A0systemach embedded - od projektowania PCB, przez implementację firmware, po testy laboratoryjne i\u00A0terenowe. Zajmuję się projektowaniem układów pomiarowych, programowaniem mikrokontrolerów (STM32, AVR) oraz przetwarzaniem sygnałów. Posiadam doświadczenie w\u00A0montażu i\u00A0testach prototypów oraz we\u00A0wdrożeniach rozproszonych sieci czujników w\u00A0międzynarodowych ośrodkach badawczych. Interesują mnie projekty łączące projektowanie sprzętu i\u00A0oprogramowania systemowego.",
       "en": "Electronics engineer and PhD researcher specializing in embedded systems - from PCB design and firmware implementation to laboratory and field testing. I\u00A0design measurement systems, program microcontrollers (STM32, AVR), and implement signal processing algorithms. I\u00A0have hands-on experience assembling and testing prototypes, and deploying distributed sensor networks at\u00A0international research facilities. I'm looking for opportunities that combine hardware design with low-level system software."
@@ -19,6 +20,8 @@
   },
   "socialLinks": {
     "github": "https://github.com/pietrzak-mateusz/portfolio",
+    "githubIcon": "assets/github.png",
+    "flutterIcon": "assets/flutter.png",
     "linkedin": ""
   },
   "navigation": [
@@ -88,6 +91,10 @@
     "made_by_p1": {
       "pl": "Stworzone przez: Mateusz Pietrzak — zbudowane z ",
       "en": "Made by: Mateusz Pietrzak — built with "
+    },
+    "resources_links": {
+      "pl": "Materiały i Linki",
+      "en": "Resources & Links"
     },
     "made_by_p2": {
       "pl": " Flutter 3.38.4\n© 2025 • Projekt open-source (MIT)",

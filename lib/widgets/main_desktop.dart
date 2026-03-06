@@ -55,10 +55,8 @@ class MainDesktop extends StatelessWidget {
                           textWidthBasis: TextWidthBasis.longestLine,
                           text: TextSpan(
                             text: PortfolioService.data.personalInfo.biography[lang] ?? PortfolioService.data.personalInfo.biography['en']!,
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              fontSize: 17,
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
                               height: 1.5,
-                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         );
@@ -71,7 +69,7 @@ class MainDesktop extends StatelessWidget {
               const SizedBox(width: 30),
               // Right column: Profile image with responsive width
               Image.asset(
-                "assets/profilowe.webp",
+                PortfolioService.data.personalInfo.profileImage,
                 width: (screenWidth * 0.25).clamp(300.0, 500.0),
               ),
             ],

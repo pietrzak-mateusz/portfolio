@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/i18n/l_text.dart';
 import 'package:my_portfolio/widgets/drawer_mobile.dart';
 import 'package:my_portfolio/widgets/footer.dart';
 import 'package:my_portfolio/widgets/header_desktop.dart';
@@ -7,8 +6,7 @@ import 'package:my_portfolio/widgets/header_mobile.dart';
 import 'package:my_portfolio/widgets/main_desktop.dart';
 import 'package:my_portfolio/widgets/main_mobile.dart';
 import 'package:my_portfolio/widgets/projects_section.dart';
-import 'package:my_portfolio/widgets/skills_desktop.dart';
-import 'package:my_portfolio/widgets/skills_mobile.dart';
+import 'package:my_portfolio/widgets/skills_section.dart';
 
 // Responsive breakpoints
 const double kMinDesktopWidth = 600.0;
@@ -69,31 +67,10 @@ class _HomePageState extends State<HomePage> {
                     const MainMobile(),
 
                   // Skills section
-                  Container(
+                  SkillsSection(
                     key: navbarKeys[1],
-                    width: screenWidth,
-                    padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                    color: theme.colorScheme.surface,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // Section title
-                        const LText(
-                          'skills_section',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 50),
-
-                        // Skills content - responsive layout
-                        if (constraints.maxWidth >= kMedDesktopWidth)
-                          const SkillsDesktopTwoColumns()
-                        else
-                          const SkillsMobile(),
-                      ],
-                    ),
+                    screenWidth: screenWidth,
+                    maxWidth: constraints.maxWidth,
                   ),
                   const SizedBox(height: 30),
 
