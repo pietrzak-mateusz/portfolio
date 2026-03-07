@@ -3,14 +3,22 @@ import 'package:my_portfolio/i18n/l_text.dart';
 import 'package:my_portfolio/widgets/skills_desktop.dart';
 import 'package:my_portfolio/widgets/skills_mobile.dart';
 
+/// A section widget that displays the user's technical skills.
+///
+/// It acts as a responsive wrapper, rendering either [SkillsDesktopTwoColumns]
+/// or [SkillsMobile] depending on the current [maxWidth].
 class SkillsSection extends StatelessWidget {
+  /// Creates a [SkillsSection] widget.
   const SkillsSection({
     super.key,
     required this.screenWidth,
     required this.maxWidth,
   });
 
+  /// The current width of the screen.
   final double screenWidth;
+
+  /// The maximum allowed width, used to determine the responsive layout.
   final double maxWidth;
 
   @override
